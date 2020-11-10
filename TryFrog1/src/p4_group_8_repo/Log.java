@@ -8,10 +8,10 @@ public class Log extends Actor {
 	@Override
 	public void act(long now) {
 		move(speed , 0);
-		if (getX()>600 && speed>0)
-			setX(-180);
-		if (getX()<-300 && speed<0)
-			setX(700);
+		if (getX()>424 && speed>0)
+			setX(-220);
+		if (getX()<-400 && speed<0)
+			setX(524);
 	}
 	
 	public Log(String imageLink, int size, int xpos, int ypos, double s) {

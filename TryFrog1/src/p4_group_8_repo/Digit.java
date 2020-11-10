@@ -15,7 +15,7 @@ public class Digit extends Actor{
 		im1 = new Image("file:src/p4_group_8_repo/img/"+n+".png", dim, dim, true, true);
 		setImage(im1);
 		setX(x);
-		setY(y);
+		setY(y); 
 	}
 	
 }

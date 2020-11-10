@@ -10,13 +10,13 @@ public class End extends Actor{
 	}
 	
 	public End(int x, int y) {
-		setX(x);
+		setX(x); 
 		setY(y);
-		setImage(new Image("file:src/p4_group_8_repo/img/End.png", 60, 60, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/img/End.png", 40, 40, true, true));
 	}
 	
 	public void setEnd() {
-		setImage(new Image("file:src/p4_group_8_repo/img/FrogEnd.png", 70, 70, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/img/FrogEnd.png", 50, 50, true, true));
 		activated = true;
 	}
 	
