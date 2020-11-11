@@ -51,10 +51,20 @@ public class Main extends Application {
 		background.add(new WetTurtle(100,150, -1, 65, 50,2));
 		background.add(new Turtle(200, 150, -1, 65, 50,2));
 		background.add(new Turtle(300,150, -1, 65, 50,2));
-		background.add(new Turtle(400, 150, -1, 65, 50,2));
+		background.add(new WetTurtle(400, 150, -1, 65, 50,2));
 		
 		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 200, 0, 190, 2));
 		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 200, 350, 190, 2));
+		
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 0, 230, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 200,230, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 400, 230, 0.75));
+		
+		background.add(new Turtle(0, 260, -1.25, 90, 50,1));
+		background.add(new WetTurtle(120,260, -1.25, 90, 50,1));
+		background.add(new Turtle(240, 260, -1.25, 90, 50,1));
+		background.add(new Turtle(360,260, -1.25, 90, 50,1));
+		background.add(new WetTurtle(480, 260, -1.25, 90, 50,1));
 
 		animal = new Animal("file:src/p4_group_8_repo/img/froggerUp.png");
 		background.add(animal);
