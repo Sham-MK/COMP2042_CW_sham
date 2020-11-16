@@ -7,6 +7,12 @@ public class Turtle extends Actor{
 	Image turtle2;
 	Image turtle3;
 	private double speed;
+	public double getSpeed() {
+		return speed;
+	}
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
 	int i = 1;
 	boolean bool = true;
 	@Override

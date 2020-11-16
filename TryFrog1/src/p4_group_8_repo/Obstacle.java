@@ -9,7 +9,7 @@ public class Obstacle extends Actor {
 		move(speed , 0);
 		if (getX() > 424 && speed>0)
 			setX(-200);
-		if (getX() < -100 && speed<0)
+		if (getX() < -145 && speed<0)
 			setX(424);
 	} 
 	

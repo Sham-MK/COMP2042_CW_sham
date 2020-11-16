@@ -8,6 +8,13 @@ public class WetTurtle extends Actor{
 	Image turtle3;
 	Image turtle4;
 	private double speed;
+	public double getSpeed() {
+		return speed;
+	}
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
 	int i = 1;
 	boolean bool = true;
 	boolean sunk = false;

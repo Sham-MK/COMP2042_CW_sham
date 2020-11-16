@@ -5,6 +5,14 @@ import javafx.scene.image.Image;
 public class Log extends Actor {
 
 	private double speed;
+	public double getSpeed() {
+		return speed;
+	}
+
+	public void setSpeed(double speed) {
+		this.speed = speed;
+	}
+
 	@Override
 	public void act(long now) {
 		move(speed , 0);
@@ -18,10 +26,10 @@ public class Log extends Actor {
 		setImage(new Image(imageLink, size,size, true, true));
 		setX(xpos);
 		setY(ypos);
-		speed = s;
+		setSpeed(s);
 		
 	}
-	public boolean getLeft() {
-		return speed < 0;
+	public boolean getRight() {
+		return speed > 424;
 	}
 }

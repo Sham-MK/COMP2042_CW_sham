@@ -17,7 +17,7 @@ import javafx.util.Duration;
 public class Main extends Application {
 	AnimationTimer timer;
 	MyStage background;
-	Animal animal;
+	Frogger animal;
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -34,7 +34,7 @@ public class Main extends Application {
 		background.add(froggerback);
 		
 		background.add(new Digit(0, 30, 60, 28));
-		background.add(new Digit(0, 30, 180, 28));
+		background.add(new Digit(0, 30, 145, 28));
 
 		
 		background.add(new End(8,73));
@@ -43,9 +43,9 @@ public class Main extends Application {
 		background.add(new End(98 + (40 + 50)*2 ,73));
 		background.add(new End(98 + (40 + 50)*3,73));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 0, 125, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 200,125, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 400, 125, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 0, 125, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 200,125, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 400, 125, 0.75));
 		
 		background.add(new Turtle(0, 150, -1, 65, 50,2));
 		background.add(new WetTurtle(100,150, -1, 65, 50,2));
@@ -53,40 +53,42 @@ public class Main extends Application {
 		background.add(new Turtle(300,150, -1, 65, 50,2));
 		background.add(new WetTurtle(400, 150, -1, 65, 50,2));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 200, 0, 190, 2));
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 200, 350, 190, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 190, 0,195, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 190, 350, 195, 2));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 0, 230, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 200,230, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 90, 400, 230, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 0, 230, 0.75));
+//		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 200,230, 0.75));
+//		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 400, 230, 0.75));
 		
-		background.add(new Turtle(0, 260, -1.25, 90, 50,1));
-		background.add(new WetTurtle(120,260, -1.25, 90, 50,1));
-		background.add(new Turtle(240, 260, -1.25, 90, 50,1));
-		background.add(new Turtle(360,260, -1.25, 90, 50,1));
-		background.add(new WetTurtle(480, 260, -1.25, 90, 50,1));
+		background.add(new Turtle(0, 260, -1.25, 95, 50,1));
+//		background.add(new WetTurtle(120,260, -1.25, 95, 50,1));
+//		background.add(new Turtle(240, 260, -1.25, 95, 50,1));
+//		background.add(new Turtle(360,260, -1.25, 95, 50,1));
+//		background.add(new WetTurtle(480, 260, -1.25, 95, 50,1));
 
-		animal = new Animal("file:src/p4_group_8_repo/img/froggerUp.png");
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0, 350, -1, 90, 100));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 300, 350, -1, 140, 100));
+//		
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/redcar.png", 0, 375, 4, 40, 40));
+//		
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 420, -1, 40, 40));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 150, 420, -1, 40, 40));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 300, 420, -1, 40, 40));
+//		
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 465, 1, 140, 100));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 465, 1, 90, 100));
+//		
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 510, 1, 60, 40));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 150, 510, 1, 60, 40));
+//		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 300, 510, 1, 60, 40));
+		
+		animal = new Frogger();
 		background.add(animal);
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0, 340, -1, 100, 100));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 300, 340, -1, 100, 100));
-		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/redcar.png", 0, 370, 4, 50, 50));
-		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 420, -1, 50, 50));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 150, 420, -1, 50, 50));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 300, 420, -1, 50, 50));
-		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 470, 1, 150, 100));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 400, 470, 1, 150, 100));
-		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 510, 1, 50, 50));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 150, 510, 1, 50, 50));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 300, 510, 1, 50, 50));
 
 
 		background.start();
 		primaryStage.setScene(scene);
+		//primaryStage.setResizable(false);
 		primaryStage.show();
 		start();  
 	}
