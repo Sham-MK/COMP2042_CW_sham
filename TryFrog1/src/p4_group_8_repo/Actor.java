@@ -24,7 +24,18 @@ public abstract class Actor extends ImageView{
     public double getHeight() {
         return this.getBoundsInLocal().getHeight();
     }
-
+    
+    public <A extends Actor> java.util.List<A> getOnTop(java.lang.Class<A> cls){
+    	ArrayList<A> someArray = new ArrayList<A>();
+    	for (A actor: getWorld().getObjects(cls)) {
+            if (actor != this && actor.intersects(this.getBoundsInLocal()))
+            if(actor.getX()<this.getX() && actor.getBoundsInLocal().getMaxX() > this.getBoundsInLocal().getMaxX() && actor.getBoundsInLocal().getMinY() < this.getBoundsInLocal().getMaxY()){
+               someArray.add(actor);
+            }
+            
+        }
+        return someArray;
+    }
     public <A extends Actor> java.util.List<A> getIntersectingObjects(java.lang.Class<A> cls){
         ArrayList<A> someArray = new ArrayList<A>();
         for (A actor: getWorld().getObjects(cls)) {

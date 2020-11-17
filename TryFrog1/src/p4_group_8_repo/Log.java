@@ -29,7 +29,4 @@ public class Log extends Actor {
 		setSpeed(s);
 		
 	}
-	public boolean getRight() {
-		return speed > 424;
-	}
 }
