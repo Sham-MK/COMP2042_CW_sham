@@ -24,7 +24,7 @@ public class Frogger extends Actor {
 	boolean noMove = false;
 	double movement = 13.3333333*2;
 	double movementX = 10.666666*2;
-	int imgSize = 30;
+	int imgSize = 35;
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
@@ -211,16 +211,16 @@ public class Frogger extends Actor {
 		if (getX() == 240 && getY() == 82) {
 			stop = true;
 		}
-		if (getOnTop(Log.class).size() >= 1 && !noMove) 
-			move(getOnTop(Log.class).get(0).getSpeed(),0);		
-		else if (getOnTop(Turtle.class).size() >= 1 && !noMove) {
-			move(getOnTop(Turtle.class).get(0).getSpeed(),0);
+		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) 
+			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
+		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
+			move(getIntersectingObjects(Turtle.class).get(0).getSpeed(),0);
 		}
-		else if (getOnTop(WetTurtle.class).size() >= 1) {
-			if (getOnTop(WetTurtle.class).get(0).isSunk()) {
+		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
+			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
 				waterDeath = true;
 			} else {
-				move(getOnTop(WetTurtle.class).get(0).getSpeed(),0);
+				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
 			}
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
