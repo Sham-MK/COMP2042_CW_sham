@@ -33,54 +33,50 @@ public class Main extends Application {
 
 		background.add(froggerback);
 		
-		background.add(new Digit(0, 30, 60, 28));
-		background.add(new Digit(0, 30, 145, 28));
-
+		background.add(new End(7,60));
+		background.add(new End(97,60));
+		background.add(new End(97 + 42 + 50,60));
+		background.add(new End(97 + (42 + 50)*2 ,60));
+		background.add(new End(97 + (42 + 50)*3,60));
 		
-		background.add(new End(8,73));
-		background.add(new End(98,73));
-		background.add(new End(98 + 40 + 50,73));
-		background.add(new End(98 + (40 + 50)*2 ,73));
-		background.add(new End(98 + (40 + 50)*3,73));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 0, 110, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 200,110, 0.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 120, 400, 110, 0.75));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 0, 125, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 200,125, 0.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 130, 400, 125, 0.75));
+		background.add(new Turtle(0, 143, -1, 60, 50,2));
+		background.add(new WetTurtle(150,143, -1, 60, 50,2));
+		background.add(new Turtle(250, 143, -1, 60, 50,2));
+		background.add(new Turtle(350,143, -1, 60, 50,2));
+		background.add(new WetTurtle(450, 143, -1, 60, 50,2)); 
 		
-		background.add(new Turtle(0, 150, -1, 65, 50,2));
-		background.add(new WetTurtle(100,150, -1, 65, 50,2));
-		background.add(new Turtle(200, 150, -1, 65, 50,2));
-		background.add(new Turtle(300,150, -1, 65, 50,2));
-		background.add(new WetTurtle(400, 150, -1, 65, 50,2));
-		
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 190, 0,195, 2));
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 190, 350, 195, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 180, 0,193, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 180, 350, 193, 2));
 		
 		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 0, 230, 0.75));
 		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 200,230, 0.75));
 		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 85, 400, 230, 0.75));
 		
-		background.add(new Turtle(0, 260, -1, 95, 50,1));
-		background.add(new WetTurtle(120,260, -1, 95, 50,1));
-		background.add(new Turtle(240, 260, -1, 95, 50,1));
-		background.add(new Turtle(360,260, -1, 95, 50,1));
-		background.add(new WetTurtle(480, 260, -1, 95, 50,1));
+		background.add(new Turtle(0, 260, -1.25, 90, 50,1));
+		background.add(new WetTurtle(120,260, -1.25, 90, 50,1));
+		background.add(new Turtle(240, 260, -1.25, 90, 50,1));
+		background.add(new Turtle(360,260, -1.25, 90, 50,1));
+		background.add(new WetTurtle(480, 260, -1.25, 90, 50,1));
 
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0, 350, -0.75, 90, 100));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 300, 350, -0.75, 140, 100));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0, 345, -1, 90, 100));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 300, 345, -1, 140, 100));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/redcar.png", 0, 375, 2, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/redcar.png", 0, 370, 4, 40, 40));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 420, -0.5, 40, 40));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 150, 420, -0.5, 40, 40));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 300, 420, -0.5, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 415, -1, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 150, 415, -1, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 300, 415, -1, 40, 40));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 465, 0.5, 140, 100));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 465, 0.5, 90, 100));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 455, 1, 140, 100));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 455, 1, 90, 100));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 510, 0.5, 40, 40));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 150, 510, 0.5, 40, 40));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 300, 510, 0.5, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 495, 1, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 150, 495, 1, 40, 40));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 300, 495, 1, 40, 40));
 		
 		animal = new Frogger();
 		background.add(animal);
@@ -129,7 +125,7 @@ public class Main extends Application {
     		  int d = n / 10;
     		  int k = n - d * 10;
     		  n = d;
-    		  background.add(new Digit(k, 30, 360 - shift, 25));
+    		  background.add(new Digit(k, 30, 60 - shift, 25));
     		  shift+=30;
     		}
     }
