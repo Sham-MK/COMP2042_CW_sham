@@ -47,7 +47,7 @@ public class WetTurtle extends Actor{
 		
 	}
 	public WetTurtle(int xpos, int ypos, double s, int w, int h, int num_turtles) {
-		if(num_turtles == 1) {
+		if(num_turtles == 3) {
 			turtle1 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation1.png", w, h, true, true);
 			turtle2 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation2Wet.png", w, h, true, true);
 			turtle3 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation3Wet.png", w, h, true, true);

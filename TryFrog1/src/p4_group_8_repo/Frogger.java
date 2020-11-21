@@ -22,9 +22,8 @@ public class Frogger extends Actor {
 	int end = 0;
 	private boolean second = false;
 	boolean noMove = false;
-	double movement = 21;
-	double movementX = 21;
-	int imgSize = 30;
+	double movement = 18.5;
+	double movementX = 18.5;
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
@@ -34,17 +33,17 @@ public class Frogger extends Actor {
 	ArrayList<End> inter = new ArrayList<End>();
 	
 	public Frogger() {
-		setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png"));
 		setX(195);
 		setY(530);
-		imgUP = new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true);
-		imgLEFT = new Image("file:src/p4_group_8_repo/img/froggerLeft.png", imgSize, imgSize, true, true);
-		imgDOWN = new Image("file:src/p4_group_8_repo/img/froggerDown.png", imgSize, imgSize, true, true);
-		imgRIGHT = new Image("file:src/p4_group_8_repo/img/froggerRight.png", imgSize, imgSize, true, true);
-		imgUPJ = new Image("file:src/p4_group_8_repo/img/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgLEFTJ = new Image("file:src/p4_group_8_repo/img/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgDOWNJ = new Image("file:src/p4_group_8_repo/img/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgRIGHTJ = new Image("file:src/p4_group_8_repo/img/froggerRightJump.png", imgSize, imgSize, true, true);
+		imgUP = new Image("file:src/p4_group_8_repo/img/froggerUp.png");
+		imgLEFT = new Image("file:src/p4_group_8_repo/img/froggerLeft.png");
+		imgDOWN = new Image("file:src/p4_group_8_repo/img/froggerDown.png");
+		imgRIGHT = new Image("file:src/p4_group_8_repo/img/froggerRight.png");
+		imgUPJ = new Image("file:src/p4_group_8_repo/img/froggerUpJump.png");
+		imgLEFTJ = new Image("file:src/p4_group_8_repo/img/froggerLeftJump.png");
+		imgDOWNJ = new Image("file:src/p4_group_8_repo/img/froggerDownJump.png");
+		imgRIGHTJ = new Image("file:src/p4_group_8_repo/img/froggerRightJump.png");
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) { 
@@ -148,20 +147,20 @@ public class Frogger extends Actor {
 				carD++;
 			}
 			if (carD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/cardeath1.png", imgSize, imgSize, true, true));
+				setImage(new Image("file:src/p4_group_8_repo/cardeath1.png"));
 			}
 			if (carD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/cardeath2.png", imgSize, imgSize, true, true));
+				setImage(new Image("file:src/p4_group_8_repo/cardeath2.png"));
 			}
 			if (carD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png", imgSize, imgSize, true, true));
+				setImage(new Image("file:src/p4_group_8_repo/cardeath3.png"));
 			}
 			if (carD == 4) {
 				setX(195);
 				setY(530);
 				carDeath = false;
 				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png", imgSize, imgSize, true, true));
+				setImage(new Image("file:src/p4_group_8_repo/froggerUp.png"));
 				noMove = false;
 				if (points>50) {
 					points-=50;
@@ -176,23 +175,23 @@ public class Frogger extends Actor {
 				carD++;
 			}
 			if (carD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath1.png", imgSize,imgSize , true, true));
+				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath1.png"));
 			}
 			if (carD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath2.png", imgSize,imgSize , true, true));
+				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath2.png"));
 			}
 			if (carD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath3.png", imgSize,imgSize , true, true));
+				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath3.png"));
 			}
 			if (carD == 4) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath4.png", imgSize,imgSize , true, true));
+				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath4.png"));
 			}
 			if (carD == 5) {
 				setX(195);
 				setY(530);
 				waterDeath = false;
 				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
+				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png"));
 				noMove = false;
 				if (points>50) {
 					points-=50;
@@ -237,7 +236,7 @@ public class Frogger extends Actor {
 			setX(195);
 			setY(530);
 		}
-		else if (getY()<285){
+		else if (getY()<280){
 			waterDeath = true;
 			setX(230);
 			setY(530);

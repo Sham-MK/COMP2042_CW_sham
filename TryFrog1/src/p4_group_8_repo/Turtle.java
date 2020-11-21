@@ -42,7 +42,7 @@ public class Turtle extends Actor{
 			turtle1 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation2-1.png", w, h, true, true);
 			turtle2 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation2-2.png", w, h, true, true);
 			turtle3 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation2-3.png", w, h, true, true);
-		}else if(num_turtles == 1) {
+		}else if(num_turtles == 3) {
 			turtle1 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation1.png", w, h, true, true);
 			turtle2 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation2.png", w, h, true, true);
 			turtle3 = new Image("file:src/p4_group_8_repo/img/TurtleAnimation3.png", w, h, true, true);
