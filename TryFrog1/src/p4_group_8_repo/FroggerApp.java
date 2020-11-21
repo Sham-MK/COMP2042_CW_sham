@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Main extends Application {
+public class FroggerApp extends Application {
 	AnimationTimer timer;
 	MyStage background;
 	Frogger animal;
@@ -84,8 +84,10 @@ public class Main extends Application {
 
 		background.start();
 		primaryStage.setScene(scene);
-		//primaryStage.setResizable(false);
+		primaryStage.setResizable(false);
+		setNumber(new Highscore().read(), "highscore");
 		primaryStage.show();
+
 		start();  
 	}
 	public void createTimer() {
@@ -93,18 +95,14 @@ public class Main extends Application {
             @Override
             public void handle(long now) {
             	if (animal.changeScore()) {
-            		setNumber(animal.getPoints());
+            		setNumber(animal.getPoints(), "score");
             	}
             	if (animal.getStop()) {
-            		System.out.print("STOPP:");
             		background.stopMusic();
             		stop();
             		background.stop();
-            		Alert alert = new Alert(AlertType.INFORMATION);
-            		alert.setTitle("You Have Won The Game!");
-            		alert.setHeaderText("Your High Score: "+animal.getPoints()+"!");
-            		alert.setContentText("Highest Possible Score: 800");
-            		alert.show();
+            		new Highscore().printscore(animal);
+            		
             	}
             }
         };
@@ -119,14 +117,30 @@ public class Main extends Application {
         timer.stop();
     }
     
-    public void setNumber(int n) {
-    	int shift = 0;
-    	while (n > 0) {
-    		  int d = n / 10;
-    		  int k = n - d * 10;
-    		  n = d;
-    		  background.add(new Digit(k, 30, 60 - shift, 25));
-    		  shift+=30;
-    		}
+    public void setNumber(int n, String type) {
+    	switch(type) {
+    	  case "highscore":
+    		  int shift = 0;
+    	    	while (n > 0) {
+    	    		  int d = n / 10;
+    	    		  int k = n - d * 10;
+    	    		  n = d;
+    	    		  background.add(new Digit(k, 30, 210 - shift, 25));
+    	    		  shift+=30;
+    	    		}
+    	    break;
+    	  case "score":
+    		  int shift1= 0;
+    	    	while (n > 0) {
+    	    		  int d = n / 10;
+    	    		  int k = n - d * 10;
+    	    		  n = d;
+    	    		  background.add(new Digit(k, 30, 60 - shift1, 25));
+    	    		  shift1+=30;
+    	    		}
+    	    break;
+    	  default:
+    	    // code block
+    	}
     }
 }
