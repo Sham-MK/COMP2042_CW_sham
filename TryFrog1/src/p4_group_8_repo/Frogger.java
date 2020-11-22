@@ -248,7 +248,7 @@ public class Frogger extends Actor {
 		}
 	}
 	public boolean getStop() {
-		return end==1;
+		return end==5;
 	} 
 	
 	public boolean gameover() {
