@@ -10,6 +10,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
@@ -90,6 +91,7 @@ public abstract class World extends Pane {
     public void add(Actor actor) {
         getChildren().add(actor);
     }
+    
 
     public void remove(Actor actor) {
         getChildren().remove(actor);

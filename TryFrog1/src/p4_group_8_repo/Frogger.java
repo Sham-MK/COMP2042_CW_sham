@@ -18,10 +18,12 @@ public class Frogger extends Actor {
 	Image imgLEFTJ;
 	Image imgDOWNJ;
 	Image imgRIGHTJ;
+	int lives = 4;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;
 	boolean noMove = false;
+	
 	double movement = 18.5;
 	double movementX = 18.5;
 	int imgSize = 30;
@@ -166,6 +168,8 @@ public class Frogger extends Actor {
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
+				lives--;
+
 				if (points>50) {
 					points-=50;
 					changeScore = true;
@@ -197,6 +201,7 @@ public class Frogger extends Actor {
 				waterD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
+				lives--;
 				if (points>50) {
 					points-=50;
 					changeScore = true;
@@ -204,6 +209,7 @@ public class Frogger extends Actor {
 			}
 			
 		}
+	
 		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
@@ -245,6 +251,11 @@ public class Frogger extends Actor {
 		return end==1;
 	} 
 	
+	public boolean gameover() {
+		return lives<=0;
+		
+	}
+	
 	public int getPoints() {
 		return points;
 	}
@@ -257,6 +268,12 @@ public class Frogger extends Actor {
 		return false;
 		
 	}
+	public int getLives() {
+		return lives;
+	}
 	
+	public void setNoMove(boolean noMove) {
+		this.noMove = noMove;
+	}
 
 }

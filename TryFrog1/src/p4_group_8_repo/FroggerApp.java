@@ -1,6 +1,8 @@
 package p4_group_8_repo;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javafx.animation.AnimationTimer;
@@ -8,6 +10,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
@@ -29,6 +32,8 @@ public class FroggerApp extends Application {
 	    
 	    double w = froggerback.getWidth();
 	    double h = froggerback.getHeight();
+	   
+	    
 	    Scene scene  = new Scene(background, w , h);
 
 		background.add(froggerback);
@@ -78,6 +83,10 @@ public class FroggerApp extends Application {
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 150, 490, -1));
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 300, 490, -1));
 		
+		
+		
+		
+		
 		animal = new Frogger();
 		background.add(animal);
 
@@ -87,20 +96,29 @@ public class FroggerApp extends Application {
 		primaryStage.setResizable(false);
 		setNumber(new Highscore().read(), "highscore");
 		primaryStage.show();
-
 		start();  
 	}
 	public void createTimer() {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
+            	if(animal.getLives()>0) {
+            		setLives(animal.getLives());
+            	}
             	if (animal.changeScore()) {
             		setNumber(animal.getPoints(), "score");
             	}
+            	if(animal.gameover()) {
+            		background.stopMusic();
+            		background.stop();
+            		animal.setNoMove(true);
+            		background.add(new GameState());
+            	}
             	if (animal.getStop()) {
             		background.stopMusic();
-            		stop();
             		background.stop();
+            		stop();
+            		animal.setNoMove(true);
             		new Highscore().printscore(animal);
             		
             	}
@@ -142,5 +160,17 @@ public class FroggerApp extends Application {
     	  default:
     	    // code block
     	}
+    }
+    public void setLives(int l) {
+    		  int shift = 0;
+    		  for(int i = 0;i<l; i++) {
+    		     background.add(new Life("life", shift));
+  	    		  shift+=25;
+    		    }
+    		  for(int i = 0; i<(4-l); i++) {
+    			  background.add(new Life("dead", shift));
+  	    		  shift+=25;
+    		  }
+    	    	
     }
 }
