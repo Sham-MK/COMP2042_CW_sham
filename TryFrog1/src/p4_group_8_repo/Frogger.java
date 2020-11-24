@@ -217,6 +217,7 @@ public class Frogger extends Actor {
 		if (getX() == 240 && getY() == 82) {
 			stop = true;
 		}
+		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) 
 			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
@@ -243,7 +244,7 @@ public class Frogger extends Actor {
 			setX(195);
 			setY(530);
 		}
-		else if (getY()<280 || (getY()<280 && (getX()<=0 ||getX()>=400))){
+		else if (getY()<280){
 			waterDeath = true;
 		}
 	}
