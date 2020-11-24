@@ -61,23 +61,23 @@ public class FroggerApp extends Application {
 		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 0.75));
 		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 0.75));
 		
-		background.add(new Turtle(0, 262, -1.25, 90, 50,3));
-		background.add(new WetTurtle(120,262, -1.25, 90, 50,3));
-		background.add(new Turtle(240, 262, -1.25, 90, 50,3));
-		background.add(new Turtle(360,262, -1.25, 90, 50,3));
-		background.add(new WetTurtle(480, 262, -1.25, 90, 50,3));
+		background.add(new Turtle(0, 262, -1.5, 90, 50,3));
+		background.add(new WetTurtle(120,262, -1.5, 90, 50,3));
+		background.add(new Turtle(240, 262, -1.5, 90, 50,3));
+		background.add(new Turtle(360,262, -1.5, 90, 50,3));
+		background.add(new WetTurtle(480, 262, -1.5, 90, 50,3));
 
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0, 340, -1));
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 300, 340, -1));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 375, 3));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 375, 4));
 		
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 410, -1));
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 150, 410, -1));
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 300, 410, -1));
 		
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 450, 1));
-		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 450, 1));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 450, 1.25));
+		background.add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 450, 1.25));
 		
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 0, 490, -1));
 		background.add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 150, 490, -1));

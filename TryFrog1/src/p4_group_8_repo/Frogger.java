@@ -243,7 +243,7 @@ public class Frogger extends Actor {
 			setX(195);
 			setY(530);
 		}
-		else if (getY()<280){
+		else if (getY()<280 || ((getX()<=0 ||getX()>=400) && getY()>280)){
 			waterDeath = true;
 		}
 	}
