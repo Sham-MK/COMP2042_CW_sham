@@ -23,10 +23,9 @@ public class Frogger extends Actor {
 	int end = 0;
 	private boolean second = false;
 	boolean noMove = false;
-	
 	double movement = 18.5;
 	double movementX = 18.5;
-	int imgSize = 30;
+	int imgSize = 28;
 	boolean carDeath = false;
 	boolean waterDeath = false;
 	boolean stop = false;
@@ -141,10 +140,10 @@ public class Frogger extends Actor {
 		if (getY()<0 || getY()>530) {
 			setY(530);
 		}
-		if (getX()<0) {
+		if (getY()>280 && getX()<0) {
 			move(movement, 0);
 		}
-		if (getX()>400) {
+		if (getY()>280 && getX()>400) {
 			move(-movement, 0);
 		}
 		if (carDeath) {
@@ -214,8 +213,9 @@ public class Frogger extends Actor {
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
 		}
-		if (getX() == 240 && getY() == 82) {
-			stop = true;
+		
+		if(getY()<280 && (getX()<0 || getX()>400)) {
+			waterDeath = true;
 		}
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) 

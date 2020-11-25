@@ -18,6 +18,11 @@ public class Life extends Actor {
 		setY(565);
 	}
 	
+	public void setDead() {
+		setImage( new Image("file:src/p4_group_8_repo/img/dead-icon.png", 20, 20, true, true));
+		
+	}
+	
 
 	@Override
 	public void act(long now) {
