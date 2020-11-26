@@ -2,6 +2,7 @@ package p4_group_8_repo;
 
 import java.io.File;
 
+import javafx.scene.control.ProgressBar;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -39,5 +40,14 @@ public class MyStage extends World{
 	public void stopMusic() {
 		mediaPlayer.stop();
 	}
+
+	public void add(ProgressBar pb) {
+		pb.setProgress(1);
+		pb.setPrefWidth(242);
+	    pb.setTranslateX(120);
+	    pb.setTranslateY(580);
+	    pb.setStyle("-fx-accent: #21de00; -fx-rotate: 180;");
+        getChildren().add(pb);
+    }
 
 }

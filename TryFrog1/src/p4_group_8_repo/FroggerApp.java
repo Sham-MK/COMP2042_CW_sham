@@ -1,28 +1,34 @@
 package p4_group_8_repo;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
+
+import java.time.Duration;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Text;
+import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
-import javafx.util.Duration;
+
 
 public class FroggerApp extends Application {
+
 	AnimationTimer timer;
-	AnimationTimer timerl;
-	AnimationTimer timerg;
+    int delay = 6000;
 	MyStage background;
 	Frogger animal;
+    Timeline timeline = new Timeline();
+    IntegerProperty timeSeconds = new SimpleIntegerProperty((delay) * 100);
+    Group root = new Group();
+
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
@@ -31,15 +37,11 @@ public class FroggerApp extends Application {
 	public void start(Stage primaryStage) throws Exception {
 	    background = new MyStage();
 	    BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/img/iKogsKW.png");
-	    
 	    double w = froggerback.getWidth();
 	    double h = froggerback.getHeight();
-	   
-	    
 	    Scene scene  = new Scene(background, w , h);
-
 		background.add(froggerback);
-		
+		background.add(new ProgressBar());
 		background.add(new End(6,68));
 		background.add(new End(95,68));
 		background.add(new End(95 + 40 + 50, 68));
@@ -50,18 +52,18 @@ public class FroggerApp extends Application {
 		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 200,125, 1));
 		background.add(new Log("file:src/p4_group_8_repo/img/log2.png", 400, 125, 1));
 		
-		background.add(new Turtle(0, 150, -1.25, 60, 50,2));
-		background.add(new WetTurtle(150,150, -1.25, 60, 50,2));
-		background.add(new Turtle(250, 150, -1.25, 60, 50,2));
-		background.add(new Turtle(350,150, -1.25, 60, 50,2));
-		background.add(new WetTurtle(450, 150, -1.25, 60, 50,2)); 
+		background.add(new Turtle(0, 150, -1.5, 60, 50,2));
+		background.add(new WetTurtle(150,150, -1.5, 60, 50,2));
+		background.add(new Turtle(250, 150, -1.5, 60, 50,2));
+		background.add(new Turtle(350,150, -1.5, 60, 50,2));
+		background.add(new WetTurtle(450, 150, -1.5, 60, 50,2)); 
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 3.5));
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 3.5));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.75));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 1.5));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 1.5));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 1.5));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 2));
 		
 		background.add(new Turtle(0, 262, -2, 90, 50,3));
 		background.add(new WetTurtle(120,262, -2, 90, 50,3));
@@ -96,7 +98,7 @@ public class FroggerApp extends Application {
 		animal = new Frogger();
 		background.add(animal);
 
-
+        startTimer();
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
@@ -126,7 +128,13 @@ public class FroggerApp extends Application {
             		stop();
             		animal.setNoMove(true);
             		new Highscore().printscore(animal);
-            		
+            	}
+            	double p =background.getObjects(ProgressBar.class).get(0).getProgress();
+            	if(animal.waterDeath || animal.carDeath || animal.win) {
+            		background.getObjects(ProgressBar.class).get(0).setProgress(1);
+            	} 
+            	if(p<=0.0625 && !animal.win) {
+            		animal.waterDeath = true;
             	}
             }
         };
@@ -172,10 +180,25 @@ public class FroggerApp extends Application {
     public void setLives(int l) {
     		  for(int i=3; i>l-1; i--) {
     			  background.getObjects(Life.class).get(i).setDead();
-    		  }
- 		     
-
-    		 
-    	    	
+    		  }	    	
     }
+    
+
+ 
+    private void startTimer() {
+        Timer timer1 = new Timer();
+        timer1.scheduleAtFixedRate(new TimerTask() {
+            public void run() { 
+            	double p =background.getObjects(ProgressBar.class).get(0).getProgress();
+            	if(p>0.0625) {
+            	    background.getObjects(ProgressBar.class).get(0).setProgress(p-0.0625);
+            	}else {
+            		background.getObjects(ProgressBar.class).get(0).setProgress(1);
+            	}
+            	
+            }
+        }, 1000, 1000);
+        
+    }
+    
 }

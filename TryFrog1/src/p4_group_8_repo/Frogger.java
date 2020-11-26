@@ -18,6 +18,7 @@ public class Frogger extends Actor {
 	Image imgLEFTJ;
 	Image imgDOWNJ;
 	Image imgRIGHTJ;
+    boolean win = false;
 	int lives = 4;
 	int points = 0;
 	int end = 0;
@@ -148,7 +149,7 @@ public class Frogger extends Actor {
 		}
 		if (carDeath) {
 			noMove = true;
-			if ((now)% 11 ==0) {
+			if ((now)% 7 ==0) {
 				carD++;
 			}
 			if (carD==1) {
@@ -178,7 +179,7 @@ public class Frogger extends Actor {
 		}
 		if (waterDeath) {
 			noMove = true;
-			if ((now)% 11 == 0) {
+			if ((now)% 7 == 0) {
 				waterD++;
 			}
 			if (waterD==1) {
@@ -217,6 +218,18 @@ public class Frogger extends Actor {
 		if(getY()<280 && (getX()<0 || getX()>400)) {
 			waterDeath = true;
 		}
+		if(win) {
+			if ((now)% 7 == 0) {
+			points+=50;
+			changeScore = true;
+			w=800;
+			getIntersectingObjects(End.class).get(0).setEnd();
+			end++;
+			setX(195);
+			setY(530);
+			win = false;
+			}
+		}
 		
 		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) 
 			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
@@ -236,13 +249,7 @@ public class Frogger extends Actor {
 				end--;
 				points-=50;
 			}
-			points+=50;
-			changeScore = true;
-			w=800;
-			getIntersectingObjects(End.class).get(0).setEnd();
-			end++;
-			setX(195);
-			setY(530);
+			win = true;
 		}
 		else if (getY()<280){
 			waterDeath = true;
@@ -272,7 +279,8 @@ public class Frogger extends Actor {
 	public int getLives() {
 		return lives;
 	}
-	
+
+
 	public void setNoMove(boolean noMove) {
 		this.noMove = noMove;
 	}
