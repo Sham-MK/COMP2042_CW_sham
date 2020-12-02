@@ -1,13 +1,8 @@
 package p4_group_8_repo;
 
-
-
-import java.time.Duration;
 import java.util.Timer;
 import java.util.TimerTask;
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
@@ -27,7 +22,7 @@ public class FroggerApp extends Application {
     Timeline timeline = new Timeline();
     IntegerProperty timeSeconds = new SimpleIntegerProperty((delay) * 100);
     Group root = new Group();
-
+    Timer timer1 = new Timer();
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -58,12 +53,12 @@ public class FroggerApp extends Application {
 		background.add(new Turtle(350,150, -1.5, 60, 50,2));
 		background.add(new WetTurtle(450, 150, -1.5, 60, 50,2)); 
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.75));
-		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.75));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 2));
 		
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 2));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 2));
-		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 2));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 1));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 1));
+		background.add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 1));
 		
 		background.add(new Turtle(0, 262, -2, 90, 50,3));
 		background.add(new WetTurtle(120,262, -2, 90, 50,3));
@@ -110,9 +105,6 @@ public class FroggerApp extends Application {
         timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-            	if(animal.getLives()>0) {
-            		setLives(animal.getLives());
-            	}
             	if (animal.changeScore()) {
             		setNumber(animal.getPoints(), "score");
             	}
@@ -121,10 +113,13 @@ public class FroggerApp extends Application {
             		background.stop();
             		animal.setNoMove(true);
             		background.add(new GameState());
+            		timer1.cancel();
+
             	}
             	if (animal.getStop()) {
             		background.stopMusic();
             		background.stop();
+            		timer1.cancel();
             		stop();
             		animal.setNoMove(true);
             		new Highscore().printscore(animal);
@@ -133,7 +128,7 @@ public class FroggerApp extends Application {
             	if(animal.waterDeath || animal.carDeath || animal.win) {
             		background.getObjects(ProgressBar.class).get(0).setProgress(1);
             	} 
-            	if(p<=0.0625 && !animal.win) {
+            	if(p<=0.0333 && !animal.win) {
             		animal.waterDeath = true;
             	}
             }
@@ -177,21 +172,14 @@ public class FroggerApp extends Application {
     	    // code block
     	}
     }
-    public void setLives(int l) {
-    		  for(int i=3; i>l-1; i--) {
-    			  background.getObjects(Life.class).get(i).setDead();
-    		  }	    	
-    }
-    
 
  
     private void startTimer() {
-        Timer timer1 = new Timer();
         timer1.scheduleAtFixedRate(new TimerTask() {
             public void run() { 
             	double p =background.getObjects(ProgressBar.class).get(0).getProgress();
-            	if(p>0.0625) {
-            	    background.getObjects(ProgressBar.class).get(0).setProgress(p-0.0625);
+            	if(p>0.0333) {
+            	    background.getObjects(ProgressBar.class).get(0).setProgress(p-0.0333);
             	}else {
             		background.getObjects(ProgressBar.class).get(0).setProgress(1);
             	}

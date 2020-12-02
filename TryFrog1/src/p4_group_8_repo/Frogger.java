@@ -149,7 +149,7 @@ public class Frogger extends Actor {
 		}
 		if (carDeath) {
 			noMove = true;
-			if ((now)% 7 ==0) {
+			if ((now)% 11 ==0) {
 				carD++;
 			}
 			if (carD==1) {
@@ -162,14 +162,14 @@ public class Frogger extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/img/cardeath3.png", imgSize, imgSize, true, true));
 			}
 			if (carD == 4) {
+				getWorld().getObjects(Life.class).get(lives-1).setDead();
+				lives--;
 				setX(195);
 				setY(530);
 				carDeath = false;
 				carD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
-				lives--;
-
 				if (points>50) {
 					points-=50;
 					changeScore = true;
@@ -179,7 +179,7 @@ public class Frogger extends Actor {
 		}
 		if (waterDeath) {
 			noMove = true;
-			if ((now)% 7 == 0) {
+			if ((now)% 11 == 0) {
 				waterD++;
 			}
 			if (waterD==1) {
@@ -195,13 +195,14 @@ public class Frogger extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath4.png", imgSize,imgSize , true, true));
 			}
 			if (waterD == 5) {
+				getWorld().getObjects(Life.class).get(lives-1).setDead();
+				lives--;
 				setX(195);
 				setY(530);
 				waterDeath = false;
 				waterD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
-				lives--;
 				if (points>50) {
 					points-=50;
 					changeScore = true;
@@ -219,7 +220,7 @@ public class Frogger extends Actor {
 			waterDeath = true;
 		}
 		if(win) {
-			if ((now)% 7 == 0) {
+			if ((now)% 11 == 0) {
 			points+=50;
 			changeScore = true;
 			w=800;
