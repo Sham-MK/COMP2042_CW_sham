@@ -18,12 +18,28 @@ public class Frogger extends Actor {
 	Image imgLEFTJ;
 	Image imgDOWNJ;
 	Image imgRIGHTJ;
+	Image imglUP;
+	Image imglLEFT;
+	Image imglDOWN;
+	Image imglRIGHT;
+	Image imglUPJ;
+	Image imglLEFTJ;
+	Image imglDOWNJ;
+	Image imglRIGHTJ;
     boolean win = false;
 	int lives = 4;
+	int level = 1;
 	int points = 0;
 	int end = 0;
 	private boolean second = false;
+	boolean fly = false;
 	boolean noMove = false;
+	boolean attached = false;
+	public boolean isAttached() {
+		return attached;
+	}
+
+
 	double movement = 18.5;
 	double movementX = 18.5;
 	int imgSize = 28;
@@ -37,9 +53,18 @@ public class Frogger extends Actor {
 	ArrayList<End> inter = new ArrayList<End>();
 	
 	public Frogger() {
+
 		setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 		setX(195);
 		setY(530);
+		imglUP = new Image("file:src/p4_group_8_repo/img/lUp.png", imgSize, imgSize, true, true);
+		imglLEFT = new Image("file:src/p4_group_8_repo/img/lLeft.png", imgSize, imgSize, true, true);
+		imglDOWN = new Image("file:src/p4_group_8_repo/img/lDown.png", imgSize, imgSize, true, true);
+		imglRIGHT = new Image("file:src/p4_group_8_repo/img/lRight.png", imgSize, imgSize, true, true);
+		imglUPJ = new Image("file:src/p4_group_8_repo/img/lUpJump.png", imgSize, imgSize, true, true);
+		imglLEFTJ = new Image("file:src/p4_group_8_repo/img/lLeftJump.png", imgSize, imgSize, true, true);
+		imglDOWNJ = new Image("file:src/p4_group_8_repo/img/lDownJump.png", imgSize, imgSize, true, true);
+		imglRIGHTJ = new Image("file:src/p4_group_8_repo/img/lRightJump.png", imgSize, imgSize, true, true);
 		imgUP = new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true);
 		imgLEFT = new Image("file:src/p4_group_8_repo/img/froggerLeft.png", imgSize, imgSize, true, true);
 		imgDOWN = new Image("file:src/p4_group_8_repo/img/froggerDown.png", imgSize, imgSize, true, true);
@@ -58,43 +83,67 @@ public class Frogger extends Actor {
 					if (event.getCode() == KeyCode.UP) {	  
 		                move(0, -movement);
 		                changeScore = false;
-		                setImage(imgUP);
+		                if(attached)
+		                	setImage(imglUP);
+		                else
+		                    setImage(imgUP);
 		                second = false;
 		            }
 		            else if (event.getCode() == KeyCode.LEFT) {	            	
 		            	 move(-movementX, 0);
-		            	 setImage(imgLEFT);
+		            	 if(attached)
+			                	setImage(imglLEFT);
+			                else
+			                    setImage(imgLEFT);
 		            	 second = false;
 		            }
 		            else if (event.getCode() == KeyCode.DOWN) {	            	
 		            	 move(0, movement);
-		            	 setImage(imgDOWN);
+		            	 if(attached)
+			                	setImage(imglDOWN);
+			                else
+			                    setImage(imgDOWN);
 		            	 second = false;
 		            }
 		            else if (event.getCode() == KeyCode.RIGHT) {	            	
 		            	 move(movementX, 0);
-		            	 setImage(imgRIGHT);
+		            	 if(attached)
+			                	setImage(imglRIGHT);
+			                else
+			                    setImage(imgRIGHT);
 		            	 second = false;
 		            } 
 				}
 				else if (event.getCode() == KeyCode.UP) {	            	
 	                move(0, -movement);
-	                setImage(imgUPJ);
+	                if(attached)
+	                	setImage(imglUPJ);
+	                else
+	                    setImage(imgUPJ);
 	                second = true;
 	            }
 	            else if (event.getCode() == KeyCode.LEFT) {	            	
 	            	 move(-movementX, 0);
-	            	 setImage(imgLEFTJ);
+	            	 if(attached)
+		                	setImage(imglLEFTJ);
+		                else
+		                    setImage(imgLEFTJ);
 	            	 second = true;
 	            }
 	            else if (event.getCode() == KeyCode.DOWN) {	            	
 	            	 move(0, movement);
-	            	 setImage(imgDOWNJ);
+	            	 if(attached)
+		                	setImage(imglDOWNJ);
+		                else
+		                    setImage(imgDOWNJ);
 	            	 second = true;
 	            }
 	            else if (event.getCode() == KeyCode.RIGHT) {	            	
 	            	 move(movementX, 0);
-	            	 setImage(imgRIGHTJ);
+	            	 if(attached)
+		                	setImage(imglRIGHTJ);
+		                else
+		                    setImage(imgRIGHTJ);
 	            	 second = true;
 	            }
 	        }
@@ -112,22 +161,34 @@ public class Frogger extends Actor {
 						points+=10;
 					}
 	                move(0, -movement);
-	                setImage(imgUP);
+	                if(attached)
+	                	setImage(imglUP);
+	                else
+	                    setImage(imgUP);
 	                second = false;
 	            }
 	            else if (event.getCode() == KeyCode.LEFT) {	            	
 	            	 move(-movementX, 0);
-	            	 setImage(imgLEFT);
+	            	 if(attached)
+		                	setImage(imglLEFT);
+		                else
+		                    setImage(imgLEFT);
 	            	 second = false;
 	            }
 	            else if (event.getCode() == KeyCode.DOWN) {	            	
 	            	 move(0, movement);
-	            	 setImage(imgDOWN);
+	            	 if(attached)
+		                	setImage(imglDOWN);
+		                else
+		                    setImage(imgDOWN);
 	            	 second = false;
 	            }
 	            else if (event.getCode() == KeyCode.RIGHT) {	            	
 	            	 move(movementX, 0);
-	            	 setImage(imgRIGHT);
+	            	 if(attached)
+		                	setImage(imglRIGHT);
+		                else
+		                    setImage(imgRIGHT);
 	            	 second = false;
 	            }
 	        }
@@ -164,6 +225,9 @@ public class Frogger extends Actor {
 			if (carD == 4) {
 				getWorld().getObjects(Life.class).get(lives-1).setDead();
 				lives--;
+				if(attached)
+					points+=200;
+					attached = false;
 				setX(195);
 				setY(530);
 				carDeath = false;
@@ -197,6 +261,9 @@ public class Frogger extends Actor {
 			if (waterD == 5) {
 				getWorld().getObjects(Life.class).get(lives-1).setDead();
 				lives--;
+				if(attached)
+					points+=200;
+					attached = false;
 				setX(195);
 				setY(530);
 				waterDeath = false;
@@ -210,7 +277,7 @@ public class Frogger extends Actor {
 			}
 			
 		}
-	
+	    
 		
 		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
 			carDeath = true;
@@ -220,21 +287,28 @@ public class Frogger extends Actor {
 			waterDeath = true;
 		}
 		if(win) {
-			if ((now)% 11 == 0) {
 			points+=50;
+			if(fly) {
+				points+=200;
+			}
 			changeScore = true;
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
+			if(attached)
+				points+=200;
+				attached = false;
 			setX(195);
 			setY(530);
 			win = false;
+			fly =false;
 			}
-		}
-		
-		if (getIntersectingObjects(Log.class).size() >= 1 && !noMove) 
+
+		if (getIntersectingObjects(LadyFrog.class).size() >= 1) 
+			attached  =true;
+		if (getIntersectingObjects(Log.class).size() >= 1) 
 			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !noMove) {
+		else if (getIntersectingObjects(Turtle.class).size() >= 1 ) {
 			move(getIntersectingObjects(Turtle.class).get(0).getSpeed(),0);
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
@@ -243,6 +317,20 @@ public class Frogger extends Actor {
 			} else {
 				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
 			}
+		}
+		else if (getIntersectingObjects(Crocodile.class).size() >= 1) {
+			if (getIntersectingObjects(Crocodile.class).get(0).jawopen) {
+				waterDeath = true;
+			} else {
+				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
+			}
+		}
+		else if (getIntersectingObjects(Snake.class).size() >= 1) {
+			waterDeath = true;
+		}
+		else if (getIntersectingObjects(Fly.class).size() >= 1) {
+			win = true;
+			fly = true;
 		}
 		else if (getIntersectingObjects(End.class).size() >= 1) {
 			inter = (ArrayList<End>) getIntersectingObjects(End.class);
@@ -256,8 +344,15 @@ public class Frogger extends Actor {
 			waterDeath = true;
 		}
 	}
-	public boolean getStop() {
-		return end==5;
+	public boolean getNewLevel() {
+		if(end==5) {
+			if(level<10) {
+				level++;
+			}
+			end = 0;
+			return true;
+		}
+		return false;
 	} 
 	
 	public boolean gameover() {

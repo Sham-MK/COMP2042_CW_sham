@@ -6,31 +6,35 @@ public class Turtle extends Actor{
 	Image turtle1;
 	Image turtle2;
 	Image turtle3;
+	boolean show = true;
 	private double speed;
 	public double getSpeed() {
 		return speed;
 	}
-	public void setSpeed(double speed) {
-		this.speed = speed;
-	}
+
 	int i = 1;
 	boolean bool = true;
 	@Override
 	public void act(long now) {
-
-				if (now/900000000  % 3 ==0) {
-					setImage(turtle2);
-					
-				}
-				else if (now/900000000 % 3 == 1) {
-					setImage(turtle1);
-					
-				}
-				else if (now/900000000 %3 == 2) {
-					setImage(turtle3);
-					
-				}
+		if(show) {
+			if (now/900000000  % 3 ==0) {
+				setImage(turtle2);
+				
+			}
+			else if (now/900000000 % 3 == 1) {
+				setImage(turtle1);
+				
+			}
+			else if (now/900000000 %3 == 2) {
+				setImage(turtle3);
+				
+			}
 			
+		}else {
+			setImage(null);
+		}
+
+						
 		move(speed , 0);
 		if (getX() > 424 && speed>0)
 			setX(-100);
@@ -51,5 +55,8 @@ public class Turtle extends Actor{
 		setY(ypos);
 		speed = s;
 		setImage(turtle1);
+	}
+	public void dontShow() {
+		show = false;
 	}
 }

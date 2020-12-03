@@ -10,9 +10,9 @@ public class Life extends Actor {
 	Image img;
 	
 
-	public Life(String n, int x) {
+	public Life(int x) {
 		// TODO Auto-generated constructor stub
-		img = new Image("file:src/p4_group_8_repo/img/"+n+"-icon.png", 20, 20, true, true);
+		img = new Image("file:src/p4_group_8_repo/img/Life-icon.png", 20, 20, true, true);
 		setImage(img);
 		setX(x); 
 		setY(565);

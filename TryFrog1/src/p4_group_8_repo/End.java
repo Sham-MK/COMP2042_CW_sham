@@ -9,15 +9,19 @@ public class End extends Actor{
 		// TODO Auto-generated method st
 	}
 	
-	public End(int x, int y) {
+	public End(int x) {
 		setX(x); 
-		setY(y);
+		setY(67);
 		setImage(new Image("file:src/p4_group_8_repo/img/End.png", 50, 50, true, true));
 	}
 	
 	public void setEnd() {
 		setImage(new Image("file:src/p4_group_8_repo/img/FrogEnd.png", 50, 50, true, true));
 		activated = true;
+	}
+	public void unsetEnd() {
+		setImage(new Image("file:src/p4_group_8_repo/img/End.png", 50, 50, true, true));
+		activated = false;
 	}
 	
 	public boolean isActivated() {

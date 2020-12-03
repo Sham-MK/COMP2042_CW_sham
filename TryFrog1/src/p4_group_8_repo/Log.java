@@ -9,9 +9,7 @@ public class Log extends Actor {
 		return speed;
 	}
 
-	public void setSpeed(double speed) {
-		this.speed = speed;
-	}
+
 
 	@Override
 	public void act(long now) {
@@ -26,7 +24,7 @@ public class Log extends Actor {
 		setImage(new Image(imageLink));
 		setX(xpos);
 		setY(ypos);
-		setSpeed(s);
+		speed = s;
 		
 	}
 }
