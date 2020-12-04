@@ -226,7 +226,6 @@ public class Frogger extends Actor {
 				getWorld().getObjects(Life.class).get(lives-1).setDead();
 				lives--;
 				if(attached)
-					points+=200;
 					attached = false;
 				setX(195);
 				setY(530);
@@ -262,7 +261,6 @@ public class Frogger extends Actor {
 				getWorld().getObjects(Life.class).get(lives-1).setDead();
 				lives--;
 				if(attached)
-					points+=200;
 					attached = false;
 				setX(195);
 				setY(530);
@@ -288,6 +286,9 @@ public class Frogger extends Actor {
 		}
 		if(win) {
 			points+=50;
+			if(attached)
+				points+=200;
+				attached = false;
 			if(fly) {
 				points+=200;
 			}
@@ -295,9 +296,7 @@ public class Frogger extends Actor {
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
-			if(attached)
-				points+=200;
-				attached = false;
+			setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 			setX(195);
 			setY(530);
 			win = false;
@@ -326,6 +325,9 @@ public class Frogger extends Actor {
 			}
 		}
 		else if (getIntersectingObjects(Snake.class).size() >= 1) {
+			waterDeath = true;
+		}
+		else if (getIntersectingObjects(CrocodileHead.class).size() >= 1) {
 			waterDeath = true;
 		}
 		else if (getIntersectingObjects(Fly.class).size() >= 1) {

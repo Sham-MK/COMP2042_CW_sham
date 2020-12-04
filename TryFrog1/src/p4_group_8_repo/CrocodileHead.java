@@ -2,26 +2,27 @@ package p4_group_8_repo;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javafx.scene.image.Image;
 
-public class Fly extends Actor {
-    Timer timer = new Timer();
+public class CrocodileHead extends Actor {
+	Timer timer = new Timer();
     int shift = 0;
-    public Fly() {
+
+	public CrocodileHead() {
 		// TODO Auto-generated constructor stub
-    	timer.scheduleAtFixedRate(new TimerTask() {
+		timer.scheduleAtFixedRate(new TimerTask() {
             public void run() { 
-         	setImage(new Image("file:src/p4_group_8_repo/img/fly.png", 30, 25, true, true));
-       	    setX(21+shift); 
-       	    setY(85);
-       	    if(shift==360) {
+         	setImage(new Image("file:src/p4_group_8_repo/img/crocodilehead.png", 43, 43, true, true));
+       	    setX(12+shift); 
+       	    setY(73);
+       	    if(shift==270) {
              	shift =0;
              }
             shift+=90;
   	
             }
-        }, 7000, 15000);
-
+        }, 60000, 8000);
 	}
 
 	@Override
@@ -32,6 +33,9 @@ public class Fly extends Actor {
   		     	setImage(null);
   			}
        	 }
+		if (getIntersectingObjects(Fly.class).size() >= 1) {
+  		     	setImage(null);
+  		     	}
 	}
 
 }

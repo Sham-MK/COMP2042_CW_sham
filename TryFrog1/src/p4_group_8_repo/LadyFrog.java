@@ -50,8 +50,7 @@ public class LadyFrog extends Actor {
 			setImage(null);
 			
 		}
-		move(2,0);
-		move(-1,0);
+
 		
 	}
 

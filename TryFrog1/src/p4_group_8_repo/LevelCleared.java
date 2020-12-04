@@ -1,8 +1,6 @@
 package p4_group_8_repo;
 
 import java.util.Timer;
-import java.util.TimerTask;
-
 import javafx.scene.image.Image;
 
 
