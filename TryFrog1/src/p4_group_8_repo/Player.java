@@ -37,6 +37,7 @@ public class Player extends Actor {
 	Image imglLEFTJ;
 	Image imglDOWNJ;
 	Image imglRIGHTJ;
+	String s;
     boolean win = false;
 	int lives = 4;
 	int level = 1;
@@ -53,8 +54,7 @@ public class Player extends Actor {
 	boolean waterDeath = false;
 	boolean stop = false;
 	boolean changeScore = false;
-	int carD = 0;
-	int waterD = 0;
+	int D = 0;
 	double w = 600;
 	ArrayList<End> inter = new ArrayList<End>();
 	
@@ -214,56 +214,30 @@ public class Player extends Actor {
 		if (getY()>280 && getX()>400) {
 			move(-movement, 0);
 		}
-		if (isCarDeath()) {
-			noMove = true;
-			if ((now)% 11 ==0) {
-				carD++;
-			}
-			if (carD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/img/cardeath1.png", imgSize, imgSize, true, true));
-			}
-			if (carD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/img/cardeath2.png", imgSize, imgSize, true, true));
-			}
-			if (carD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/img/cardeath3.png", imgSize, imgSize, true, true));
-			}
-			if (carD == 4) {
-				getWorld().getObjects(Life.class).get(lives-1).setDead();
-				lives--;
-				if(attached)
-					attached = false;
-				setX(195);
-				setY(530);
-				carDeath = false;
-				carD = 0;
-				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
-				noMove = false;
-				if (points>50) {
-					points-=50;
-					setChangeScore(true);
-				}
-			}
 			
-		}
-		if (isWaterDeath()) {
+		if (isWaterDeath() || isCarDeath()) {
 			noMove = true;
+			if (isWaterDeath()) {
+				 s = "waterdeath";
+			}else {
+				 s = "cardeath";
+			}
 			if ((now)% 11 == 0) {
-				waterD++;
+				D++;
 			}
-			if (waterD==1) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath1.png", imgSize,imgSize , true, true));
+			if (D==1) {
+				setImage(new Image("file:src/p4_group_8_repo/img/"+s+"1.png", imgSize,imgSize , true, true));
 			}
-			if (waterD==2) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath2.png", imgSize,imgSize , true, true));
+			if (D==2) {
+				setImage(new Image("file:src/p4_group_8_repo/img/"+s+"2.png", imgSize,imgSize , true, true));
 			}
-			if (waterD==3) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath3.png", imgSize,imgSize , true, true));
+			if (D==3) {
+				setImage(new Image("file:src/p4_group_8_repo/img/"+s+"3.png", imgSize,imgSize , true, true));
 			}
-			if (waterD == 4) {
-				setImage(new Image("file:src/p4_group_8_repo/img/waterdeath4.png", imgSize,imgSize , true, true));
+			if (D == 4) {
+				setImage(new Image("file:src/p4_group_8_repo/img/"+s+"4.png", imgSize,imgSize , true, true));
 			}
-			if (waterD == 5) {
+			if (D == 5) {
 				getWorld().getObjects(Life.class).get(lives-1).setDead();
 				lives--;
 				if(attached)
@@ -271,7 +245,8 @@ public class Player extends Actor {
 				setX(195);
 				setY(530);
 				setWaterDeath(false);
-				waterD = 0;
+				setCarDeath(false);
+				D = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
 				if (points>50) {
@@ -352,6 +327,12 @@ public class Player extends Actor {
 			setWaterDeath(true);
 		}
 	}
+	private void setCarDeath(boolean b) {
+		// TODO Auto-generated method stub
+		carDeath = b;
+		
+	}
+
 	public boolean getNewLevel() {
 		if(end==5) {
 			if(getLevel()<10) {
