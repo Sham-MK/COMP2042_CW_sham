@@ -299,7 +299,7 @@ public class Player extends Actor {
 			}
 		}
 		else if (getIntersectingObjects(Crocodile.class).size() >= 1) {
-			if (getIntersectingObjects(Crocodile.class).get(0).isJawopen()) {
+			if (this.intersects(getIntersectingObjects(Crocodile.class).get(0).getMouth())) {
 				setWaterDeath(true);
 			} else {
 				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
@@ -334,7 +334,7 @@ public class Player extends Actor {
 	}
 
 	public boolean getNewLevel() {
-		if(end==5) {
+		if(end==1) {
 			if(getLevel()<10) {
 				level = getLevel() + 1;
 			}

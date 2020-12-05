@@ -1,6 +1,8 @@
 package p4_group_8_repo.enemies;
 
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
 import p4_group_8_repo.Actor;
 
 public class Crocodile extends Actor {
@@ -8,8 +10,10 @@ public class Crocodile extends Actor {
 	Image crocodile1;
 	Image crocodile2;
 	boolean show=false;
-	
-    public void setShow() {
+    Rectangle mouth = new Rectangle();
+    double x;
+    double y;
+	public void setShow() {
 		show = true;
 	}
 	boolean jawopen =false;
@@ -46,6 +50,9 @@ public class Crocodile extends Actor {
 			setX(-220);
 		if (getX()<-400 && speed<0)
 			setX(524);
+		
+		x = this.getBoundsInLocal().getMaxX();
+		y = this.getY();
 	}
 	public Crocodile(double xpos, int ypos, double s) {
 		
@@ -56,4 +63,13 @@ public class Crocodile extends Actor {
 	public boolean isJawopen() {
 		return jawopen;
 	}
+
+	public Bounds getMouth() {
+		mouth.setX(x-45);
+		mouth.setY(y);
+		mouth.setWidth(45);
+		mouth.setHeight(50);
+		return mouth.getBoundsInLocal();
+	}
+	
 }

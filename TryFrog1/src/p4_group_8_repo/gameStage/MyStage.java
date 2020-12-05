@@ -49,13 +49,13 @@ public class MyStage extends World{
 		add(new Log("file:src/p4_group_8_repo/img/log2.png", 200,125, 1.5));
 		add(new Log("file:src/p4_group_8_repo/img/log2.png", 400, 125, 1.5));
 		
-		add(new Crocodile(getObjects(Log.class).get(1).getX(), 125, 1.5));
+		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 1.5));
 		
-		add(new Turtle(0, 150, -1.25, 60, 50,2));
-		add(new WetTurtle(120,150, -1.25, 60, 50,2));
-		add(new Turtle(240, 150, -1.25, 60, 50,2));
-		add(new Turtle(360,150, -1.25, 60, 50,2));
-		add(new WetTurtle(480, 150, -1.25, 60, 50,2)); 
+		add(new Turtle(0, 155, -1.25, 60, 50,2));
+		add(new WetTurtle(120,155, -1.25, 60, 50,2));
+		add(new Turtle(240, 155, -1.25, 60, 50,2));
+		add(new Turtle(360,155, -1.25, 60, 50,2));
+		add(new WetTurtle(480, 155, -1.25, 60, 50,2)); 
 		
 		add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.25));
 		add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.25));
