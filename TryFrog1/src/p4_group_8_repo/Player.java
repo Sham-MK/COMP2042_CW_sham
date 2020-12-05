@@ -283,9 +283,6 @@ public class Player extends Actor {
 		}
 	    
 		
-		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
-			carDeath = true;
-		}
 		
 		if(getY()<280 && (getX()<0 || getX()>400)) {
 			setWaterDeath(true);
@@ -308,6 +305,9 @@ public class Player extends Actor {
 			win = false;
 			fly =false;
 			}
+		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
+			carDeath = true;
+		}
 
 		if (getIntersectingObjects(LadyFrog.class).size() >= 1) 
 			attached  =true;

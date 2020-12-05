@@ -31,7 +31,7 @@ public class LevelCleared extends Actor {
 	@Override
 	public void act(long now) {
 		// TODO Auto-generated method stub
-		if(now % 31 == 0) {
+		if(now % 61 == 0) {
         	setImage(null);
 
 		}

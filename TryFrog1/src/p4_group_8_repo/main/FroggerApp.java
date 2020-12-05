@@ -66,6 +66,7 @@ public class FroggerApp extends Application {
             	if (animal.getNewLevel()) {
                 	background.add(new LevelCleared(1));
             		background.setNewLevel(animal.getLevel());
+            		background.GenerateNewLevel(animal.getLevel());
             		}
             	double p =background.getObjects(ProgressBar.class).get(0).getProgress();
             	if(animal.isWaterDeath() || animal.isCarDeath() || animal.isWin()) {

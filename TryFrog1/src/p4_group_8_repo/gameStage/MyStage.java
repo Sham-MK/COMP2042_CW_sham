@@ -32,7 +32,6 @@ public class MyStage extends World{
 	
 	public MyStage() {
 		
-//		add(froggerback);
         BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/img/iKogsKW.png");
 		
 		add(froggerback);
@@ -52,14 +51,14 @@ public class MyStage extends World{
 		
 		add(new Crocodile(getObjects(Log.class).get(1).getX(), 125, 1.5));
 		
-		add(new Turtle(0, 150, -1.5, 60, 50,2));
-		add(new WetTurtle(120,150, -1.5, 60, 50,2));
-		add(new Turtle(240, 150, -1.5, 60, 50,2));
-		add(new Turtle(360,150, -1.5, 60, 50,2));
-		add(new WetTurtle(480, 150, -1.5, 60, 50,2)); 
+		add(new Turtle(0, 150, -1.25, 60, 50,2));
+		add(new WetTurtle(120,150, -1.25, 60, 50,2));
+		add(new Turtle(240, 150, -1.25, 60, 50,2));
+		add(new Turtle(360,150, -1.25, 60, 50,2));
+		add(new WetTurtle(480, 150, -1.25, 60, 50,2)); 
 		
-		add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.5));
-		add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.5));
+		add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.25));
+		add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.25));
 		
 		add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 0.5));
 		add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 0.5));
@@ -73,7 +72,7 @@ public class MyStage extends World{
 		add(new Turtle(360,262, -1.5, 90, 50,3));
 		add(new WetTurtle(480, 262, -1.5, 90, 50,3));
 		
-        add(new LadyFrog(getObjects(Log.class).get(7).getX(),getObjects(Log.class).get(7).getY()));
+        add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
 
 
 		add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 0, 340, -1));
@@ -127,13 +126,17 @@ public class MyStage extends World{
         getChildren().add(pb);
     }
 	
-	 public void setNewLevel(int level) {
-		    	getObjects(Level.class).get(level-2).setImage(null);
-		    	getObjects(Player.class).get(0).setChangeScore(true);
-		    	getObjects(Player.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
-		    	for(int i =0; i<5;i++) {
-	        	getObjects(End.class).get(i).unsetEnd();
-	    	}
+	public void setNewLevel(int level) {
+		getObjects(Level.class).get(level-2).setImage(null);
+    	getObjects(Player.class).get(0).setChangeScore(true);
+    	getObjects(Player.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
+    	for(int i =0; i<5;i++) {
+    	getObjects(End.class).get(i).unsetEnd();
+	}
+		
+	}
+	
+	 public void GenerateNewLevel(int level) {
 	    	switch(level) {
 	    	  case 2:
 	    	    add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(2).getX()+90, 375, 4));
