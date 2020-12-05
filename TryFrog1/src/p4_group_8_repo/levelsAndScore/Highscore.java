@@ -1,20 +1,20 @@
-package p4_group_8_repo;
+package p4_group_8_repo.levelsAndScore;
 
 import java.io.BufferedWriter;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Scanner; // Import the Scanner class to read text files
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import p4_group_8_repo.Player;
 
 public class Highscore {
 	
 	int score;
-	File file = new File("src/score.txt");
+	File file = new File("src/p4_group_8_repo/levelsAndScore/score.txt");
 
 	
 	public int read() {
@@ -43,7 +43,7 @@ public class Highscore {
 
 	}
 	
-	public void printscore(Frogger frog) {
+	public void printscore(Player frog) {
 		int old = new Highscore().read();
 		int points = frog.getPoints();
 		if(points>old) {

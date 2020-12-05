@@ -1,6 +1,7 @@
-package p4_group_8_repo;
+package p4_group_8_repo.gameStage;
 
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
 
 public class End extends Actor{
 	boolean activated = false;

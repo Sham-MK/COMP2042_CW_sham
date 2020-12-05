@@ -1,6 +1,7 @@
-package p4_group_8_repo;
+package p4_group_8_repo.enemies;
 
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
 
 public class Crocodile extends Actor {
 
@@ -12,6 +13,7 @@ public class Crocodile extends Actor {
 		show = true;
 	}
 	boolean jawopen =false;
+	
 	private double speed;
 	
 	public double getSpeed() {
@@ -50,5 +52,8 @@ public class Crocodile extends Actor {
 		setX(xpos);
 		setY(ypos);
 		speed = s;
+	}
+	public boolean isJawopen() {
+		return jawopen;
 	}
 }

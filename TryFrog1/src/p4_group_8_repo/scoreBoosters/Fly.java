@@ -1,8 +1,11 @@
-package p4_group_8_repo;
+package p4_group_8_repo.scoreBoosters;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
+import p4_group_8_repo.gameStage.End;
 
 public class Fly extends Actor {
     Timer timer = new Timer();

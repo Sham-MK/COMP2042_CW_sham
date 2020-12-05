@@ -1,9 +1,12 @@
-package p4_group_8_repo;
+package p4_group_8_repo.enemies;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
+import p4_group_8_repo.gameStage.End;
+import p4_group_8_repo.scoreBoosters.Fly;
 
 public class CrocodileHead extends Actor {
 	Timer timer = new Timer();

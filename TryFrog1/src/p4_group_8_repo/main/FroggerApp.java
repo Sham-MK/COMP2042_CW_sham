@@ -1,4 +1,4 @@
-package p4_group_8_repo;
+package p4_group_8_repo.main;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.Timeline;
@@ -9,6 +9,10 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ProgressBar;
 import javafx.stage.Stage;
+import p4_group_8_repo.Player;
+import p4_group_8_repo.gameStage.MyStage;
+import p4_group_8_repo.levelsAndScore.Highscore;
+import p4_group_8_repo.levelsAndScore.LevelCleared;
 
 
 public class FroggerApp extends Application {
@@ -16,7 +20,7 @@ public class FroggerApp extends Application {
 	AnimationTimer timer;
     int delay = 6000;
 	MyStage background;
-	Frogger animal;
+	Player animal;
     Timeline timeline = new Timeline();
     IntegerProperty timeSeconds = new SimpleIntegerProperty((delay) * 100);
     Group root = new Group();
@@ -31,7 +35,7 @@ public class FroggerApp extends Application {
 	    background = new MyStage(); 
 	    Scene scene  = new Scene(background, 424 , 600);
 		background.add(new ProgressBar());
-		animal = new Frogger();
+		animal = new Player();
 		background.add(animal);
         background.startTimer();
 		background.start();
@@ -61,14 +65,14 @@ public class FroggerApp extends Application {
             	}
             	if (animal.getNewLevel()) {
                 	background.add(new LevelCleared(1));
-            		background.setNewLevel(animal.level);
+            		background.setNewLevel(animal.getLevel());
             		}
             	double p =background.getObjects(ProgressBar.class).get(0).getProgress();
-            	if(animal.waterDeath || animal.carDeath || animal.win) {
+            	if(animal.isWaterDeath() || animal.isCarDeath() || animal.isWin()) {
             		background.getObjects(ProgressBar.class).get(0).setProgress(1);
             	} 
-            	if(p<=0.0333 && !animal.win) {
-            		animal.waterDeath = true;
+            	if(p<=0.0333 && !animal.isWin()) {
+            		animal.setWaterDeath(true);
             	}
             }
         };

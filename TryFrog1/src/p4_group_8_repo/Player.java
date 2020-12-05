@@ -7,9 +7,20 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import p4_group_8_repo.carriers.Log;
+import p4_group_8_repo.carriers.Turtle;
+import p4_group_8_repo.carriers.WetTurtle;
+import p4_group_8_repo.enemies.Crocodile;
+import p4_group_8_repo.enemies.CrocodileHead;
+import p4_group_8_repo.enemies.Obstacle;
+import p4_group_8_repo.enemies.Snake;
+import p4_group_8_repo.gameStage.End;
+import p4_group_8_repo.levelsAndScore.Life;
+import p4_group_8_repo.scoreBoosters.Fly;
+import p4_group_8_repo.scoreBoosters.LadyFrog;
 
 
-public class Frogger extends Actor {
+public class Player extends Actor {
 	Image imgUP;
 	Image imgLEFT;
 	Image imgDOWN;
@@ -29,17 +40,12 @@ public class Frogger extends Actor {
     boolean win = false;
 	int lives = 4;
 	int level = 1;
-	int points = 0;
+	public int points = 0;
 	int end = 0;
 	private boolean second = false;
 	boolean fly = false;
 	boolean noMove = false;
 	boolean attached = false;
-	public boolean isAttached() {
-		return attached;
-	}
-
-
 	double movement = 18.5;
 	double movementX = 18.5;
 	int imgSize = 28;
@@ -52,7 +58,7 @@ public class Frogger extends Actor {
 	double w = 600;
 	ArrayList<End> inter = new ArrayList<End>();
 	
-	public Frogger() {
+	public Player() {
 
 		setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 		setX(195);
@@ -82,7 +88,7 @@ public class Frogger extends Actor {
 				if (second) {
 					if (event.getCode() == KeyCode.UP) {	  
 		                move(0, -movement);
-		                changeScore = false;
+		                setChangeScore(false);
 		                if(attached)
 		                	setImage(imglUP);
 		                else
@@ -156,7 +162,7 @@ public class Frogger extends Actor {
 				else {
 				if (event.getCode() == KeyCode.UP) {	  
 					if (getY() < w) {
-						changeScore = true;
+						setChangeScore(true);
 						w = getY();
 						points+=10;
 					}
@@ -208,7 +214,7 @@ public class Frogger extends Actor {
 		if (getY()>280 && getX()>400) {
 			move(-movement, 0);
 		}
-		if (carDeath) {
+		if (isCarDeath()) {
 			noMove = true;
 			if ((now)% 11 ==0) {
 				carD++;
@@ -235,12 +241,12 @@ public class Frogger extends Actor {
 				noMove = false;
 				if (points>50) {
 					points-=50;
-					changeScore = true;
+					setChangeScore(true);
 				}
 			}
 			
 		}
-		if (waterDeath) {
+		if (isWaterDeath()) {
 			noMove = true;
 			if ((now)% 11 == 0) {
 				waterD++;
@@ -264,13 +270,13 @@ public class Frogger extends Actor {
 					attached = false;
 				setX(195);
 				setY(530);
-				waterDeath = false;
+				setWaterDeath(false);
 				waterD = 0;
 				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
 				noMove = false;
 				if (points>50) {
 					points-=50;
-					changeScore = true;
+					setChangeScore(true);
 				}
 			}
 			
@@ -282,9 +288,9 @@ public class Frogger extends Actor {
 		}
 		
 		if(getY()<280 && (getX()<0 || getX()>400)) {
-			waterDeath = true;
+			setWaterDeath(true);
 		}
-		if(win) {
+		if(isWin()) {
 			points+=50;
 			if(attached)
 				points+=200;
@@ -292,7 +298,7 @@ public class Frogger extends Actor {
 			if(fly) {
 				points+=200;
 			}
-			changeScore = true;
+			setChangeScore(true);
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
@@ -312,23 +318,23 @@ public class Frogger extends Actor {
 		}
 		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
 			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				waterDeath = true;
+				setWaterDeath(true);
 			} else {
 				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
 			}
 		}
 		else if (getIntersectingObjects(Crocodile.class).size() >= 1) {
-			if (getIntersectingObjects(Crocodile.class).get(0).jawopen) {
-				waterDeath = true;
+			if (getIntersectingObjects(Crocodile.class).get(0).isJawopen()) {
+				setWaterDeath(true);
 			} else {
 				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
 			}
 		}
 		else if (getIntersectingObjects(Snake.class).size() >= 1) {
-			waterDeath = true;
+			setWaterDeath(true);
 		}
 		else if (getIntersectingObjects(CrocodileHead.class).size() >= 1) {
-			waterDeath = true;
+			setWaterDeath(true);
 		}
 		else if (getIntersectingObjects(Fly.class).size() >= 1) {
 			win = true;
@@ -343,13 +349,13 @@ public class Frogger extends Actor {
 			win = true;
 		}
 		else if (getY()<280){
-			waterDeath = true;
+			setWaterDeath(true);
 		}
 	}
 	public boolean getNewLevel() {
 		if(end==5) {
-			if(level<10) {
-				level++;
+			if(getLevel()<10) {
+				level = getLevel() + 1;
 			}
 			end = 0;
 			return true;
@@ -367,8 +373,8 @@ public class Frogger extends Actor {
 	}
 	
 	public boolean changeScore() {
-		if (changeScore) {
-			changeScore = false;
+		if (isChangeScore()) {
+			setChangeScore(false);
 			return true;
 		}
 		return false;
@@ -377,10 +383,41 @@ public class Frogger extends Actor {
 	public int getLives() {
 		return lives;
 	}
-
+	
+	public boolean isAttached() {
+		return attached;
+	}
 
 	public void setNoMove(boolean noMove) {
 		this.noMove = noMove;
+	}
+
+	public boolean isChangeScore() {
+		return changeScore;
+	}
+
+	public void setChangeScore(boolean changeScore) {
+		this.changeScore = changeScore;
+	}
+
+	public boolean isWaterDeath() {
+		return waterDeath;
+	}
+
+	public boolean isCarDeath() {
+		return carDeath;
+	}
+
+	public boolean isWin() {
+		return win;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setWaterDeath(boolean waterDeath) {
+		this.waterDeath = waterDeath;
 	}
 
 }

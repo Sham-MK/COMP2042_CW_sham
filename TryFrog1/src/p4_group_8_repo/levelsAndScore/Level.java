@@ -1,6 +1,7 @@
-package p4_group_8_repo;
+package p4_group_8_repo.levelsAndScore;
 
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
 
 public class Level extends Actor {
 

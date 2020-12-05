@@ -1,15 +1,30 @@
-package p4_group_8_repo;
+package p4_group_8_repo.gameStage;
 
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import javafx.scene.control.ProgressBar;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import p4_group_8_repo.Player;
+import p4_group_8_repo.World;
+import p4_group_8_repo.carriers.Log;
+import p4_group_8_repo.carriers.Turtle;
+import p4_group_8_repo.carriers.WetTurtle;
+import p4_group_8_repo.enemies.Crocodile;
+import p4_group_8_repo.enemies.CrocodileHead;
+import p4_group_8_repo.enemies.Obstacle;
+import p4_group_8_repo.enemies.Snake;
+import p4_group_8_repo.levelsAndScore.Digit;
+import p4_group_8_repo.levelsAndScore.Level;
+import p4_group_8_repo.levelsAndScore.Life;
+import p4_group_8_repo.scoreBoosters.Fly;
+import p4_group_8_repo.scoreBoosters.LadyFrog;
 
 public class MyStage extends World{
 	MediaPlayer mediaPlayer;
-    Timer timer = new Timer();
+    public Timer timer = new Timer();
 	@Override
 	public void act(long now) {
 		
@@ -92,7 +107,7 @@ public class MyStage extends World{
 	}
 	
 	public void playMusic() {
-		String musicFile = "src/p4_group_8_repo/Frogger Main Song Theme (loop).mp3";   
+		String musicFile = "src/p4_group_8_repo/gameStage/Frogger Main Song Theme (loop).mp3";   
 		Media sound = new Media(new File(musicFile).toURI().toString());
 		mediaPlayer = new MediaPlayer(sound);
 		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
@@ -114,8 +129,8 @@ public class MyStage extends World{
 	
 	 public void setNewLevel(int level) {
 		    	getObjects(Level.class).get(level-2).setImage(null);
-		    	getObjects(Frogger.class).get(0).changeScore=true;
-		    	getObjects(Frogger.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
+		    	getObjects(Player.class).get(0).setChangeScore(true);
+		    	getObjects(Player.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
 		    	for(int i =0; i<5;i++) {
 	        	getObjects(End.class).get(i).unsetEnd();
 	    	}
@@ -132,7 +147,7 @@ public class MyStage extends World{
 	    		 add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", getObjects(Log.class).get(5).getX()+100, 412, -0.75));
 	    		 getObjects(Obstacle.class).get(2).setSpeed(2);
 	    		 getObjects(Obstacle.class).get(11).setSpeed(2);
-	     	     add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(11).getX()+90, 375, 2));
+	     	     add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(11).getX()+120, 375, 2));
 	             add(new Snake("snakew", 100,190,1));
 	             add(new Snake("snake", 0,280,1));
 	     	     getObjects(LadyFrog.class).get(0).setImage(null);

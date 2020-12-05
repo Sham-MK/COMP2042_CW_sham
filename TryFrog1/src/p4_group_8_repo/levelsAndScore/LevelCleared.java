@@ -1,7 +1,9 @@
-package p4_group_8_repo;
+package p4_group_8_repo.levelsAndScore;
 
 import java.util.Timer;
+
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
 
 
 public class LevelCleared extends Actor {

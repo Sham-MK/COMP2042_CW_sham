@@ -1,6 +1,7 @@
-package p4_group_8_repo;
+package p4_group_8_repo.enemies;
 
 import javafx.scene.image.Image;
+import p4_group_8_repo.Actor;
 
 public class Obstacle extends Actor {
 	private double speed;
