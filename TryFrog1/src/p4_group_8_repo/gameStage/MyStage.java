@@ -17,6 +17,7 @@ import p4_group_8_repo.enemies.CrocodileHead;
 import p4_group_8_repo.enemies.Obstacle;
 import p4_group_8_repo.enemies.Snake;
 import p4_group_8_repo.levelsAndScore.Digit;
+import p4_group_8_repo.levelsAndScore.Highscore;
 import p4_group_8_repo.levelsAndScore.Level;
 import p4_group_8_repo.levelsAndScore.Life;
 import p4_group_8_repo.scoreBoosters.Fly;
@@ -25,6 +26,8 @@ import p4_group_8_repo.scoreBoosters.LadyFrog;
 public class MyStage extends World{
 	MediaPlayer mediaPlayer;
     public Timer timer = new Timer();
+    int i;
+    
 	@Override
 	public void act(long now) {
 		
@@ -33,74 +36,83 @@ public class MyStage extends World{
 	public MyStage() {
 		
         BackgroundImage froggerback = new BackgroundImage("file:src/p4_group_8_repo/img/iKogsKW.png");
-		
+
 		add(froggerback);
 		
-		add(new End(6));
-		add(new End(96));
-		add(new End(96 + 40 + 50));
-		add(new End(96 + (40 + 50)*2));
-		add(new End(96 + (40 + 50)*3));
+		add(new ProgressBar());
 		
+		setNumber(new Highscore().read(), "highscore");
+
+		int shiftend = 90;
+		for(int i=0; i<5; i++) {
+			add(new End(6+(shiftend*i)));			
+		}
+				
 		add(new Fly());
 		add(new CrocodileHead());
 		
-		add(new Log("file:src/p4_group_8_repo/img/log2.png", 0, 125, 1.5));
-		add(new Log("file:src/p4_group_8_repo/img/log2.png", 200,125, 1.5));
-		add(new Log("file:src/p4_group_8_repo/img/log2.png", 400, 125, 1.5));
+		for(i = 0; i<3; i++) {
+			add(new Log("file:src/p4_group_8_repo/img/log2.png", 0+(200*i), 125, 2));
+		}
 		
-		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 1.5));
+		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 2));
 		
-		add(new Turtle(0, 155, -1.25, 60, 50,2));
-		add(new WetTurtle(120,155, -1.25, 60, 50,2));
-		add(new Turtle(240, 155, -1.25, 60, 50,2));
-		add(new Turtle(360,155, -1.25, 60, 50,2));
-		add(new WetTurtle(480, 155, -1.25, 60, 50,2)); 
+		for(i = 1; i<5; i++) {
+			if (i%2==0) {
+				add(new WetTurtle(0+(130*i),155, -1.25, 60, 50,2));			
+			}
+			else {
+				add(new Turtle(0+(130*i), 155, -1.25, 60, 50,2));
+			}
+		}
+
+		for(i = 0; i <2; i++) {
+			add(new Log("file:src/p4_group_8_repo/img/logs.png", 0+(350*i), 198, 1.25));			
+		}
 		
-		add(new Log("file:src/p4_group_8_repo/img/logs.png", 0,198, 1.25));
-		add(new Log("file:src/p4_group_8_repo/img/logs.png", 350, 198, 1.25));
-		
-		add(new Log("file:src/p4_group_8_repo/img/log3.png", 0, 235, 0.5));
-		add(new Log("file:src/p4_group_8_repo/img/log3.png", 200,235, 0.5));
-		add(new Log("file:src/p4_group_8_repo/img/log3.png", 400, 235, 0.5));
+		for(i = 0; i <3; i++) {
+			add(new Log("file:src/p4_group_8_repo/img/log3.png", 0+(200*i), 235, 0.75));			
+		}
 		
 		add(new Crocodile(getObjects(Log.class).get(6).getX(), 235, 0.5));
-	
-		add(new Turtle(0, 262, -1.5, 90, 50,3));
-		add(new WetTurtle(120,262, -1.5, 90, 50,3));
-		add(new Turtle(240, 262, -1.5, 90, 50,3));
-		add(new Turtle(360,262, -1.5, 90, 50,3));
-		add(new WetTurtle(480, 262, -1.5, 90, 50,3));
+		
+		for(i = 1; i<5; i++) {
+			if (i%2==0) {
+				add(new WetTurtle(0+(120*i),262, -1.75, 90, 50,3));			
+			}
+			else {
+				add(new Turtle(0+(120*i), 262, -1.75, 90, 50,3));
+			}
+		}
 		
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
-
-
-		add(new Obstacle("file:src/p4_group_8_repo/img/truck2"+"left.png", 0, 340, -1));
-		add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 260, 340, -1));
+        
+        for(i = 0; i<2; i++) {
+    		add(new Obstacle("file:src/p4_group_8_repo/img/truck1"+"left.png", 0+(260*i), 340, -1));
+        }
 		
 		add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 375, 4));
 		
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0, 412, -0.75));
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 120, 412, -0.75));
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 240, 412, -0.75));
+        for(i = 0; i<3; i++) {
+    		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0+(120*i), 412, -0.75));
+        }
+
+        for(i = 0; i<2; i++) {
+    		add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 0+(300*i), 450, 1));
+        }
+        
+        for(i = 0; i<3; i++) {
+    		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 0+(150*i), 490, -0.75));
+        }
+
+		for(i=0; i<4; i++) {
+			add(new Life(0+(25*i)));
+		}
+
 		
-		add(new Obstacle("file:src/p4_group_8_repo/img/truck2Right.png", 100, 450, 1));
-		add(new Obstacle("file:src/p4_group_8_repo/img/truck1right.png", 400, 450, 1));
-		
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 0, 490, -0.75));
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 150, 490, -0.75));
-		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 300, 490, -0.75));
-		
-		add(new Life(0));
-		add(new Life(25));
-		add(new Life(50));
-		add(new Life(75));
-		
-		
-		int shift =0;
+		int shift =15;
 		for(int i=0; i<9; i++) {
-			add(new Level(361-shift));
-			shift+=15;
+			add(new Level(361-(shift*i)));
 		}
 
 	}

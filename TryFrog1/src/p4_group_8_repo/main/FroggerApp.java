@@ -22,8 +22,6 @@ public class FroggerApp extends Application {
 	MyStage background;
 	Player animal;
     Timeline timeline = new Timeline();
-    IntegerProperty timeSeconds = new SimpleIntegerProperty((delay) * 100);
-    Group root = new Group();
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -34,14 +32,12 @@ public class FroggerApp extends Application {
 		
 	    background = new MyStage(); 
 	    Scene scene  = new Scene(background, 424 , 600);
-		background.add(new ProgressBar());
 		animal = new Player();
 		background.add(animal);
         background.startTimer();
 		background.start();
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
-		background.setNumber(new Highscore().read(), "highscore");
 		primaryStage.show();
 		start();  
 	}

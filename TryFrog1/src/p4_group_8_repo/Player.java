@@ -334,7 +334,7 @@ public class Player extends Actor {
 	}
 
 	public boolean getNewLevel() {
-		if(end==1) {
+		if(end==5) {
 			if(getLevel()<10) {
 				level = getLevel() + 1;
 			}
