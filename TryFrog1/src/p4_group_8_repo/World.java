@@ -79,7 +79,7 @@ public abstract class World extends Pane {
         timer.start();
     }
 
-    public void stop() {
+    public void stopGame() {
         timer.stop();
     }
     

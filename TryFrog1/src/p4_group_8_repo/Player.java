@@ -40,7 +40,7 @@ public class Player extends Actor {
 	String s;
     boolean win = false;
 	int lives = 4;
-	int level = 1;
+	int round = 1;
 	public int points = 0;
 	int end = 0;
 	private boolean second = false;
@@ -247,7 +247,7 @@ public class Player extends Actor {
 				setWaterDeath(false);
 				setCarDeath(false);
 				D = 0;
-				setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
+				setImage(imgUP);
 				noMove = false;
 				if (points>50) {
 					points-=50;
@@ -274,7 +274,7 @@ public class Player extends Actor {
 			w=800;
 			getIntersectingObjects(End.class).get(0).setEnd();
 			end++;
-			setImage(new Image("file:src/p4_group_8_repo/img/froggerUp.png", imgSize, imgSize, true, true));
+			setImage(imgUP);
 			setX(195);
 			setY(530);
 			win = false;
@@ -284,8 +284,9 @@ public class Player extends Actor {
 			carDeath = true;
 		}
 
-		if (getIntersectingObjects(LadyFrog.class).size() >= 1) 
-			attached  =true;
+		if (getIntersectingObjects(LadyFrog.class).size() >= 1) {
+    	     setImage(imglUP);
+			 attached  =true;}
 		if (getIntersectingObjects(Log.class).size() >= 1) 
 			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
 		else if (getIntersectingObjects(Turtle.class).size() >= 1 ) {
@@ -333,17 +334,19 @@ public class Player extends Actor {
 		
 	}
 
-	public boolean getNewLevel() {
+	public boolean getNewRound() {
 		if(end==5) {
-			if(getLevel()<10) {
-				level = getLevel() + 1;
-			}
 			end = 0;
+			round += 1;
 			return true;
 		}
 		return false;
 	} 
 	
+	public int getEnd() {
+		return end;
+	}
+
 	public boolean gameover() {
 		return lives<=0;
 		
@@ -394,7 +397,7 @@ public class Player extends Actor {
 	}
 
 	public int getLevel() {
-		return level;
+		return round;
 	}
 
 	public void setWaterDeath(boolean waterDeath) {

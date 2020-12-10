@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import javafx.animation.AnimationTimer;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -19,13 +20,16 @@ import p4_group_8_repo.enemies.Snake;
 import p4_group_8_repo.levelsAndScore.Digit;
 import p4_group_8_repo.levelsAndScore.Highscore;
 import p4_group_8_repo.levelsAndScore.Level;
+import p4_group_8_repo.levelsAndScore.LevelCleared;
 import p4_group_8_repo.levelsAndScore.Life;
 import p4_group_8_repo.scoreBoosters.Fly;
 import p4_group_8_repo.scoreBoosters.LadyFrog;
 
 public class MyStage extends World{
 	MediaPlayer mediaPlayer;
-    public Timer timer = new Timer();
+    Timer timerr = new Timer();
+    AnimationTimer timerc;
+	Player animal;
     int i;
     
 	@Override
@@ -59,29 +63,29 @@ public class MyStage extends World{
 		
 		for(i = 1; i<5; i++) {
 			if (i%2==0) {
-				add(new WetTurtle(0+(130*i),155, -1.25, 60, 50,2));			
+				add(new WetTurtle(0+(150*i),155, -1.25, 60, 50,2));			
 			}
 			else {
-				add(new Turtle(0+(130*i), 155, -1.25, 60, 50,2));
+				add(new Turtle(0+(150*i), 155, -1.25, 60, 50,2));
 			}
 		}
 
 		for(i = 0; i <2; i++) {
-			add(new Log("file:src/p4_group_8_repo/img/logs.png", 0+(350*i), 198, 1.25));			
+			add(new Log("file:src/p4_group_8_repo/img/logs.png", 0+(350*i), 198, 1.5));			
 		}
 		
 		for(i = 0; i <3; i++) {
 			add(new Log("file:src/p4_group_8_repo/img/log3.png", 0+(200*i), 235, 0.75));			
 		}
 		
-		add(new Crocodile(getObjects(Log.class).get(6).getX(), 235, 0.5));
+		add(new Crocodile(getObjects(Log.class).get(3).getX(), 198, 1.5));
 		
 		for(i = 1; i<5; i++) {
 			if (i%2==0) {
-				add(new WetTurtle(0+(120*i),262, -1.75, 90, 50,3));			
+				add(new WetTurtle(0+(140*i),262, -1.75, 90, 50,3));			
 			}
 			else {
-				add(new Turtle(0+(120*i), 262, -1.75, 90, 50,3));
+				add(new Turtle(0+(140*i), 262, -1.75, 90, 50,3));
 			}
 		}
 		
@@ -94,7 +98,7 @@ public class MyStage extends World{
 		add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", 0, 375, 4));
 		
         for(i = 0; i<3; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0+(120*i), 412, -0.75));
+    		add(new Obstacle("file:src/p4_group_8_repo/img/car1Left.png", 0+(180*i), 412, -0.75));
         }
 
         for(i = 0; i<2; i++) {
@@ -102,7 +106,7 @@ public class MyStage extends World{
         }
         
         for(i = 0; i<3; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 0+(150*i), 490, -0.75));
+    		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", 0+(180*i), 490, -0.75));
         }
 
 		for(i=0; i<4; i++) {
@@ -114,8 +118,53 @@ public class MyStage extends World{
 		for(int i=0; i<9; i++) {
 			add(new Level(361-(shift*i)));
 		}
+		
+		animal = new Player();
+		add(animal);
+		
+		startGame();
+
 
 	}
+	
+	
+	public void GameCheck() {
+        timerc = new AnimationTimer() {
+        	
+            @Override
+            public void handle(long now) {
+            	if (animal.changeScore()) {
+            		setNumber(animal.getPoints(), "score");
+            	}
+            	if(animal.gameover()) {
+            		stopMusic();
+            		stopGame();
+            		animal.setNoMove(true);
+            		timerr.cancel();
+            		timerc.stop();
+
+
+            	}
+            	if (animal.getNewRound()) {
+            		 for(i = 0; i<5; i++) {
+	                    	getObjects(End.class).get(i).unsetEnd();
+	                    }
+	                    if(animal.getLevel()<=10) {
+	                    	add(new LevelCleared());
+		                	setNewLevel(animal.getLevel());
+	                		GenerateNewLevel(animal.getLevel());
+	                    }
+            		}
+            	double p =getObjects(ProgressBar.class).get(0).getProgress();
+            	if(animal.isWaterDeath() || animal.isCarDeath() || animal.isWin()) {
+            		getObjects(ProgressBar.class).get(0).setProgress(1);
+            	} 
+            	if(p<=0.0333 && !animal.isWin()) {
+            		animal.setWaterDeath(true);
+            	}
+            }
+        };
+    }
 	
 	public void playMusic() {
 		String musicFile = "src/p4_group_8_repo/gameStage/Frogger Main Song Theme (loop).mp3";   
@@ -142,16 +191,13 @@ public class MyStage extends World{
 		getObjects(Level.class).get(level-2).setImage(null);
     	getObjects(Player.class).get(0).setChangeScore(true);
     	getObjects(Player.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
-    	for(int i =0; i<5;i++) {
-    	getObjects(End.class).get(i).unsetEnd();
-	}
 		
 	}
 	
 	 public void GenerateNewLevel(int level) {
 	    	switch(level) {
 	    	  case 2:
-	    	    add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(2).getX()+90, 375, 4));
+	    	    add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(2).getX()-200, 375, 4));
 	    	    getObjects(Log.class).get(3).setImage(null);
 	    	    getObjects(Crocodile.class).get(0).setShow();
 	    	    getObjects(Log.class).get(1).setImage(null);
@@ -161,8 +207,8 @@ public class MyStage extends World{
 	    	  case 3:
 	    		 getObjects(Obstacle.class).get(2).setSpeed(2);
 	    		 getObjects(Obstacle.class).get(11).setSpeed(2);
-	     	     add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(11).getX()+120, 375, 2));
-	             add(new Snake("snakew", 100,190,1));
+	     	     add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(11).getX()-200, 375, 2));
+	             add(new Snake("snakew", 100,190,1.25));
 	             add(new Snake("snake", 0,280,1));
 	     	     getObjects(LadyFrog.class).get(1).setImage(null);
 	             break;
@@ -170,17 +216,16 @@ public class MyStage extends World{
 	    		 getObjects(Obstacle.class).get(2).setSpeed(3);
 	     		 getObjects(Obstacle.class).get(11).setSpeed(3);
 	     		 getObjects(Obstacle.class).get(12).setSpeed(3);
-	     		 getObjects(Turtle.class).get(3).dontShow();
 	             add(new LadyFrog(getObjects(Log.class).get(2).getX(),getObjects(Log.class).get(2).getY()));
 	     		 break;
 	    	  case 5:
-	    		add(new Obstacle("file:src/p4_group_8_repo/img/car1left.png", getObjects(Obstacle.class).get(9).getX()+150, 490, -0.75));
+		      	getObjects(Crocodile.class).get(1).setShow();
 	    	    getObjects(LadyFrog.class).get(2).setImage(null);
 	            add(new LadyFrog(getObjects(Log.class).get(0).getX(),getObjects(Log.class).get(0).getY()));
 	    	    break;
 	    	  case 6:
-	    		 getObjects(Turtle.class).get(2).dontShow();
 	     	     getObjects(LadyFrog.class).get(3).setImage(null);
+		    	    getObjects(LadyFrog.class).get(3).setImage(null);
 	    	     add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY()));
 	     	    break;
 
@@ -192,8 +237,6 @@ public class MyStage extends World{
 	     	    break;
 
 	    	  case 8:
-	      	     getObjects(Crocodile.class).get(1).setShow();
-	      	     getObjects(Log.class).get(6).setImage(null);
 	     	     getObjects(LadyFrog.class).get(5).setImage(null);
 	     	    break;
 
@@ -201,7 +244,7 @@ public class MyStage extends World{
 	    		 getObjects(Obstacle.class).get(0).setSpeed(-1.25);
 	    		 getObjects(Obstacle.class).get(1).setSpeed(-1.25);
 	     		 add(new Snake("snake",getObjects(Obstacle.class).get(6).getX(), 430, 1));
-	    		 getObjects(Obstacle.class).get(6).setImage(null);
+	    		 getObjects(Obstacle.class).get(5).setImage(null);
 	    	     add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
 
 	    		 break;
@@ -209,7 +252,6 @@ public class MyStage extends World{
 	    		  getObjects(Obstacle.class).get(8).setSpeed(-1.25);
 	    		  getObjects(Obstacle.class).get(9).setSpeed(-1.25);
 	    		  getObjects(Obstacle.class).get(10).setSpeed(-1.25);
-	    		  getObjects(Obstacle.class).get(13).setSpeed(-1.25);
 	      	      getObjects(LadyFrog.class).get(6).setImage(null);
 	    	      add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY()));
 
@@ -246,8 +288,8 @@ public class MyStage extends World{
 	    	}
 	    }
 	 
-	 public void startTimer() {
-	        timer.scheduleAtFixedRate(new TimerTask() {
+	 public void roundTimer() {
+	        timerr.scheduleAtFixedRate(new TimerTask() {
 	            public void run() { 
 	            	double p =getObjects(ProgressBar.class).get(0).getProgress();
 	            	if(p>0.0333) {
@@ -259,6 +301,14 @@ public class MyStage extends World{
 	            }
 	        }, 1500, 1000);
 	        
+	    }
+	 
+	 public void startGame() {
+		    start();
+			roundTimer();
+			playMusic();
+	    	GameCheck();
+	        timerc.start();
 	    }
 
 

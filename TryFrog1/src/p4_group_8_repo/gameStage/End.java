@@ -2,12 +2,14 @@ package p4_group_8_repo.gameStage;
 
 import javafx.scene.image.Image;
 import p4_group_8_repo.Actor;
+import p4_group_8_repo.Player;
 
 public class End extends Actor{
 	boolean activated = false;
 	@Override 
 	public void act(long now) {
-		// TODO Auto-generated method st
+		// TODO Auto-generated method 
+
 	}
 	
 	public End(int x) {

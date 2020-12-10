@@ -17,7 +17,6 @@ public class Turtle extends Actor{
 	boolean bool = true;
 	@Override
 	public void act(long now) {
-		if(show) {
 			if (now/900000000  % 3 ==0) {
 				setImage(turtle2);
 				
@@ -30,10 +29,6 @@ public class Turtle extends Actor{
 				setImage(turtle3);
 				
 			}
-			
-		}else {
-			setImage(null);
-		}
 
 						
 		move(speed , 0);
@@ -56,8 +51,5 @@ public class Turtle extends Actor{
 		setY(ypos);
 		speed = s;
 		setImage(turtle1);
-	}
-	public void dontShow() {
-		show = false;
 	}
 }
