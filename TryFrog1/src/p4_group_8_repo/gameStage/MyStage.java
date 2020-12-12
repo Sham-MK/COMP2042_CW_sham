@@ -152,12 +152,11 @@ public class MyStage extends World{
             		setNumber(animal.getPoints(), "score");
             	}
             	if(animal.gameover()) {
-
-            		stopMusic();
-            		stopGame();
             		animal.setNoMove(true);
-            		timerc.stop();
+            		stopGame();
+            		stopMusic();
             		timerController.stopRoundTimer();
+            		timerc.stop();
 
             		try {
             	           FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
