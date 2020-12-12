@@ -162,11 +162,11 @@ public class MyStage extends World{
 	                		GenerateNewLevel(round);
 	                    }
             		}
-            	if(animal.isWaterDeath() || animal.isCarDeath() || animal.isWin()) {
+            	if(animal.isDead() || animal.isWin()) {
             		timerController.reset();
             	} 
             	if(timerController.getProgress()<=0.0333 && !animal.isWin()) {
-            		animal.setWaterDeath(true);
+    				animal.HandleDeath(now,"waterdeath");
             	}
             }
         };

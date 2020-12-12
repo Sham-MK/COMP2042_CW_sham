@@ -1,11 +1,16 @@
 package p4_group_8_repo.Controller;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.animation.Transition;
 import javafx.event.EventHandler;
 
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.util.Duration;
 import p4_group_8_repo.Model.Actor;
 import p4_group_8_repo.Model.Crocodile;
 import p4_group_8_repo.Model.CrocodileHead;
@@ -50,11 +55,15 @@ public class Player extends Actor {
 	double movementX = 18.5;
 	int imgSize = 28;
 	boolean carDeath = false;
-	boolean waterDeath = false;
 	boolean stop = false;
 	boolean changeScore = false;
 	int D = 0;
 	double w = 600;
+    private boolean dead = false;
+
+	
+
+
 	
 	public Player() {
 
@@ -205,21 +214,79 @@ public class Player extends Actor {
 	public void act(long now) {
 		if (getY()<0 || getY()>530) {
 			setY(530);
+		}	
+		
+		if(getY()<280 && (getX()<0 || getX()>400)) {
+			HandleDeath(now,"waterdeath");
 		}
-		if (getY()>280 && getX()<0) {
-			move(movement, 0);
-		}
-		if (getY()>280 && getX()>400) {
-			move(-movement, 0);
-		}
-			
-		if (isWaterDeath() || isCarDeath()) {
-			noMove = true;
-			if (isWaterDeath()) {
-				 s = "waterdeath";
-			}else {
-				 s = "cardeath";
+		
+		if(win) {
+			points+=50;
+			if(attached || fly) {
+				points+=200;
+				attached = false;
+				fly =false;
 			}
+			changeScore=true;
+			getIntersectingObjects(End.class).get(0).setEnd();
+			end++;
+			Restore();
+			win = false;
+			}
+		
+		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
+			HandleDeath(now,"carDeath");
+		}
+
+		if (getIntersectingObjects(LadyFrog.class).size() >= 1) {
+    	     setImage(imglUP);
+			 attached  =true;
+			 }
+		
+		if (getIntersectingObjects(Log.class).size() >= 1) 
+			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
+		else if (getIntersectingObjects(Turtle.class).size() >= 1 ) {
+			move(getIntersectingObjects(Turtle.class).get(0).getSpeed(),0);
+		}
+		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
+			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
+				HandleDeath(now,"waterdeath");
+			} else {
+				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
+			}
+		}
+		else if (getIntersectingObjects(Crocodile.class).size() >= 1) {
+			if (this.intersects(getIntersectingObjects(Crocodile.class).get(0).getMouth())) {
+				HandleDeath(now,"waterdeath");
+			} else {
+				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
+			}
+		}
+		else if (getIntersectingObjects(Snake.class).size() >= 1) {
+			HandleDeath(now,"waterdeath");
+		}
+		else if (getIntersectingObjects(CrocodileHead.class).size() >= 1) {
+			HandleDeath(now,"waterdeath");
+		}
+		else if (getIntersectingObjects(Fly.class).size() >= 1) {
+			win = true;
+			fly = true;
+		}
+		else if (getIntersectingObjects(End.class).size() >= 1) {
+			if (getIntersectingObjects(End.class).get(0).isActivated()) {
+				end--;
+				points-=50;
+			}
+			win = true;
+		}
+		else if (getY()<280){
+			HandleDeath(now,"waterdeath");
+		}
+	}
+	
+	public void HandleDeath(long now, String s) {
+		    dead = true;
+			noMove = true;
 			if ((now)% 11 == 0) {
 				D++;
 			}
@@ -240,97 +307,27 @@ public class Player extends Actor {
 				lives--;
 				if(attached)
 					attached = false;
-				setX(195);
-				setY(530);
-				setWaterDeath(false);
-				setCarDeath(false);
-				D = 0;
-				setImage(imgUP);
-				noMove = false;
-				if (getPoints()>50) {
-					setPoints(getPoints() - 50);
-					setChangeScore(true);
+				if (points>50) {
+					points-=50;
+					changeScore=true;
 				}
+				Restore();
+				dead = false;
+				D = 0;
 			}
 			
-		}
-	    
 		
-		
-		if(getY()<280 && (getX()<0 || getX()>400)) {
-			setWaterDeath(true);
-		}
-		if(isWin()) {
-			setPoints(getPoints() + 50);
-			if(attached)
-				setPoints(getPoints() + 200);
-				attached = false;
-			if(fly) {
-				setPoints(getPoints() + 200);
-			}
-			setChangeScore(true);
-			w=800;
-			getIntersectingObjects(End.class).get(0).setEnd();
-			setEnd(end + 1);
-			setImage(imgUP);
-			setX(195);
-			setY(530);
-			win = false;
-			fly =false;
-			}
-		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
-			carDeath = true;
-		}
-
-		if (getIntersectingObjects(LadyFrog.class).size() >= 1) {
-    	     setImage(imglUP);
-			 attached  =true;}
-		if (getIntersectingObjects(Log.class).size() >= 1) 
-			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);		
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 ) {
-			move(getIntersectingObjects(Turtle.class).get(0).getSpeed(),0);
-		}
-		else if (getIntersectingObjects(WetTurtle.class).size() >= 1) {
-			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
-				setWaterDeath(true);
-			} else {
-				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
-			}
-		}
-		else if (getIntersectingObjects(Crocodile.class).size() >= 1) {
-			if (this.intersects(getIntersectingObjects(Crocodile.class).get(0).getMouth())) {
-				setWaterDeath(true);
-			} else {
-				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
-			}
-		}
-		else if (getIntersectingObjects(Snake.class).size() >= 1) {
-			setWaterDeath(true);
-		}
-		else if (getIntersectingObjects(CrocodileHead.class).size() >= 1) {
-			setWaterDeath(true);
-		}
-		else if (getIntersectingObjects(Fly.class).size() >= 1) {
-			win = true;
-			fly = true;
-		}
-		else if (getIntersectingObjects(End.class).size() >= 1) {
-			if (getIntersectingObjects(End.class).get(0).isActivated()) {
-				setEnd(end - 1);
-				setPoints(getPoints() - 50);
-			}
-			win = true;
-		}
-		else if (getY()<280){
-			setWaterDeath(true);
-		}
 	}
-	private void setCarDeath(boolean b) {
-		// TODO Auto-generated method stub
-		carDeath = b;
+	
+	public void Restore() {
+		setImage(imgUP);
+		setX(195);
+		setY(530);
+		noMove = false;
 		
 	}
 
+ 
 	public int getEnd() {
 		return end;
 	}
@@ -372,10 +369,7 @@ public class Player extends Actor {
 		this.changeScore = changeScore;
 	}
 
-	public boolean isWaterDeath() {
-		return waterDeath;
-	}
-
+	
 	public boolean isCarDeath() {
 		return carDeath;
 	}
@@ -385,9 +379,7 @@ public class Player extends Actor {
 	}
 
 
-	public void setWaterDeath(boolean waterDeath) {
-		this.waterDeath = waterDeath;
-	}
+	
 
 	public void setPoints(int points) {
 		this.points = points;
@@ -395,6 +387,10 @@ public class Player extends Actor {
 
 	public void setEnd(int end) {
 		this.end = end;
+	}
+
+	public boolean isDead() {
+		return dead;
 	}
 
 }
