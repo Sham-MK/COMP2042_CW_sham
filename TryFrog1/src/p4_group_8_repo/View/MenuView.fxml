@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="Frogger" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="p4_group_8_repo.Controller.MenuController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="431.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:src/p4_group_8_repo/View/img/welcome.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="108.0" layoutY="390.0" mnemonicParsing="false" onAction="#startGame" opacity="0.95" prefHeight="30.0" prefWidth="220.0" style="-fx-background-radius: 25px;" text="Start" textAlignment="CENTER" textFill="#024d0d">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <InnerShadow color="#18b600" height="41.75" radius="22.105" width="48.67" />
+         </effect>
+      </Button>
+      <Button layoutX="108.0" layoutY="439.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.95" prefHeight="30.0" prefWidth="220.0" style="-fx-background-radius: 25px;" text="How To Play" textAlignment="CENTER" textFill="#024d0d">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <effect>
+            <InnerShadow color="#18b600" height="41.75" radius="22.105" width="48.67" />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>
