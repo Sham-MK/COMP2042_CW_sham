@@ -41,7 +41,7 @@ public class Player extends Actor {
     boolean win = false;
 	int lives = 4;
 	int round = 1;
-	public int points = 0;
+	private int points = 0;
 	int end = 0;
 	private boolean second = false;
 	boolean fly = false;
@@ -164,7 +164,7 @@ public class Player extends Actor {
 					if (getY() < w) {
 						setChangeScore(true);
 						w = getY();
-						points+=10;
+						setPoints(getPoints() + 10);
 					}
 	                move(0, -movement);
 	                if(attached)
@@ -238,7 +238,7 @@ public class Player extends Actor {
 				setImage(new Image("file:src/p4_group_8_repo/img/"+s+"4.png", imgSize,imgSize , true, true));
 			}
 			if (D == 5) {
-				getWorld().getObjects(Life.class).get(lives-1).setDead();
+				getWorld().remove(getWorld().getObjects(Life.class).get(lives-1));
 				lives--;
 				if(attached)
 					attached = false;
@@ -249,8 +249,8 @@ public class Player extends Actor {
 				D = 0;
 				setImage(imgUP);
 				noMove = false;
-				if (points>50) {
-					points-=50;
+				if (getPoints()>50) {
+					setPoints(getPoints() - 50);
 					setChangeScore(true);
 				}
 			}
@@ -263,12 +263,12 @@ public class Player extends Actor {
 			setWaterDeath(true);
 		}
 		if(isWin()) {
-			points+=50;
+			setPoints(getPoints() + 50);
 			if(attached)
-				points+=200;
+				setPoints(getPoints() + 200);
 				attached = false;
 			if(fly) {
-				points+=200;
+				setPoints(getPoints() + 200);
 			}
 			setChangeScore(true);
 			w=800;
@@ -320,7 +320,7 @@ public class Player extends Actor {
 			inter = (ArrayList<End>) getIntersectingObjects(End.class);
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				end--;
-				points-=50;
+				setPoints(getPoints() - 50);
 			}
 			win = true;
 		}
@@ -335,7 +335,7 @@ public class Player extends Actor {
 	}
 
 	public boolean getNewRound() {
-		if(end==5) {
+		if(end==1) {
 			end = 0;
 			round += 1;
 			return true;
@@ -402,6 +402,10 @@ public class Player extends Actor {
 
 	public void setWaterDeath(boolean waterDeath) {
 		this.waterDeath = waterDeath;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
 	}
 
 }

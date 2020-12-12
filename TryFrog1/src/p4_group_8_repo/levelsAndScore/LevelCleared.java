@@ -22,7 +22,7 @@ public class LevelCleared extends Actor {
 	public void act(long now) {
 		// TODO Auto-generated method stub
 		if(now % 61 == 0) {
-        	setImage(null);
+        	getWorld().remove(this);
 
 		}
 

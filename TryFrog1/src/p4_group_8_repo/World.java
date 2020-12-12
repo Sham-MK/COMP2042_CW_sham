@@ -92,7 +92,7 @@ public abstract class World extends Pane {
         getChildren().remove(actor);
     }
 
-    public <A> List<A> getObjects(Class<A> cls) {
+    public <A>List<A> getObjects(Class<A> cls) {
         ArrayList<A> someArray = new ArrayList<A>();
         for (Node n: getChildren()) {
             if (cls.isInstance(n)) {
@@ -102,5 +102,4 @@ public abstract class World extends Pane {
         return someArray;
     }
 
-    public abstract void act(long now);
 }

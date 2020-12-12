@@ -1,14 +1,20 @@
 package p4_group_8_repo.gameStage;
 
 import java.io.File;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.io.IOException;
 
 import javafx.animation.AnimationTimer;
-import javafx.scene.control.ProgressBar;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 import p4_group_8_repo.Player;
+import p4_group_8_repo.Roundtime_Controller;
+import p4_group_8_repo.Roundtime_Model;
+import p4_group_8_repo.Roundtime_View;
 import p4_group_8_repo.World;
 import p4_group_8_repo.carriers.Log;
 import p4_group_8_repo.carriers.Turtle;
@@ -19,23 +25,23 @@ import p4_group_8_repo.enemies.Obstacle;
 import p4_group_8_repo.enemies.Snake;
 import p4_group_8_repo.levelsAndScore.Digit;
 import p4_group_8_repo.levelsAndScore.Highscore;
-import p4_group_8_repo.levelsAndScore.Level;
+import p4_group_8_repo.levelsAndScore.Levels;
 import p4_group_8_repo.levelsAndScore.LevelCleared;
 import p4_group_8_repo.levelsAndScore.Life;
+import p4_group_8_repo.main.GameOverController;
 import p4_group_8_repo.scoreBoosters.Fly;
 import p4_group_8_repo.scoreBoosters.LadyFrog;
 
 public class MyStage extends World{
 	MediaPlayer mediaPlayer;
-    Timer timerr = new Timer();
     AnimationTimer timerc;
+    Roundtime_View timerView = new Roundtime_View();
+    Roundtime_Model timerModel = new Roundtime_Model();
 	Player animal;
     int i;
     
-	@Override
-	public void act(long now) {
-		
-	}
+    Roundtime_Controller timerController = new Roundtime_Controller(timerModel, timerView);
+
 	
 	public MyStage() {
 		
@@ -43,7 +49,7 @@ public class MyStage extends World{
 
 		add(froggerback);
 		
-		add(new ProgressBar());
+		add(timerView);
 		
 		setNumber(new Highscore().read(), "highscore");
 
@@ -116,18 +122,27 @@ public class MyStage extends World{
 		
 		int shift =15;
 		for(int i=0; i<9; i++) {
-			add(new Level(361-(shift*i)));
+			add(new Levels(361-(shift*i)));
 		}
 		
 		animal = new Player();
 		add(animal);
 		
+		timerController.setTimer();
+    	timerController.UpdateTimer();
+    	
 		startGame();
 
 
 	}
 	
 	
+	private void add(Roundtime_View timerView2) {
+		// TODO Auto-generated method stub
+		getChildren().add(timerView2);
+		
+	}
+
 	public void GameCheck() {
         timerc = new AnimationTimer() {
         	
@@ -137,11 +152,29 @@ public class MyStage extends World{
             		setNumber(animal.getPoints(), "score");
             	}
             	if(animal.gameover()) {
+
             		stopMusic();
             		stopGame();
             		animal.setNoMove(true);
-            		timerr.cancel();
             		timerc.stop();
+            		timerController.stopRoundTimer();
+
+            		try {
+            	           FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
+            	           AnchorPane root = loader.load();
+            	   
+            	           //The following both lines are the only addition we need to pass the arguments
+            	           GameOverController controller2 = loader.getController();
+            	           controller2.setText(animal.getPoints());
+            	   
+            	           Stage stage = (Stage)(animal).getScene().getWindow(); 
+            	           stage.setScene(new Scene(root));
+            	           stage.show();
+            	   
+            	       } catch (IOException e) {
+            	           e.printStackTrace();
+            	       }
+            		
 
 
             	}
@@ -155,11 +188,10 @@ public class MyStage extends World{
 	                		GenerateNewLevel(animal.getLevel());
 	                    }
             		}
-            	double p =getObjects(ProgressBar.class).get(0).getProgress();
             	if(animal.isWaterDeath() || animal.isCarDeath() || animal.isWin()) {
-            		getObjects(ProgressBar.class).get(0).setProgress(1);
+            		timerController.reset();
             	} 
-            	if(p<=0.0333 && !animal.isWin()) {
+            	if(timerController.getProgress()<=0.0333 && !animal.isWin()) {
             		animal.setWaterDeath(true);
             	}
             }
@@ -178,19 +210,11 @@ public class MyStage extends World{
 		mediaPlayer.stop();
 	}
 
-	public void add(ProgressBar pb) {
-		pb.setProgress(1);
-		pb.setPrefWidth(242);
-	    pb.setTranslateX(120);
-	    pb.setTranslateY(580);
-	    pb.setStyle("-fx-accent: #21de00; -fx-rotate: 180;");
-        getChildren().add(pb);
-    }
 	
 	public void setNewLevel(int level) {
-		getObjects(Level.class).get(level-2).setImage(null);
+		getObjects(Levels.class).get(level-2).setImage(null);
     	getObjects(Player.class).get(0).setChangeScore(true);
-    	getObjects(Player.class).get(0).points+=10*getObjects(ProgressBar.class).get(0).getProgress()*30;
+    	getObjects(Player.class).get(0).setPoints((int) (getObjects(Player.class).get(0).getPoints() + 10*timerController.getProgress()*30));
 		
 	}
 	
@@ -198,19 +222,23 @@ public class MyStage extends World{
 	    	switch(level) {
 	    	  case 2:
 	    	    add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(2).getX()-200, 375, 4));
-	    	    getObjects(Log.class).get(3).setImage(null);
+	    	    remove(getObjects(Log.class).get(3));
 	    	    getObjects(Crocodile.class).get(0).setShow();
-	    	    getObjects(Log.class).get(1).setImage(null);
-	    	    getObjects(LadyFrog.class).get(0).setImage(null);
-	            add(new LadyFrog(getObjects(Log.class).get(0).getX(),getObjects(Log.class).get(0).getY()));
+	    	    remove(getObjects(Log.class).get(1));
+	    	    if(getObjects(LadyFrog.class).size()>0) {
+		    	    remove(getObjects(LadyFrog.class).get(0));
+		            add(new LadyFrog(getObjects(Log.class).get(0).getX(),getObjects(Log.class).get(0).getY())); 	
+	    	    }
 	    	    break;
 	    	  case 3:
 	    		 getObjects(Obstacle.class).get(2).setSpeed(2);
 	    		 getObjects(Obstacle.class).get(11).setSpeed(2);
 	     	     add(new Obstacle("file:src/p4_group_8_repo/img/car1right.png", getObjects(Obstacle.class).get(11).getX()-200, 375, 2));
-	             add(new Snake("snakew", 100,190,1.25));
-	             add(new Snake("snake", 0,280,1));
-	     	     getObjects(LadyFrog.class).get(1).setImage(null);
+	             add(new Snake("snakew", 200,235,0.75));
+	             add(new Snake("snake", 200,280,1));
+	             if(getObjects(LadyFrog.class).size()>0) {
+			    	    remove(getObjects(LadyFrog.class).get(0));
+		    	    }
 	             break;
 	    	  case 4:
 	    		 getObjects(Obstacle.class).get(2).setSpeed(3);
@@ -220,41 +248,52 @@ public class MyStage extends World{
 	     		 break;
 	    	  case 5:
 		      	getObjects(Crocodile.class).get(1).setShow();
-	    	    getObjects(LadyFrog.class).get(2).setImage(null);
-	            add(new LadyFrog(getObjects(Log.class).get(0).getX(),getObjects(Log.class).get(0).getY()));
+	    	    if(getObjects(LadyFrog.class).size()>0) {
+		    	    remove(getObjects(LadyFrog.class).get(0));
+		            add(new LadyFrog(getObjects(Log.class).get(2).getX(),getObjects(Log.class).get(2).getY())); 	
+	    	    }
 	    	    break;
 	    	  case 6:
-	     	     getObjects(LadyFrog.class).get(3).setImage(null);
-		    	    getObjects(LadyFrog.class).get(3).setImage(null);
-	    	     add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY()));
-	     	    break;
+		    	 if(getObjects(LadyFrog.class).size()>0) {
+			    	    remove(getObjects(LadyFrog.class).get(0));
+			            add(new LadyFrog(getObjects(Log.class).get(0).getX(),getObjects(Log.class).get(0).getY())); 	
+		    	    }
+		    	 break;
 
 	    	  case 7:
 	    		 getObjects(Obstacle.class).get(0).setSpeed(-1.5);
 	    		 getObjects(Obstacle.class).get(1).setSpeed(-1.5);
-	     	     getObjects(LadyFrog.class).get(4).setImage(null);
-	    	     add(new LadyFrog(getObjects(Log.class).get(5).getX(),getObjects(Log.class).get(5).getY()));
-	     	    break;
+		    	 if(getObjects(LadyFrog.class).size()>0) {
+			    	    remove(getObjects(LadyFrog.class).get(0));
+			            add(new LadyFrog(getObjects(Log.class).get(5).getX(),getObjects(Log.class).get(5).getY())); 	
+		    	    }
+		    	 break;
 
 	    	  case 8:
-	     	     getObjects(LadyFrog.class).get(5).setImage(null);
-	     	    break;
+	    		  if(getObjects(LadyFrog.class).size()>0) {
+			    	    remove(getObjects(LadyFrog.class).get(0));
+		    	    }
+	    		  break;
 
 	    	  case 9:
 	    		 getObjects(Obstacle.class).get(0).setSpeed(-1.25);
 	    		 getObjects(Obstacle.class).get(1).setSpeed(-1.25);
-	     		 add(new Snake("snake",getObjects(Obstacle.class).get(6).getX(), 430, 1));
-	    		 getObjects(Obstacle.class).get(5).setImage(null);
-	    	     add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
+		    	 remove(getObjects(Obstacle.class).get(6));
+	     		 add(new Snake("snake",getObjects(Obstacle.class).get(7).getX()-300, 430, 1));
+	     		if(getObjects(LadyFrog.class).size()>0) {
+		    	    remove(getObjects(LadyFrog.class).get(0));
+		            add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY())); 	
+	    	    }
 
 	    		 break;
 	    	  case 10:
 	    		  getObjects(Obstacle.class).get(8).setSpeed(-1.25);
 	    		  getObjects(Obstacle.class).get(9).setSpeed(-1.25);
 	    		  getObjects(Obstacle.class).get(10).setSpeed(-1.25);
-	      	      getObjects(LadyFrog.class).get(6).setImage(null);
-	    	      add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY()));
-
+	    		  if(getObjects(LadyFrog.class).size()>0) {
+			    	    remove(getObjects(LadyFrog.class).get(0));
+			            add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY())); 	
+		    	    }
 	     		 break;
 	    	  default:
 	    	    // code block
@@ -288,24 +327,9 @@ public class MyStage extends World{
 	    	}
 	    }
 	 
-	 public void roundTimer() {
-	        timerr.scheduleAtFixedRate(new TimerTask() {
-	            public void run() { 
-	            	double p =getObjects(ProgressBar.class).get(0).getProgress();
-	            	if(p>0.0333) {
-	            	    getObjects(ProgressBar.class).get(0).setProgress(p-0.0333);
-	            	}else {
-	            		getObjects(ProgressBar.class).get(0).setProgress(1);
-	            	}
-	            	
-	            }
-	        }, 1500, 1000);
-	        
-	    }
 	 
 	 public void startGame() {
 		    start();
-			roundTimer();
 			playMusic();
 	    	GameCheck();
 	        timerc.start();

@@ -15,7 +15,7 @@
             <Image url="file:src/p4_group_8_repo/img/welcome.png" />
          </image>
       </ImageView>
-      <Button layoutX="108.0" layoutY="390.0" mnemonicParsing="false" onAction="#startGame" opacity="0.95" prefHeight="30.0" prefWidth="220.0" text="Start" textAlignment="CENTER" textFill="#024d0d">
+      <Button layoutX="108.0" layoutY="390.0" mnemonicParsing="false" onAction="#startGame" opacity="0.95" prefHeight="30.0" prefWidth="220.0" style="-fx-background-radius: 25px;" text="Start" textAlignment="CENTER" textFill="#024d0d">
          <font>
             <Font name="Comic Sans MS" size="13.0" />
          </font>
@@ -26,7 +26,7 @@
             <InnerShadow color="#18b600" height="41.75" radius="22.105" width="48.67" />
          </effect>
       </Button>
-      <Button layoutX="108.0" layoutY="439.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.95" prefHeight="30.0" prefWidth="220.0" text="How To Play" textAlignment="CENTER" textFill="#024d0d">
+      <Button layoutX="108.0" layoutY="439.0" mnemonicParsing="false" onAction="#showInfo" opacity="0.95" prefHeight="30.0" prefWidth="220.0" style="-fx-background-radius: 25px;" text="How To Play" textAlignment="CENTER" textFill="#024d0d">
          <font>
             <Font name="Comic Sans MS" size="13.0" />
          </font>

@@ -14,16 +14,16 @@ public class Fly extends Actor {
 		// TODO Auto-generated constructor stub
     	timer.scheduleAtFixedRate(new TimerTask() {
             public void run() { 
-         	setImage(new Image("file:src/p4_group_8_repo/img/fly.png", 25, 25, true, true));
+         	setImage(new Image("file:src/p4_group_8_repo/img/fly.png", 35, 28, true, true));
        	    setX(20+shift); 
-       	    setY(85);
+       	    setY(86);
        	    if(shift==360) {
              	shift =0;
              }
             shift+=90;
   	
             }
-        }, 1000, 15000);
+        }, 6000, 12000);
 
 	}
 
