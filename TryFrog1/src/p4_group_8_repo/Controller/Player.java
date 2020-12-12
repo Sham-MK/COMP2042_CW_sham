@@ -19,7 +19,7 @@ import p4_group_8_repo.Model.Fly;
 import p4_group_8_repo.Model.LadyFrog;
 import p4_group_8_repo.Model.Life;
 import p4_group_8_repo.Model.Log;
-import p4_group_8_repo.Model.Obstacle;
+import p4_group_8_repo.Model.Car;
 import p4_group_8_repo.Model.Snake;
 import p4_group_8_repo.Model.Turtle;
 import p4_group_8_repo.Model.WetTurtle;
@@ -234,7 +234,7 @@ public class Player extends Actor {
 			win = false;
 			}
 		
-		if (getIntersectingObjects(Obstacle.class).size() >= 1) {
+		if (getIntersectingObjects(Car.class).size() >= 1) {
 			HandleDeath(now,"carDeath");
 		}
 

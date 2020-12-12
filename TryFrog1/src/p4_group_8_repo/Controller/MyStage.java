@@ -17,7 +17,7 @@ import p4_group_8_repo.Model.LevelCleared;
 import p4_group_8_repo.Model.Levels;
 import p4_group_8_repo.Model.Life;
 import p4_group_8_repo.Model.Log;
-import p4_group_8_repo.Model.Obstacle;
+import p4_group_8_repo.Model.Car;
 import p4_group_8_repo.Model.Roundtime_Model;
 import p4_group_8_repo.Model.Score;
 import p4_group_8_repo.Model.Snake;
@@ -96,21 +96,21 @@ public class MyStage extends World{
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
         
         for(i = 0; i<2; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/View/img/truck1"+"left.png", 0+(260*i), 340, -1));
+    		add(new Car("file:src/p4_group_8_repo/View/img/truck1"+"left.png", 0+(260*i), 340, -1));
         }
 		
-		add(new Obstacle("file:src/p4_group_8_repo/View/img/car1right.png", 0, 375, 4));
+		add(new Car("file:src/p4_group_8_repo/View/img/car1right.png", 0, 375, 4));
 		
         for(i = 0; i<3; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/View/img/car1Left.png", 0+(180*i), 412, -0.75));
+    		add(new Car("file:src/p4_group_8_repo/View/img/car1Left.png", 0+(180*i), 412, -0.75));
         }
 
         for(i = 0; i<2; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/View/img/truck2Right.png", 0+(300*i), 450, 1));
+    		add(new Car("file:src/p4_group_8_repo/View/img/truck2Right.png", 0+(300*i), 450, 1));
         }
         
         for(i = 0; i<3; i++) {
-    		add(new Obstacle("file:src/p4_group_8_repo/View/img/car1left.png", 0+(180*i), 490, -0.75));
+    		add(new Car("file:src/p4_group_8_repo/View/img/car1left.png", 0+(180*i), 490, -0.75));
         }
 
 		for(i=0; i<4; i++) {
@@ -195,7 +195,7 @@ public class MyStage extends World{
 	 public void GenerateNewLevel(int level) {
 	    	switch(level) {
 	    	  case 2:
-	    	    add(new Obstacle("file:src/p4_group_8_repo/View/img/car1right.png", getObjects(Obstacle.class).get(2).getX()-200, 375, 4));
+	    	    add(new Car("file:src/p4_group_8_repo/View/img/car1right.png", getObjects(Car.class).get(2).getX()-200, 375, 4));
 	    	    remove(getObjects(Log.class).get(3));
 	    	    getObjects(Crocodile.class).get(0).setShow();
 	    	    remove(getObjects(Log.class).get(1));
@@ -209,9 +209,9 @@ public class MyStage extends World{
 	    	    }
 	    	    break;
 	    	  case 3:
-	    		 getObjects(Obstacle.class).get(2).setSpeed(2);
-	    		 getObjects(Obstacle.class).get(11).setSpeed(2);
-	     	     add(new Obstacle("file:src/p4_group_8_repo/View/img/car1right.png", getObjects(Obstacle.class).get(11).getX()-200, 375, 2));
+	    		 getObjects(Car.class).get(2).setSpeed(2);
+	    		 getObjects(Car.class).get(11).setSpeed(2);
+	     	     add(new Car("file:src/p4_group_8_repo/View/img/car1right.png", getObjects(Car.class).get(11).getX()-200, 375, 2));
 	             add(new Snake("snakew", 200,235,0.75));
 	             add(new Snake("snake", 200,280,1));
 	             if(getObjects(LadyFrog.class).size()>0) {
@@ -219,9 +219,9 @@ public class MyStage extends World{
 		    	    }
 	             break;
 	    	  case 4:
-	    		 getObjects(Obstacle.class).get(2).setSpeed(2);
-	     		 getObjects(Obstacle.class).get(11).setSpeed(2);
-	     		 getObjects(Obstacle.class).get(12).setSpeed(2);
+	    		 getObjects(Car.class).get(2).setSpeed(2);
+	     		 getObjects(Car.class).get(11).setSpeed(2);
+	     		 getObjects(Car.class).get(12).setSpeed(2);
 	             add(new LadyFrog(getObjects(Log.class).get(2).getX(),getObjects(Log.class).get(2).getY()));
 	     		 break;
 	    	  case 5:
@@ -243,8 +243,8 @@ public class MyStage extends World{
 		    	 break;
 
 	    	  case 7:
-	    		 getObjects(Obstacle.class).get(0).setSpeed(-1.5);
-	    		 getObjects(Obstacle.class).get(1).setSpeed(-1.5);
+	    		 getObjects(Car.class).get(0).setSpeed(-1.5);
+	    		 getObjects(Car.class).get(1).setSpeed(-1.5);
 		    	 if(getObjects(LadyFrog.class).size()>0) {
 			    	    remove(getObjects(LadyFrog.class).get(0));
 			            add(new LadyFrog(getObjects(Log.class).get(5).getX(),getObjects(Log.class).get(5).getY())); 	
@@ -258,10 +258,10 @@ public class MyStage extends World{
 	    		  break;
 
 	    	  case 9:
-	    		 getObjects(Obstacle.class).get(0).setSpeed(-1.25);
-	    		 getObjects(Obstacle.class).get(1).setSpeed(-1.25);
-		    	 remove(getObjects(Obstacle.class).get(6));
-	     		 add(new Snake("snake",getObjects(Obstacle.class).get(7).getX()-300, 430, 1));
+	    		 getObjects(Car.class).get(0).setSpeed(-1.25);
+	    		 getObjects(Car.class).get(1).setSpeed(-1.25);
+		    	 remove(getObjects(Car.class).get(6));
+	     		 add(new Snake("snake",getObjects(Car.class).get(7).getX()-300, 430, 1));
 	     		if(getObjects(LadyFrog.class).size()>0) {
 		    	    remove(getObjects(LadyFrog.class).get(0));
 		            add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY())); 	
@@ -269,9 +269,9 @@ public class MyStage extends World{
 
 	    		 break;
 	    	  case 10:
-	    		  getObjects(Obstacle.class).get(8).setSpeed(-1.25);
-	    		  getObjects(Obstacle.class).get(9).setSpeed(-1.25);
-	    		  getObjects(Obstacle.class).get(10).setSpeed(-1.25);
+	    		  getObjects(Car.class).get(8).setSpeed(-1.25);
+	    		  getObjects(Car.class).get(9).setSpeed(-1.25);
+	    		  getObjects(Car.class).get(10).setSpeed(-1.25);
 	    		  if(getObjects(LadyFrog.class).size()>0) {
 			    	    remove(getObjects(LadyFrog.class).get(0));
 			            add(new LadyFrog(getObjects(Log.class).get(4).getX(),getObjects(Log.class).get(4).getY())); 	

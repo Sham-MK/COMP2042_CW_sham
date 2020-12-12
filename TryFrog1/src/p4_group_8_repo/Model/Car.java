@@ -2,7 +2,7 @@ package p4_group_8_repo.Model;
 
 import javafx.scene.image.Image;
 
-public class Obstacle extends Actor {
+public class Car extends Actor {
 	private double speed;
 	public double getSpeed() {
 		return speed;
@@ -21,7 +21,7 @@ public class Obstacle extends Actor {
 			setX(424);
 	} 
 	
-	public Obstacle(String imageLink, double xpos, int ypos, double s) {
+	public Car(String imageLink, double xpos, int ypos, double s) {
 		setImage(new Image(imageLink,getWidth(),30,true,true));
 		setX(xpos);
 		setY(ypos);
