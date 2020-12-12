@@ -156,7 +156,6 @@ public class MyStage extends World{
             		stopGame();
             		stopMusic();
             		timerController.stopRoundTimer();
-            		timerc.stop();
 
             		try {
             	           FXMLLoader loader = new FXMLLoader(getClass().getResource("GameOverView.fxml"));
@@ -174,6 +173,7 @@ public class MyStage extends World{
             	           e.printStackTrace();
             	       }
             		
+            		timerc.stop();
 
 
             	}
