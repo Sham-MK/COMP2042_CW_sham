@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import p4_group_8_repo.Model.HighscoreHandler;
+import p4_group_8_repo.Model.Score;
 import p4_group_8_repo.View.SceneManager;
 
 
@@ -20,7 +20,7 @@ public class GameOverController {
 
 	}
     public void setText(int points) {
-    	HighscoreHandler scorePointer = new HighscoreHandler();
+    	Score scorePointer = new Score();
 		int score = scorePointer.read();
 		if(points>score) {
 		    highscore.setText("Old Highscore: "+score+"\n\nNew Highscore: "+points);

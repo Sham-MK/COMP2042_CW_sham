@@ -11,7 +11,6 @@ import p4_group_8_repo.Model.Crocodile;
 import p4_group_8_repo.Model.CrocodileHead;
 import p4_group_8_repo.Model.End;
 import p4_group_8_repo.Model.Fly;
-import p4_group_8_repo.Model.HighscoreHandler;
 import p4_group_8_repo.Model.LadyFrog;
 import p4_group_8_repo.Model.LevelCleared;
 import p4_group_8_repo.Model.Levels;
@@ -46,7 +45,7 @@ public class MyStage extends World{
 
 		add(froggerback);
 		add(score);
-		score.setNumber(new HighscoreHandler().read(), "highscore");
+		score.setHighScore();
 		
 		add(timerView);
 		
