@@ -11,7 +11,7 @@ public class BackgroundImage extends Actor{
 	}
 	
 	public BackgroundImage() {
-		setImage(new Image("file:src/p4_group_8_repo/View/img/iKogsKW.png", 500, 600, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/view/img/iKogsKW.png", 500, 600, true, true));
 		
 	}
 

@@ -47,15 +47,15 @@ public class WetTurtle extends Actor{
 	}
 	public WetTurtle(int xpos, int ypos, double s, int w, int h, int num_turtles) {
 		if(num_turtles == 3) {
-			turtle1 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation1.png", w, h, true, true);
-			turtle2 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation2Wet.png", w, h, true, true);
-			turtle3 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation3Wet.png", w, h, true, true);
-			turtle4 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation4Wet.png", w, h, true, true);
+			turtle1 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation1.png", w, h, true, true);
+			turtle2 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation2Wet.png", w, h, true, true);
+			turtle3 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation3Wet.png", w, h, true, true);
+			turtle4 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation4Wet.png", w, h, true, true);
 		}else if(num_turtles == 2) {
-			turtle1 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation2-1.png", w, h, true, true);
-			turtle2 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation2-2Wet.png", w, h, true, true);
-			turtle3 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation2-3Wet.png", w, h, true, true);
-			turtle4 = new Image("file:src/p4_group_8_repo/View/img/TurtleAnimation2-4Wet.png", w, h, true, true);
+			turtle1 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation2-1.png", w, h, true, true);
+			turtle2 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation2-2Wet.png", w, h, true, true);
+			turtle3 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation2-3Wet.png", w, h, true, true);
+			turtle4 = new Image("file:src/p4_group_8_repo/view/img/TurtleAnimation2-4Wet.png", w, h, true, true);
 		}
 	
 		setX(xpos);

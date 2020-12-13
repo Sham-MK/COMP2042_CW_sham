@@ -11,11 +11,11 @@ public class Snake extends Actor {
 	public Snake(String n, double xpos, int ypos, double s) {
 		// TODO Auto-generated constructor stub
 		if(n =="snake") {
-		     snake1 = new Image("file:src/p4_group_8_repo/View/img/snake1.png", 80, 80, true, true);
-		     snake2 = new Image("file:src/p4_group_8_repo/View/img/snake2.png", 80, 80, true, true);
+		     snake1 = new Image("file:src/p4_group_8_repo/view/img/snake1.png", 80, 80, true, true);
+		     snake2 = new Image("file:src/p4_group_8_repo/view/img/snake2.png", 80, 80, true, true);
 		}else if(n =="snakew") {
-			snake1 = new Image("file:src/p4_group_8_repo/View/img/snakew.png", 25, 25, true, true);
-			snake2 = new Image("file:src/p4_group_8_repo/View/img/snakew1.png", 25, 25, true, true);
+			snake1 = new Image("file:src/p4_group_8_repo/view/img/snakew.png", 25, 25, true, true);
+			snake2 = new Image("file:src/p4_group_8_repo/view/img/snakew1.png", 25, 25, true, true);
 		}
 		setX(xpos);
 		setY(ypos);

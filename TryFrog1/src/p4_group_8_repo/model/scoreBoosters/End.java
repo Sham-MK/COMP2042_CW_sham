@@ -14,15 +14,15 @@ public class End extends Actor{
 	public End(int x) {
 		setX(x); 
 		setY(67);
-		setImage(new Image("file:src/p4_group_8_repo/View/img/End.png", 50, 50, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/view/img/End.png", 50, 50, true, true));
 	}
 	
 	public void setEnd() {
-		setImage(new Image("file:src/p4_group_8_repo/View/img/FrogEnd.png", 50, 50, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/view/img/FrogEnd.png", 50, 50, true, true));
 		activated = true;
 	}
 	public void unsetEnd() {
-		setImage(new Image("file:src/p4_group_8_repo/View/img/End.png", 50, 50, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/view/img/End.png", 50, 50, true, true));
 		activated = false;
 	}
 	

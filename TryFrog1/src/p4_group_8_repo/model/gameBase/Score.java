@@ -15,7 +15,7 @@ public class Score extends Actor {
 	public Score() {
 		
 	}
-	File file = new File("src/p4_group_8_repo/Model/score.txt");
+	File file = new File("src/p4_group_8_repo/model/gameBase/score.txt");
 	int score;
 	int dim;
 	Image im1;

@@ -15,10 +15,10 @@ public class LadyFrog extends Actor {
 	Timer timer = new Timer();
 	public LadyFrog(double x, double y) {
 		// TODO Auto-generated constructor stub
-		imgLEFT = new Image("file:src/p4_group_8_repo/View/img/lLeft.png", imgSize, imgSize, true, true);
-		imgDOWN = new Image("file:src/p4_group_8_repo/View/img/lDown.png", imgSize, imgSize, true, true);
-		imgRIGHT = new Image("file:src/p4_group_8_repo/View/img/lRight.png", imgSize, imgSize, true, true);
-		imgUP = new Image("file:src/p4_group_8_repo/View/img/lUp.png", imgSize, imgSize, true, true);
+		imgLEFT = new Image("file:src/p4_group_8_repo/view/img/lLeft.png", imgSize, imgSize, true, true);
+		imgDOWN = new Image("file:src/p4_group_8_repo/view/img/lDown.png", imgSize, imgSize, true, true);
+		imgRIGHT = new Image("file:src/p4_group_8_repo/view/img/lRight.png", imgSize, imgSize, true, true);
+		imgUP = new Image("file:src/p4_group_8_repo/view/img/lUp.png", imgSize, imgSize, true, true);
 		setImage(imgUP);
 		setX(x+50);
 		setY(y);

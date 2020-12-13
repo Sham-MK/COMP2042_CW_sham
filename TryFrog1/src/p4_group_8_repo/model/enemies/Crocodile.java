@@ -27,8 +27,8 @@ public class Crocodile extends Actor {
 	@Override
 	public void act(long now) {
 		if(show) {
-			crocodile1 = new Image("file:src/p4_group_8_repo/View/img/crocodile.png", 130, 100, true, true);
-			crocodile2 = new Image("file:src/p4_group_8_repo/View/img/crocodile1.png", 130, 100, true, true);
+			crocodile1 = new Image("file:src/p4_group_8_repo/view/img/crocodile.png", 130, 100, true, true);
+			crocodile2 = new Image("file:src/p4_group_8_repo/view/img/crocodile1.png", 130, 100, true, true);
 		}
 		else {
 			crocodile1 = null;

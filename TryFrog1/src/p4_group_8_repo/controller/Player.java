@@ -70,25 +70,25 @@ public class Player extends Actor {
 		
 		
 
-		setImage(new Image("file:src/p4_group_8_repo/View/img/froggerUp.png", imgSize, imgSize, true, true));
+		setImage(new Image("file:src/p4_group_8_repo/view/img/froggerUp.png", imgSize, imgSize, true, true));
 		setX(195);
 		setY(530);
-		imglUP = new Image("file:src/p4_group_8_repo/View/img/lUp.png", imgSize, imgSize, true, true);
-		imglLEFT = new Image("file:src/p4_group_8_repo/View/img/lLeft.png", imgSize, imgSize, true, true);
-		imglDOWN = new Image("file:src/p4_group_8_repo/View/img/lDown.png", imgSize, imgSize, true, true);
-		imglRIGHT = new Image("file:src/p4_group_8_repo/View/img/lRight.png", imgSize, imgSize, true, true);
-		imglUPJ = new Image("file:src/p4_group_8_repo/View/img/lUpJump.png", imgSize, imgSize, true, true);
-		imglLEFTJ = new Image("file:src/p4_group_8_repo/View/img/lLeftJump.png", imgSize, imgSize, true, true);
-		imglDOWNJ = new Image("file:src/p4_group_8_repo/View/img/lDownJump.png", imgSize, imgSize, true, true);
-		imglRIGHTJ = new Image("file:src/p4_group_8_repo/View/img/lRightJump.png", imgSize, imgSize, true, true);
-		imgUP = new Image("file:src/p4_group_8_repo/View/img/froggerUp.png", imgSize, imgSize, true, true);
-		imgLEFT = new Image("file:src/p4_group_8_repo/View/img/froggerLeft.png", imgSize, imgSize, true, true);
-		imgDOWN = new Image("file:src/p4_group_8_repo/View/img/froggerDown.png", imgSize, imgSize, true, true);
-		imgRIGHT = new Image("file:src/p4_group_8_repo/View/img/froggerRight.png", imgSize, imgSize, true, true);
-		imgUPJ = new Image("file:src/p4_group_8_repo/View/img/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgLEFTJ = new Image("file:src/p4_group_8_repo/View/img/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgDOWNJ = new Image("file:src/p4_group_8_repo/View/img/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgRIGHTJ = new Image("file:src/p4_group_8_repo/View/img/froggerRightJump.png", imgSize, imgSize, true, true);
+		imglUP = new Image("file:src/p4_group_8_repo/view/img/lUp.png", imgSize, imgSize, true, true);
+		imglLEFT = new Image("file:src/p4_group_8_repo/view/img/lLeft.png", imgSize, imgSize, true, true);
+		imglDOWN = new Image("file:src/p4_group_8_repo/view/img/lDown.png", imgSize, imgSize, true, true);
+		imglRIGHT = new Image("file:src/p4_group_8_repo/view/img/lRight.png", imgSize, imgSize, true, true);
+		imglUPJ = new Image("file:src/p4_group_8_repo/view/img/lUpJump.png", imgSize, imgSize, true, true);
+		imglLEFTJ = new Image("file:src/p4_group_8_repo/view/img/lLeftJump.png", imgSize, imgSize, true, true);
+		imglDOWNJ = new Image("file:src/p4_group_8_repo/view/img/lDownJump.png", imgSize, imgSize, true, true);
+		imglRIGHTJ = new Image("file:src/p4_group_8_repo/view/img/lRightJump.png", imgSize, imgSize, true, true);
+		imgUP = new Image("file:src/p4_group_8_repo/view/img/froggerUp.png", imgSize, imgSize, true, true);
+		imgLEFT = new Image("file:src/p4_group_8_repo/view/img/froggerLeft.png", imgSize, imgSize, true, true);
+		imgDOWN = new Image("file:src/p4_group_8_repo/view/img/froggerDown.png", imgSize, imgSize, true, true);
+		imgRIGHT = new Image("file:src/p4_group_8_repo/view/img/froggerRight.png", imgSize, imgSize, true, true);
+		imgUPJ = new Image("file:src/p4_group_8_repo/view/img/froggerUpJump.png", imgSize, imgSize, true, true);
+		imgLEFTJ = new Image("file:src/p4_group_8_repo/view/img/froggerLeftJump.png", imgSize, imgSize, true, true);
+		imgDOWNJ = new Image("file:src/p4_group_8_repo/view/img/froggerDownJump.png", imgSize, imgSize, true, true);
+		imgRIGHTJ = new Image("file:src/p4_group_8_repo/view/img/froggerRightJump.png", imgSize, imgSize, true, true);
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) { 
@@ -211,14 +211,14 @@ public class Player extends Actor {
 			}
 			
 		});
-		carD.add(new Image("file:src/p4_group_8_repo/View/img/cardeath1.png", imgSize,imgSize , true, true));
-	    carD.add(new Image("file:src/p4_group_8_repo/View/img/cardeath2.png", imgSize,imgSize , true, true));
-	    carD.add(new Image("file:src/p4_group_8_repo/View/img/cardeath3.png", imgSize,imgSize , true, true));
+		carD.add(new Image("file:src/p4_group_8_repo/view/img/cardeath1.png", imgSize,imgSize , true, true));
+	    carD.add(new Image("file:src/p4_group_8_repo/view/img/cardeath2.png", imgSize,imgSize , true, true));
+	    carD.add(new Image("file:src/p4_group_8_repo/view/img/cardeath3.png", imgSize,imgSize , true, true));
 
-	    waterD.add(new Image("file:src/p4_group_8_repo/View/img/waterdeath1.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/p4_group_8_repo/View/img/waterdeath2.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/p4_group_8_repo/View/img/waterdeath3.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/p4_group_8_repo/View/img/waterdeath4.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("file:src/p4_group_8_repo/view/img/waterdeath1.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("file:src/p4_group_8_repo/view/img/waterdeath2.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("file:src/p4_group_8_repo/view/img/waterdeath3.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("file:src/p4_group_8_repo/view/img/waterdeath4.png", imgSize,imgSize , true, true));
 
 	}
 	
