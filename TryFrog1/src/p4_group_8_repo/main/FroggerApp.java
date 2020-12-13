@@ -3,7 +3,7 @@ package p4_group_8_repo.main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import p4_group_8_repo.View.SceneManager;
+import p4_group_8_repo.view.SceneManager;
 
 
 public class FroggerApp extends Application {
