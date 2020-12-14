@@ -46,6 +46,7 @@ public class LadyFrog extends Actor {
 			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);
 		}
 		if(getWorld().getObjects(Player.class).get(0).isAttached()) {
+			getWorld().getObjects(Player.class).get(0).playMedia("bonus");
 			getWorld().remove(this);
 		}
 

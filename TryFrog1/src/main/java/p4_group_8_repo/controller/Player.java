@@ -2,6 +2,7 @@ package p4_group_8_repo.controller;
 
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,8 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 import p4_group_8_repo.model.carriers.Log;
 import p4_group_8_repo.model.carriers.Turtle;
@@ -228,6 +231,7 @@ public class Player extends Actor {
 		HandleOutOfBounds();
 		
 		if(win) {
+			playMedia("win");
 			points+=50;
 			if(attached || fly) {
 				points+=200;
@@ -302,6 +306,9 @@ public class Player extends Actor {
 	
 	private void HandleOutOfBounds() {
 		// TODO Auto-generated method stub
+		if ( getY()>530) {	
+			setY(530);	
+		}	
 		if ( getX()<0) {	
 			move(movement, 0);	
 		}	
@@ -315,10 +322,25 @@ public class Player extends Actor {
 		
 	}
 
+	public void playMedia(String s) {
+		String musicFile = "src/main/resources/"+s+".mp3";   
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		getWorld().getMediaPlayer().currentTimeProperty();
+		mediaPlayer.setOnEndOfMedia(() -> {
+			getWorld().getMediaPlayer().setMute(false); 
+		});  
+		getWorld().getMediaPlayer().setMute(true);
+	    mediaPlayer.play();
+		
+
+
+	}
 
 	public void HandleDeath(List<Image> images) {
 		    dead = true;
 			noMove = true;
+			playMedia("dead");
 			Transition animation = new Transition() {
 			    {
 			        setCycleDuration(Duration.millis(1000)); // total time for animation

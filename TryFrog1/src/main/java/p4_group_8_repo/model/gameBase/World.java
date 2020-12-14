@@ -1,4 +1,5 @@
 package p4_group_8_repo.model.gameBase;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,10 +11,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 public abstract class World extends Pane {
     private AnimationTimer timer;
+	private MediaPlayer mediaPlayer;
+
     
     public World() {
     	
@@ -101,5 +106,25 @@ public abstract class World extends Pane {
         }
         return someArray;
     }
+    
+    public void playMusic() {
+		String musicFile = "src/main/resources/Frogger Main Song Theme (loop).mp3";   
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		setMediaPlayer(new MediaPlayer(sound));
+		getMediaPlayer().setCycleCount(MediaPlayer.INDEFINITE);
+	    getMediaPlayer().play();
+	}
+	
+	public void stopMusic() {
+		getMediaPlayer().stop();
+	}
+
+	public MediaPlayer getMediaPlayer() {
+		return mediaPlayer;
+	}
+
+	public void setMediaPlayer(MediaPlayer mediaPlayer) {
+		this.mediaPlayer = mediaPlayer;
+	}
 
 }

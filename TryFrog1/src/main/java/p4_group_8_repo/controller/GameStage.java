@@ -28,7 +28,6 @@ import p4_group_8_repo.view.SceneManager;
 
 public class GameStage extends World{
 	SceneManager manager = new SceneManager();
-	MediaPlayer mediaPlayer;
     AnimationTimer timerc;
     Roundtime_View timerview = new Roundtime_View();
     Roundtime_Model timerModel = new Roundtime_Model();
@@ -147,7 +146,8 @@ public class GameStage extends World{
             public void handle(long now) {
             	
             	if(animal.gameover()) {
-            		stopGame();
+        	 		stopMusic();
+        	 		stopGame();
             		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints());
 
             	}
@@ -171,17 +171,6 @@ public class GameStage extends World{
         };
     }
 	
-	public void playMusic() {
-		String musicFile = "src/main/resources/Frogger Main Song Theme (loop).mp3";   
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		mediaPlayer = new MediaPlayer(sound);
-		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-	    mediaPlayer.play();
-	}
-	
-	public void stopMusic() {
-		mediaPlayer.stop();
-	}
 
 	
 	public void setNewLevel(int level) {
@@ -304,8 +293,7 @@ public class GameStage extends World{
 	 public void stopGame() {
 		    animal.setNoMove(true);
 	 		stop();
-	 		stopMusic();
-//	 		timerController.stopRoundTimer();
+	 		timerController.stopRoundTimer();
     		timerc.stop();
 	 }
 	 
