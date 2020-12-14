@@ -26,7 +26,7 @@ import p4_group_8_repo.model.scoreBoosters.LadyFrog;
 import p4_group_8_repo.view.Roundtime_View;
 import p4_group_8_repo.view.SceneManager;
 
-public class MyStage extends World{
+public class GameStage extends World{
 	SceneManager manager = new SceneManager();
 	MediaPlayer mediaPlayer;
     AnimationTimer timerc;
@@ -40,7 +40,7 @@ public class MyStage extends World{
     Roundtime_Controller timerController = new Roundtime_Controller(timerModel, timerview);
 
 	
-	public MyStage() {
+	public GameStage() {
         BackgroundImage froggerback = new BackgroundImage();
 
 		add(froggerback);

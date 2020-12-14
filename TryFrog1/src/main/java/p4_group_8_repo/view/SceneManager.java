@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import p4_group_8_repo.controller.GameOverController;
-import p4_group_8_repo.controller.MyStage;
+import p4_group_8_repo.controller.GameStage;
 
 public class SceneManager {
 
@@ -26,7 +26,7 @@ public class SceneManager {
 	}
 	
 	public void startGame(Stage window) {
-		MyStage newGame = new MyStage();
+		GameStage newGame = new GameStage();
 		Scene game = new Scene(newGame, 424 , 600);	
 		window.setScene(game);
 		window.setResizable(false);
