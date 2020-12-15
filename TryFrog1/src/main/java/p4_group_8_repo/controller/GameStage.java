@@ -92,9 +92,11 @@ public class GameStage extends World{
 		
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
         
-        for(i = 0; i<2; i++) {
-    		add(new Car("/img/truck1left.png", 0+(260*i), 340, -1));
-        }
+        
+		add(new Car("/img/truck1left.png", 0, 340, -1));
+		add(new Car("/img/truck2left.png", 300, 340, -1));
+        
+		
 		
 		add(new Car("/img/car1right.png", 0, 375, 4));
 		
@@ -102,9 +104,8 @@ public class GameStage extends World{
     		add(new Car("/img/car1Left.png", 0+(180*i), 412, -0.75));
         }
 
-        for(i = 0; i<2; i++) {
-    		add(new Car("/img/truck2Right.png", 0+(300*i), 450, 1));
-        }
+		add(new Car("/img/truck1Right.png", 0, 450, 1));
+		add(new Car("/img/truck2Right.png", 300, 450, 1));
         
         for(i = 0; i<3; i++) {
     		add(new Car("/img/car1left.png", 0+(180*i), 490, -0.75));
