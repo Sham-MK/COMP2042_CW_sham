@@ -2,7 +2,6 @@ package p4_group_8_repo.model.scoreBoosters;
 
 import java.util.Timer;
 
-import javafx.scene.CacheHint;
 import javafx.scene.image.Image;
 import p4_group_8_repo.controller.Player;
 import p4_group_8_repo.model.carriers.Log;

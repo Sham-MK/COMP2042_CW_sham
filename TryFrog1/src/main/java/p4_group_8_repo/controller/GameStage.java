@@ -28,6 +28,7 @@ import p4_group_8_repo.view.SceneManager;
 
 public class GameStage extends World{
 	SceneManager manager = new SceneManager();
+	private MediaPlayer mediaPlayer;
     AnimationTimer timerc;
     Roundtime_View timerview = new Roundtime_View();
     Roundtime_Model timerModel = new Roundtime_Model();
@@ -92,7 +93,7 @@ public class GameStage extends World{
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
         
         for(i = 0; i<2; i++) {
-    		add(new Car("/img/truck1"+"left.png", 0+(260*i), 340, -1));
+    		add(new Car("/img/truck1left.png", 0+(260*i), 340, -1));
         }
 		
 		add(new Car("/img/car1right.png", 0, 375, 4));
@@ -249,14 +250,14 @@ public class GameStage extends World{
 	 public void playMusic(double v) {
 			String musicFile = "src/main/resources/Frogger Main Song Theme (loop).mp3";   
 			Media sound = new Media(new File(musicFile).toURI().toString());
-			setMediaPlayer(new MediaPlayer(sound));
-			getMediaPlayer().setVolume(v);
-			getMediaPlayer().setCycleCount(MediaPlayer.INDEFINITE);
-		    getMediaPlayer().play();
+			mediaPlayer = new MediaPlayer(sound);
+			mediaPlayer.setVolume(v);
+			mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+			mediaPlayer.play();
 		}
 		
 		public void stopMusic() {
-			getMediaPlayer().stop();
+			mediaPlayer.stop();
 		}
 	 
 	 

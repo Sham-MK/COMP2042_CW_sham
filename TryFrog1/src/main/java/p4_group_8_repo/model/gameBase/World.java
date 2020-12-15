@@ -10,12 +10,10 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.MediaPlayer;
 
 
 public abstract class World extends Pane {
     private AnimationTimer timer;
-	private MediaPlayer mediaPlayer;
 
     
     public World() {
@@ -105,13 +103,5 @@ public abstract class World extends Pane {
         return someArray;
     }
     
-
-	public MediaPlayer getMediaPlayer() {
-		return mediaPlayer;
-	}
-
-	public void setMediaPlayer(MediaPlayer mediaPlayer) {
-		this.mediaPlayer = mediaPlayer;
-	}
 
 }

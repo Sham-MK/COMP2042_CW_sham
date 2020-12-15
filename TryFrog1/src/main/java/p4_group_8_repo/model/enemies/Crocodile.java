@@ -9,13 +9,10 @@ public class Crocodile extends Actor {
 
 	Image crocodile1;
 	Image crocodile2;
-	boolean show=false;
     Rectangle mouth = new Rectangle();
     double x;
     double y;
-	public void setShow() {
-		show = true;
-	}
+
 	private double speed;
 	
 	public double getSpeed() {
@@ -44,10 +41,8 @@ public class Crocodile extends Actor {
 	}
 	public Crocodile(double xpos, int ypos, double s) {
 
-			crocodile1 = new Image("/img/crocodile.png", 130, 100, true, true);
-			crocodile2 = new Image("/img/crocodile1.png", 130, 100, true, true);
-
-
+		crocodile1 = new Image("/img/crocodile.png", 130, 100, true, true);
+		crocodile2 = new Image("/img/crocodile1.png", 130, 100, true, true);
 		setX(xpos);
 		setY(ypos);
 		speed = s;

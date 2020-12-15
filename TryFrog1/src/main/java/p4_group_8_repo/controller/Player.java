@@ -280,7 +280,7 @@ public class Player extends Actor {
 			}
 		}
 		
-		else if (getIntersectingObjects(Snake.class).size() >= 1) {
+		else if (getIntersectingObjects(Snake.class).size() >= 1  && !dead) {
 			HandleDeath(waterD);
 		}
 		
@@ -311,10 +311,10 @@ public class Player extends Actor {
 		if ( getY()>530) {	
 			setY(530);	
 		}	
-		if ( getX()<0) {	
+		if (getY()>280 && getX()<0) {	
 			move(movement, 0);	
 		}	
-		if (getX()>400) {	
+		if (getY()>280 && getX()>400) {	
 			move(-movement, 0);	
 		}
 		
@@ -364,7 +364,7 @@ public class Player extends Actor {
 	}
 	
 	public boolean getNewRound() {
-		if(end == 1) {
+		if(end == 5) {
 			end = 0;
 			return true;
 		}
