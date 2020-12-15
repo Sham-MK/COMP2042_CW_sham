@@ -26,6 +26,7 @@ public class Life extends Actor {
 	public Life(int x) {
 		img = new Image("file:src/main/resources/img/Life-icon.png", 20, 20, true, true);
 		setImage(img);
+		
 		setX(x); 
 		setY(565);
 	}

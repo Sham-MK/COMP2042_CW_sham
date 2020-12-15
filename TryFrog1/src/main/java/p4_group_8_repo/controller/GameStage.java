@@ -58,7 +58,7 @@ public class GameStage extends World{
 		add(new CrocodileHead());
 		
 		for(i = 0; i<3; i++) {
-			add(new Log("file:src/main/resources/img/log2.png", 0+(200*i), 125, 2));
+			add(new Log("/img/log2.png", 0+(200*i), 125, 2));
 		}
 		
 		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 2));
@@ -73,11 +73,11 @@ public class GameStage extends World{
 		}
 
 		for(i = 0; i <2; i++) {
-			add(new Log("file:src/main/resources/img/logs.png", 0+(350*i), 198, 1.5));			
+			add(new Log("/img/logs.png", 0+(350*i), 198, 1.5));			
 		}
 		
 		for(i = 0; i <3; i++) {
-			add(new Log("file:src/main/resources/img/log3.png", 0+(200*i), 235, 0.75));			
+			add(new Log("/img/log3.png", 0+(200*i), 235, 0.75));			
 		}
 		
 		add(new Crocodile(getObjects(Log.class).get(3).getX(), 198, 1.5));
@@ -94,21 +94,21 @@ public class GameStage extends World{
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
         
         for(i = 0; i<2; i++) {
-    		add(new Car("file:src/main/resources/img/truck1"+"left.png", 0+(260*i), 340, -1));
+    		add(new Car("/img/truck1"+"left.png", 0+(260*i), 340, -1));
         }
 		
-		add(new Car("file:src/main/resources/img/car1right.png", 0, 375, 4));
+		add(new Car("/img/car1right.png", 0, 375, 4));
 		
         for(i = 0; i<3; i++) {
-    		add(new Car("file:src/main/resources/img/car1Left.png", 0+(180*i), 412, -0.75));
+    		add(new Car("/img/car1Left.png", 0+(180*i), 412, -0.75));
         }
 
         for(i = 0; i<2; i++) {
-    		add(new Car("file:src/main/resources/img/truck2Right.png", 0+(300*i), 450, 1));
+    		add(new Car("/img/truck2Right.png", 0+(300*i), 450, 1));
         }
         
         for(i = 0; i<3; i++) {
-    		add(new Car("file:src/main/resources/img/car1left.png", 0+(180*i), 490, -0.75));
+    		add(new Car("/img/car1left.png", 0+(180*i), 490, -0.75));
         }
 
 		for(i=0; i<4; i++) {
@@ -143,15 +143,14 @@ public class GameStage extends World{
         timerc = new AnimationTimer() {
         	
             @Override
-            public void handle(long now) {
-            	
+            public void handle(long now) {           	
             	if(animal.gameover()) {
-        	 		stopMusic();
         	 		stopGame();
             		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints());
 
             	}
-            	if (getNewRound()) {
+            	if (animal.getNewRound()) {
+            		round++;
             		 for(i = 0; i<5; i++) {
 	                    	getObjects(End.class).get(i).unsetEnd();
 	                    }
@@ -199,7 +198,7 @@ public class GameStage extends World{
 	    	  case 3:
 	    		 getObjects(Car.class).get(2).setSpeed(2);
 	    		 getObjects(Car.class).get(11).setSpeed(2);
-	     	     add(new Car("file:src/main/resources/img/car1right.png", getObjects(Car.class).get(11).getX()-200, 375, 2));
+	     	     add(new Car("/img/car1right.png", getObjects(Car.class).get(11).getX()-200, 375, 2));
 	             add(new Snake("snakew", 200,235,0.75));
 	             add(new Snake("snake", 200,280,1));
 	             if(getObjects(LadyFrog.class).size()>0) {
@@ -271,26 +270,30 @@ public class GameStage extends World{
 	    	
 	    }
 	 
-	 public boolean getNewRound() {
-			if(animal.getEnd()==5) {
-				animal.setEnd(0);
-				round += 1;
-				return true;
-			}
-			return false;
-		} 
 		
-	 
+	 public void playMusic(double v) {
+			String musicFile = "src/main/resources/Frogger Main Song Theme (loop).mp3";   
+			Media sound = new Media(new File(musicFile).toURI().toString());
+			setMediaPlayer(new MediaPlayer(sound));
+			getMediaPlayer().setVolume(v);
+			getMediaPlayer().setCycleCount(MediaPlayer.INDEFINITE);
+		    getMediaPlayer().play();
+		}
+		
+		public void stopMusic() {
+			getMediaPlayer().stop();
+		}
 	 
 	 
 	 public void startGame() {
 		    start();
-			playMusic();
+			playMusic(0.1);
 	    	GameCheck();
 	        timerc.start();
 	    }
 	 
 	 public void stopGame() {
+	 		stopMusic();
 		    animal.setNoMove(true);
 	 		stop();
 	 		timerController.stopRoundTimer();

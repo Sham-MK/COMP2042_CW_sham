@@ -13,7 +13,7 @@
    <children>
       <ImageView cache="true" fitHeight="630.0" fitWidth="436.0" layoutX="1.0" nodeOrientation="INHERIT" opacity="0.25" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/welcome.png" />
+            <Image url="/img/welcome.png" />
          </image>
          <effect>
             <BoxBlur iterations="2" width="7.02" />
@@ -26,7 +26,7 @@
       </Text>
       <ImageView fitHeight="73.0" fitWidth="115.0" layoutX="37.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/arrows.png" />
+            <Image url="/img/arrows.png" />
          </image>
       </ImageView>
       <Text fill="#034f00" layoutX="199.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Use the arrow keys to move frogger in all directions and get him to one of the swamps and gain 50 points!" wrappingWidth="225.9999999999999">
@@ -36,12 +36,12 @@
       </Text>
       <ImageView fitHeight="33.0" fitWidth="61.0" layoutX="66.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/car1right.png" />
+            <Image url="/img/car1right.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="31.0" fitWidth="96.0" layoutX="52.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/truck1Left.png" />
+            <Image url="/img/truck1Left.png" />
          </image>
       </ImageView>
       <Text fill="#094906" layoutX="199.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cross the road carefully and avoid being run over by cars and trucks." wrappingWidth="211.3620147705078">
@@ -51,12 +51,12 @@
       </Text>
       <ImageView fitHeight="40.0" fitWidth="146.0" layoutX="27.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/crocodile.png" />
+            <Image url="/img/crocodile.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="61.0" fitWidth="90.0" layoutX="72.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/snake1.png" />
+            <Image url="/img/snake1.png" />
          </image>
       </ImageView>
       <Text fill="#004d03" layoutX="196.0" layoutY="337.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beware of crocodile's mouth and snakes as they attack! But you can hop on the crocodile's back for transport." wrappingWidth="231.99999999999994">
@@ -66,17 +66,17 @@
       </Text>
       <ImageView fitHeight="43.0" fitWidth="35.0" layoutX="37.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/crocodilehead.png" />
+            <Image url="/img/crocodilehead.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="23.0" fitWidth="146.0" layoutX="29.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/log2.png" />
+            <Image url="/img/log2.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="37.0" fitWidth="107.0" layoutX="45.0" layoutY="271.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/TurtleAnimation2.png" />
+            <Image url="/img/TurtleAnimation2.png" />
          </image>
       </ImageView>
       <Text fill="#125f01" layoutX="199.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hop on logs and turtles to avoid drowning. But beware of the diving turtles!" wrappingWidth="225.9999999999999">
@@ -86,12 +86,12 @@
       </Text>
       <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="34.0" layoutY="422.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/fly.png" />
+            <Image url="/img/fly.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="40.0" fitWidth="59.0" layoutX="93.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/lUp.png" />
+            <Image url="/img/lUp.png" />
          </image>
       </ImageView>
       <Text fill="#065600" layoutX="179.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eating a fly or giving lady frog a ride to the swamp will give you 200 extra points!" wrappingWidth="243.13539123535156">

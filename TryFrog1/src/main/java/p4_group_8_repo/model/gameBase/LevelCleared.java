@@ -10,7 +10,7 @@ public class LevelCleared extends Actor {
 	Timer timer = new Timer();
 	public LevelCleared() {
 		// TODO Auto-generated constructor stub
-			setImage(new Image("file:src/main/resources/img/levelcleared.png"));
+			setImage(new Image("/img/levelcleared.png"));
          	setX(140);
 			setY(305);
 

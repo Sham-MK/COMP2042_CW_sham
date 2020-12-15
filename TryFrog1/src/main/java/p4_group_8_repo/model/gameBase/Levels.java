@@ -8,7 +8,7 @@ public class Levels extends Actor {
 
 	public Levels(int x) {
 		// TODO Auto-generated constructor stub
-		img = new Image("file:src/main/resources/img/level.png", 15, 15, true, true);
+		img = new Image("/img/level.png", 15, 15, true, true);
 		setImage(img);
 		setX(x); 
 		setY(565);

@@ -64,6 +64,8 @@ public class Player extends Actor {
 	int D = 0;
 	double w = 530;
     private boolean dead = false;
+    MediaPlayer media;
+    Media sound;
     List<Image> carD = new ArrayList<>();
     List<Image> waterD = new ArrayList<>();
 
@@ -73,25 +75,25 @@ public class Player extends Actor {
 		
 		
 
-		setImage(new Image("file:src/main/resources/img/froggerUp.png", imgSize, imgSize, true, true));
+		setImage(new Image("/img/froggerUp.png", imgSize, imgSize, true, true));
 		setX(195);
 		setY(530);
-		imglUP = new Image("file:src/main/resources/img/lUp.png", imgSize, imgSize, true, true);
-		imglLEFT = new Image("file:src/main/resources/img/lLeft.png", imgSize, imgSize, true, true);
-		imglDOWN = new Image("file:src/main/resources/img/lDown.png", imgSize, imgSize, true, true);
-		imglRIGHT = new Image("file:src/main/resources/img/lRight.png", imgSize, imgSize, true, true);
-		imglUPJ = new Image("file:src/main/resources/img/lUpJump.png", imgSize, imgSize, true, true);
-		imglLEFTJ = new Image("file:src/main/resources/img/lLeftJump.png", imgSize, imgSize, true, true);
-		imglDOWNJ = new Image("file:src/main/resources/img/lDownJump.png", imgSize, imgSize, true, true);
-		imglRIGHTJ = new Image("file:src/main/resources/img/lRightJump.png", imgSize, imgSize, true, true);
-		imgUP = new Image("file:src/main/resources/img/froggerUp.png", imgSize, imgSize, true, true);
-		imgLEFT = new Image("file:src/main/resources/img/froggerLeft.png", imgSize, imgSize, true, true);
-		imgDOWN = new Image("file:src/main/resources/img/froggerDown.png", imgSize, imgSize, true, true);
-		imgRIGHT = new Image("file:src/main/resources/img/froggerRight.png", imgSize, imgSize, true, true);
-		imgUPJ = new Image("file:src/main/resources/img/froggerUpJump.png", imgSize, imgSize, true, true);
-		imgLEFTJ = new Image("file:src/main/resources/img/froggerLeftJump.png", imgSize, imgSize, true, true);
-		imgDOWNJ = new Image("file:src/main/resources/img/froggerDownJump.png", imgSize, imgSize, true, true);
-		imgRIGHTJ = new Image("file:src/main/resources/img/froggerRightJump.png", imgSize, imgSize, true, true);
+		imglUP = new Image("/img/lUp.png", imgSize, imgSize, true, true);
+		imglLEFT = new Image("/img/lLeft.png", imgSize, imgSize, true, true);
+		imglDOWN = new Image("/img/lDown.png", imgSize, imgSize, true, true);
+		imglRIGHT = new Image("/img/lRight.png", imgSize, imgSize, true, true);
+		imglUPJ = new Image("/img/lUpJump.png", imgSize, imgSize, true, true);
+		imglLEFTJ = new Image("/img/lLeftJump.png", imgSize, imgSize, true, true);
+		imglDOWNJ = new Image("/img/lDownJump.png", imgSize, imgSize, true, true);
+		imglRIGHTJ = new Image("/img/lRightJump.png", imgSize, imgSize, true, true);
+		imgUP = new Image("/img/froggerUp.png", imgSize, imgSize, true, true);
+		imgLEFT = new Image("/img/froggerLeft.png", imgSize, imgSize, true, true);
+		imgDOWN = new Image("/img/froggerDown.png", imgSize, imgSize, true, true);
+		imgRIGHT = new Image("/img/froggerRight.png", imgSize, imgSize, true, true);
+		imgUPJ = new Image("/img/froggerUpJump.png", imgSize, imgSize, true, true);
+		imgLEFTJ = new Image("/img/froggerLeftJump.png", imgSize, imgSize, true, true);
+		imgDOWNJ = new Image("/img/froggerDownJump.png", imgSize, imgSize, true, true);
+		imgRIGHTJ = new Image("/img/froggerRightJump.png", imgSize, imgSize, true, true);
 		setOnKeyPressed(new EventHandler<KeyEvent>() {
 			public void handle(KeyEvent event){
 				if (noMove) { 
@@ -214,14 +216,14 @@ public class Player extends Actor {
 			}
 			
 		});
-		carD.add(new Image("file:src/main/resources/img/cardeath1.png", imgSize,imgSize , true, true));
-	    carD.add(new Image("file:src/main/resources/img/cardeath2.png", imgSize,imgSize , true, true));
-	    carD.add(new Image("file:src/main/resources/img/cardeath3.png", imgSize,imgSize , true, true));
+		carD.add(new Image("/img/cardeath1.png", imgSize,imgSize , true, true));
+	    carD.add(new Image("/img/cardeath2.png", imgSize,imgSize , true, true));
+	    carD.add(new Image("/img/cardeath3.png", imgSize,imgSize , true, true));
 
-	    waterD.add(new Image("file:src/main/resources/img/waterdeath1.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/main/resources/img/waterdeath2.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/main/resources/img/waterdeath3.png", imgSize,imgSize , true, true));
-	    waterD.add(new Image("file:src/main/resources/img/waterdeath4.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("/img/waterdeath1.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("/img/waterdeath2.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("/img/waterdeath3.png", imgSize,imgSize , true, true));
+	    waterD.add(new Image("/img/waterdeath4.png", imgSize,imgSize , true, true));
 
 	}
 	
@@ -324,23 +326,16 @@ public class Player extends Actor {
 
 	public void playMedia(String s) {
 		String musicFile = "src/main/resources/"+s+".mp3";   
-		Media sound = new Media(new File(musicFile).toURI().toString());
-		MediaPlayer mediaPlayer = new MediaPlayer(sound);
-		getWorld().getMediaPlayer().currentTimeProperty();
-		mediaPlayer.setOnEndOfMedia(() -> {
-			getWorld().getMediaPlayer().setMute(false); 
-		});  
-		getWorld().getMediaPlayer().setMute(true);
-	    mediaPlayer.play();
+		sound = new Media(new File(musicFile).toURI().toString());
+		media = new MediaPlayer(sound);
+	    media.play();
 		
-
-
 	}
 
 	public void HandleDeath(List<Image> images) {
+			playMedia("dead");
 		    dead = true;
 			noMove = true;
-			playMedia("dead");
 			Transition animation = new Transition() {
 			    {
 			        setCycleDuration(Duration.millis(1000)); // total time for animation
@@ -367,6 +362,15 @@ public class Player extends Actor {
 		dead = false;	
 
 	}
+	
+	public boolean getNewRound() {
+		if(end == 5) {
+			end = 0;
+			return true;
+		}
+		return false;
+	} 
+	
 	public void Restore() {
 		setImage(imgUP);
 		setX(195);

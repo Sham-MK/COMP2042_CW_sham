@@ -39,13 +39,13 @@ public class Turtle extends Actor{
 	}
 	public Turtle(int xpos, int ypos, double s, int w, int h, int num_turtles) {
 		if(num_turtles == 2) {
-			turtle1 = new Image("file:src/main/resources/img/TurtleAnimation2-1.png", w, h, true, true);
-			turtle2 = new Image("file:src/main/resources/img/TurtleAnimation2-2.png", w, h, true, true);
-			turtle3 = new Image("file:src/main/resources/img/TurtleAnimation2-3.png", w, h, true, true);
+			turtle1 = new Image("/img/TurtleAnimation2-1.png", w, h, true, true);
+			turtle2 = new Image("/img/TurtleAnimation2-2.png", w, h, true, true);
+			turtle3 = new Image("/img/TurtleAnimation2-3.png", w, h, true, true);
 		}else if(num_turtles == 3) {
-			turtle1 = new Image("file:src/main/resources/img/TurtleAnimation1.png", w, h, true, true);
-			turtle2 = new Image("file:src/main/resources/img/TurtleAnimation2.png", w, h, true, true);
-			turtle3 = new Image("file:src/main/resources/img/TurtleAnimation3.png", w, h, true, true);
+			turtle1 = new Image("/img/TurtleAnimation1.png", w, h, true, true);
+			turtle2 = new Image("/img/TurtleAnimation2.png", w, h, true, true);
+			turtle3 = new Image("/img/TurtleAnimation3.png", w, h, true, true);
 		}
 		setX(xpos);
 		setY(ypos);

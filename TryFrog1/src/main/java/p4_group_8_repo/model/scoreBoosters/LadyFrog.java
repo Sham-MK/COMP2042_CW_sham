@@ -2,6 +2,7 @@ package p4_group_8_repo.model.scoreBoosters;
 
 import java.util.Timer;
 
+import javafx.scene.CacheHint;
 import javafx.scene.image.Image;
 import p4_group_8_repo.controller.Player;
 import p4_group_8_repo.model.carriers.Log;
@@ -15,10 +16,10 @@ public class LadyFrog extends Actor {
 	Timer timer = new Timer();
 	public LadyFrog(double x, double y) {
 		// TODO Auto-generated constructor stub
-		imgLEFT = new Image("file:src/main/resources/img/lLeft.png", imgSize, imgSize, true, true);
-		imgDOWN = new Image("file:src/main/resources/img/lDown.png", imgSize, imgSize, true, true);
-		imgRIGHT = new Image("file:src/main/resources/img/lRight.png", imgSize, imgSize, true, true);
-		imgUP = new Image("file:src/main/resources/img/lUp.png", imgSize, imgSize, true, true);
+		imgLEFT = new Image("/img/lLeft.png", imgSize, imgSize, true, true);
+		imgDOWN = new Image("/img/lDown.png", imgSize, imgSize, true, true);
+		imgRIGHT = new Image("/img/lRight.png", imgSize, imgSize, true, true);
+		imgUP = new Image("/img/lUp.png", imgSize, imgSize, true, true);
 		setImage(imgUP);
 		setX(x+50);
 		setY(y);

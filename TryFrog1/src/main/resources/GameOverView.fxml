@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="613.0" fitWidth="424.0" opacity="0.17" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:src/main/resources/img/welcome.png" />
+            <Image url="/img/welcome.png" />
          </image>
          <effect>
             <BoxBlur height="13.1" iterations="2" width="2.98" />

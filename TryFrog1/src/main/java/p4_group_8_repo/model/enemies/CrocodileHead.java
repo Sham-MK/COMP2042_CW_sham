@@ -16,7 +16,7 @@ public class CrocodileHead extends Actor {
 		// TODO Auto-generated constructor stub
 		timer.scheduleAtFixedRate(new TimerTask() {
             public void run() { 
-         	setImage(new Image("file:src/p4_group_8_repo/view/img/crocodilehead.png", 43, 43, true, true));
+         	setImage(new Image("/img/crocodilehead.png", 43, 43, true, true));
        	    setX(12+shift); 
        	    setY(73);
        	    if(shift==270) {

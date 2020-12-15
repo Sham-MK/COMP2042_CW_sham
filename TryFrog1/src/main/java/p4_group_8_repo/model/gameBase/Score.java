@@ -79,7 +79,7 @@ public class Score extends Actor {
 	}
 	
 	public  Score(int n, int dim, int x, int y) {
-		im1 = new Image("file:src/main/resources/img/"+n+".png", dim, dim, true, true);
+		im1 = new Image("/img/"+n+".png", dim, dim, true, true);
 		setImage(im1);
 		setX(x);
 		setY(y); 
