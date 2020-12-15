@@ -16,8 +16,6 @@ public class Crocodile extends Actor {
 	public void setShow() {
 		show = true;
 	}
-	boolean jawopen =false;
-	
 	private double speed;
 	
 	public double getSpeed() {
@@ -26,23 +24,13 @@ public class Crocodile extends Actor {
 
 	@Override
 	public void act(long now) {
-		if(show) {
-			crocodile1 = new Image("/img/crocodile.png", 130, 100, true, true);
-			crocodile2 = new Image("/img/crocodile1.png", 130, 100, true, true);
-		}
-		else {
-			crocodile1 = null;
-			crocodile2 = null;
-		}
 
 			if (now/900000000  % 2 ==0) {
 				setImage(crocodile1);
-				jawopen = false;
 
 			}
 			else if (now/900000000 % 2 == 1) {
 				setImage(crocodile2);
-				jawopen = true;
 			}			
 			
 		move(speed , 0);
@@ -55,13 +43,14 @@ public class Crocodile extends Actor {
 		y = this.getY();
 	}
 	public Crocodile(double xpos, int ypos, double s) {
-		
+
+			crocodile1 = new Image("/img/crocodile.png", 130, 100, true, true);
+			crocodile2 = new Image("/img/crocodile1.png", 130, 100, true, true);
+
+
 		setX(xpos);
 		setY(ypos);
 		speed = s;
-	}
-	public boolean isJawopen() {
-		return jawopen;
 	}
 
 	public Bounds getMouth() {

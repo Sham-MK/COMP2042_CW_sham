@@ -353,18 +353,18 @@ public class Player extends Actor {
 				
 	}
 	public void subtractlives() {
+		getWorld().remove(getWorld().getObjects(Life.class).get(lives-1));
 		if (points>50) {
 			points-=50;
 			changeScore=true;
 	}
-		getWorld().remove(getWorld().getObjects(Life.class).get(lives-1));
 		lives--;
 		dead = false;	
 
 	}
 	
 	public boolean getNewRound() {
-		if(end == 5) {
+		if(end == 1) {
 			end = 0;
 			return true;
 		}
