@@ -316,16 +316,12 @@ public class Player extends Actor {
 		if ( getY()>530) {
 			setY(530);	
 		}	
-		if (getY()>280 && getX()<0) {	
+		if (getX()<0) {	
 			move(movement, 0);	
 		}	
-		if (getY()>280 && getX()>400) {
+		if ( getX()>400) {
 			move(-movement, 0);	
 		}
-		if(getY()<280 && (getX()<0 || getX()>400) && !dead) {//if on water and touched edges then call HandleDeath method	
-			HandleDeath(waterD);
-		}
-		
 	}
 
 	/**
