@@ -2,10 +2,26 @@ package p4_group_8_repo.model.gameBase;
 
 import javafx.scene.image.Image;
 
+/**
+* <h1>Level Cleared class</h1>
+* <p>
+* This class is responsible for setting the levels 
+* images in the game scene whenever player reaches a new level.
+* it extends Actor. 
+* </p>
+* @author  Sham Maatouk
+* @version 1.0
+* @since   2020
+* @see p4_group_8_repo.model.gameBase.Actor Actor
+*/
 public class Levels extends Actor {
 
-	Image img;
+	Image img;//image of levels block
 
+	/**
+	 * constructor of levels
+	 * @param x x position of level
+	 */
 	public Levels(int x) {
 		// TODO Auto-generated constructor stub
 		img = new Image("/img/level.png", 15, 15, true, true);

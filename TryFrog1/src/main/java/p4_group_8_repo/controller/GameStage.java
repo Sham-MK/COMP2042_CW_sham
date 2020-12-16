@@ -20,49 +20,68 @@ import p4_group_8_repo.model.gameBase.Life;
 import p4_group_8_repo.model.gameBase.Roundtime_Model;
 import p4_group_8_repo.model.gameBase.Score;
 import p4_group_8_repo.model.gameBase.World;
-import p4_group_8_repo.model.scoreBoosters.End;
+import p4_group_8_repo.model.scoreBoosters.Swamp;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 import p4_group_8_repo.model.scoreBoosters.LadyFrog;
 import p4_group_8_repo.view.Roundtime_View;
 import p4_group_8_repo.view.SceneManager;
-
+/**
+* <h1>The Game Scene</h1>
+* <p>
+* This class extends World and sets the main game scene.
+* It adds all the game elements to a Pane
+* </p>
+* @see p4_group_8_repo.model.gameBase.World World
+* @author  Sham Maatouk
+* @version 1.0
+* @since   2020
+*/
 public class GameStage extends World{
-	SceneManager manager = new SceneManager();
-	private MediaPlayer mediaPlayer;
-    AnimationTimer timerc;
-    Roundtime_View timerview = new Roundtime_View();
-    Roundtime_Model timerModel = new Roundtime_Model();
-    Score score = new Score();
-	Player 	animal = new Player();
-    int i;
-	int round = 1;
+	SceneManager manager = new SceneManager();//scene manager for switching scenes
+	private MediaPlayer mediaPlayer;//media player to play music
+    AnimationTimer timerc;// timer to check game aspects
+    Roundtime_View timerview = new Roundtime_View();//view of the round timer
+    Roundtime_Model timerModel = new Roundtime_Model();// model of the round timer
+    Score score = new Score();// score object to show highscore and current score
+	Player 	animal = new Player();// the Frogger main player
+    int i;// dummy integer for loops
+	int round = 1;// number of rounds, initialised to 1.
     
     Roundtime_Controller timerController = new Roundtime_Controller(timerModel, timerview);
 
+    /**
+     * This is the constructor for GameStage.
+     * It adds in all the Cars, Floatables, and game elements
+     */
+    
 	
 	public GameStage() {
+		
+		/*adding background image*/
         BackgroundImage froggerback = new BackgroundImage();
-
 		add(froggerback);
+		
+		/*adding high score*/
 		add(score);
 		score.setHighScore();
 		
+		/*adding the view of the round timer*/
 		add(timerview);
 		
-        
+        /*adding the swamps*/
 		int shiftend = 90;
 		for(int i=0; i<5; i++) {
-			add(new End(6+(shiftend*i)));			
+			add(new Swamp(6+(shiftend*i)));			
 		}
-				
+		/*adding the fly and crocodile head that appear on the swamps*/				
 		add(new Fly());
 		add(new CrocodileHead());
 		
+		/*adding logs and turtles*/
 		for(i = 0; i<3; i++) {
-			add(new Log("/img/log2.png", 0+(180*i), 125, 2));
+			add(new Log("/img/log2.png", 0+(180*i), 125, 1.5));
 		}
-		
-		
+				
 		for(i = 1; i<5; i++) {
 			if (i%2==0) {
 				add(new WetTurtle(0+(106*i),155, -2,2));			
@@ -73,11 +92,11 @@ public class GameStage extends World{
 		}
 
 		for(i = 0; i <2; i++) {
-			add(new Log("/img/logs.png", 0+(360*i), 198, 2));			
+			add(new Log("/img/logs.png", 0+(360*i), 198, 1.5));			
 		}
 		
 		for(i = 0; i <3; i++) {
-			add(new Log("/img/log3.png", 0+(180*i), 235, 1.5));			
+			add(new Log("/img/log3.png", 0+(180*i), 235, 1));			
 		}
 		
 		
@@ -89,15 +108,13 @@ public class GameStage extends World{
 				add(new Turtle(0+(120*i), 262, -1.75,3));
 			}
 		}
-		
+		/*adding a lady frog on a log*/
         add(new LadyFrog(getObjects(Log.class).get(3).getX(),getObjects(Log.class).get(3).getY()));
         
-        
+        /*adding cars and trucks*/
 		add(new Car("/img/truck1left.png", 0, 340, -1));
 		add(new Car("/img/truck2left.png", 300, 340, -1));
-        
-		
-		
+        	
 		add(new Car("/img/car1right.png", 0, 375, 4));
 		
         for(i = 0; i<3; i++) {
@@ -111,57 +128,74 @@ public class GameStage extends World{
     		add(new Car("/img/car1left.png", 0+(180*i), 490, -0.75));
         }
 
+        /*adding player lives*/
 		for(i=0; i<4; i++) {
 			add(new Life(0+(25*i)));
 		}
 
-		
+		/*adding blocks on levels, each will be removed in every new levek*/
 		int shift =15;
 		for(int i=0; i<9; i++) {
 			add(new Levels(361-(shift*i)));
 		}
 		
+		/*adding the player*/
 		add(animal);
+		
+		/*setting up the round timer using the controller*/
 		timerController.setTimer();
     	timerController.UpdateTimer();
     	
+    	/*method call to all animation timers to start game*/
 		startGame();
 
 
 	}
-	
+	/**
+	 * This method adds a round timer view on the pane
+	 * @param timerview2
+	 */
 	
 	public void add(Roundtime_View timerview2) {
 		// TODO Auto-generated method stub
 		getChildren().add(timerview2);
 		
 	}
+	
+	/**
+	 * This is a method which instantiates an animation timer
+	 * to check for gameover, new levels, and timer updates.
+	 * @see p4_group_8_repo.controller.Player#gameover() Game Over method
+	 * @see p4_group_8_repo.controller.Player#getNewRound() New Round Method
+	 * @see p4_group_8_repo.controller.Player#isWin()  win getter
+	 * @see p4_group_8_repo.controller.Player#isDead() dead getter
+	 */
 
 	public void GameCheck() {
         timerc = new AnimationTimer() {
         	
             @Override
             public void handle(long now) {           	
-            	if(animal.gameover()) {
+            	if(animal.gameover()) {//check if player died four times
         	 		stopGame();
             		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints());
 
             	}
-            	if (animal.getNewRound()) {
+            	if (animal.getNewRound()) {//check if player finished a round
             		round++;
             		 for(i = 0; i<5; i++) {
-	                    	getObjects(End.class).get(i).unsetEnd();
+	                    	getObjects(Swamp.class).get(i).unOccupy(); //return all swamps to default
 	                    }
-	                    if(round<=10) {
+	                    if(round<=10) {//set up the new level if levels is less than or equal to 10
 	                    	add(new LevelCleared());
 		                	setNewLevel(round);
 	                		GenerateNewLevel(round);
 	                    }
             		}
-            	if(animal.isDead() || animal.isWin()) {
+            	if(animal.isDead() || animal.isWin()) {//reset the round timer if player wins or loses
             		timerController.reset();
             	} 
-            	if(timerController.getProgress()<=0.0333 && !animal.isWin()) {
+            	if(timerController.getProgress()<=0.0333 && !animal.isWin()) {//raise death flag if round time is over
     				animal.HandleDeath(animal.getWaterD());
             	}
             }
@@ -169,20 +203,33 @@ public class GameStage extends World{
     }
 	
 
-	
+	/**
+	 * This method modifies game elements for the new level.
+	 * and rewards points to the player, 10 points for every second left.
+	 * @param level an integer which is the player's current level.
+	 */
 	public void setNewLevel(int level) {
-		getObjects(Levels.class).get(level-2).setImage(null);
+		getObjects(Levels.class).get(level-2).setImage(null);//remove block to show new level symbol
+		/*reward points to the player, 10 points for every second left*/
     	getObjects(Player.class).get(0).setChangeScore(true);
     	getObjects(Player.class).get(0).setPoints((int) (getObjects(Player.class).get(0).getPoints() + 10*timerController.getProgress()*30));
 		
 	}
+	
+	/**
+	 * This method generates a new level.
+	 * It has a switch case which checks which level the player reached and generates
+	 * new objects on the pane accordingly. eg. new crocodiles, snakes, a lady frog
+	 * and even change actors speeds
+	 * @param level
+	 */
 	
 	 public void GenerateNewLevel(int level) {
 	    	switch(level) {
 	    	  case 2:
 	    	    add(new Car("file:src/main/resources/img/car1right.png", getObjects(Car.class).get(2).getX()-200, 375, 4));
 	    	    remove(getObjects(Log.class).get(3));
-	    		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 2));
+	    		add(new Crocodile(getObjects(Log.class).get(1).getX(), 115, 1.5));
 	    		animal.toFront();
 	    	    remove(getObjects(Log.class).get(1));
 	    	    if(getObjects(LadyFrog.class).size()>0) {
@@ -197,7 +244,7 @@ public class GameStage extends World{
 	             add(new Snake(200,280,1));
 	             break;
 	    	  case 4:
-	    		 add(new Crocodile(getObjects(Log.class).get(4).getX()-360, 198, 2));
+	    		 add(new Crocodile(getObjects(Log.class).get(4).getX()-360, 198, 1.5));
 		    	animal.toFront();
 	             if(getObjects(LadyFrog.class).size()>0) {
 			    	    remove(getObjects(LadyFrog.class).get(0));
@@ -247,36 +294,48 @@ public class GameStage extends World{
 	    	
 	    }
 	 
+	 /**
+	  * This method plays music in the game scene.
+	  * @param volume which is a double representing the music volume.
+	  */
 		
-	 public void playMusic(double v) {
+	 public void playMusic(double volume) {
 			String musicFile = "src/main/resources/Frogger Main Song Theme (loop).mp3";   
 			Media sound = new Media(new File(musicFile).toURI().toString());
 			mediaPlayer = new MediaPlayer(sound);
-			mediaPlayer.setVolume(v);
+			mediaPlayer.setVolume(volume);
 			mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 			mediaPlayer.play();
 		}
+	 /**
+	  * method to stop the music
+	  */
 		
 		public void stopMusic() {
 			mediaPlayer.stop();
 		}
-	 
+	 /**
+	  * This method starts all the animation timers to start the game.
+	  */
 	 
 	 public void startGame() {
-		    start();
-			playMusic(0.1);
-	    	GameCheck();
+		    start(); //act timer in World class
+			playMusic(0.1);//play music with volume og 0.1
+	    	GameCheck();//start game check animation timer
 	        timerc.start();
 	    }
+	 /**
+	  * This method stops the game when called
+	  */
 	 
 	 public void stopGame() {
-	 		stopMusic();
-		    animal.setNoMove(true);
-	 		timerController.stopRoundTimer();
+	 		stopMusic();//stops music
+		    animal.setNoMove(true);//stops player from moving
+	 		timerController.stopRoundTimer();//stops round timer
     		timerc.stop();
-    		getObjects(CrocodileHead.class).get(0).getTimer().cancel();
-    		getObjects(Fly.class).get(0).getTimer().cancel();
-	 		stop();
+    		getObjects(CrocodileHead.class).get(0).getTimer().cancel();//stops crocodile head timer
+    		getObjects(Fly.class).get(0).getTimer().cancel();//stops fly timer
+	 		stop();//stop acting
 	 }
 	 
 	 

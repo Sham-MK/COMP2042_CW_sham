@@ -3,22 +3,39 @@ package p4_group_8_repo.model.gameBase;
 
 import javafx.scene.image.Image;
 
-
+/**
+* <h1>Level Cleared class</h1>
+* <p>
+* This class is responsible for setting the life 
+* images of the player in the game scene.
+* it extends Actor. 
+* </p>
+* @author  Sham Maatouk
+* @version 1.0
+* @since   2020
+* @see p4_group_8_repo.model.gameBase.Actor Actor
+*/
 public class Life extends Actor {
 
-	Image img;
-	int lives = 4;
+	Image img;//image of life
 	
 	public Life() {
 		
 	}
+	/**
+	 * this method adds the lives in the game scene.
+	 */
 	public void setLives() {
 		for(int i=0; i<4; i++) {
 			getWorld().add(new Life(0+(25*i)));
 		}
 	}
+	/**
+	 * Constructor for Life
+	 * @param x x position of Life on pane
+	 */
 	public Life(int x) {
-		img = new Image("file:src/main/resources/img/Life-icon.png", 20, 20, true, true);
+		img = new Image("/img/Life-icon.png", 20, 20, true, true);
 		setImage(img);
 		
 		setX(x); 

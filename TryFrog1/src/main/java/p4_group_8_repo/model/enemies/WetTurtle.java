@@ -3,16 +3,39 @@ package p4_group_8_repo.model.enemies;
 import javafx.scene.image.Image;
 import p4_group_8_repo.model.carriers.Turtle;
 
+/**
+* <h1>Wet Turtle class</h1>
+* <p>
+* This class is responsible for setting the diving turtles
+* it extends Floatable 
+* </p>
+* @author  Sham Maatouk
+* @version 1.0
+* @since   2020
+* @see p4_group_8_repo.model.carriers.Turtle Turtle
+*/
 public class WetTurtle extends Turtle{
+	/*images for turtle animation*/
+
 	Image turtles1;
 	Image turtles2;
 	Image turtles3;
 	Image turtles4;
 
+	/**
+	 * constructor of wet turtles. calls super constructor Turtle
+	 * @param xpos int which specifies the initial x position of the turtles.
+	 * @param ypos int which specifies the initial y position of the turtles.
+	 * @param s int that specifies the speed of the turtles.
+	 * @param num_turtles int that specifies the number of turtles in animation
+	 */
 	public WetTurtle(int xpos, int ypos, double s, int num_turtles) {
 		super(xpos, ypos, s, num_turtles);
 	}
-	
+	/**
+	 * this method is responsible for moving and animating the wet turtles.
+	 * @param now long which is current time frame in nanoseconds.
+	 */
 	public void act(long now) {
 		super.act(now);
 
@@ -27,7 +50,7 @@ public class WetTurtle extends Turtle{
 		}
 		else if (now/900000000 %4 == 2) {
 			setImage(turtles4);
-			sunk = true;
+			sunk = true;//if the last image is reached set sunk to true
 		}
 		else if (now/900000000 %4 == 3) {
 			setImage(turtles1);
@@ -36,6 +59,9 @@ public class WetTurtle extends Turtle{
 
 		}
 		
+	/**
+	 * This method is responsible for setting the images of the animation according to the number of turtles in the group.
+	 */
 	
 	@Override
 	public void addImages() {
