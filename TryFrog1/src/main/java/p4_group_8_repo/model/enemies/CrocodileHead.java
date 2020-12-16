@@ -9,8 +9,10 @@ import p4_group_8_repo.model.scoreBoosters.End;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 
 public class CrocodileHead extends Actor {
-	public Timer timer = new Timer();
-    int shift = 0;
+	private Timer timer = new Timer();
+
+
+	int shift = 0;
 
 	public CrocodileHead() {
 		// TODO Auto-generated constructor stub
@@ -39,6 +41,10 @@ public class CrocodileHead extends Actor {
 		if (getIntersectingObjects(Fly.class).size() >= 1) {
   		     	setImage(null);
   		     	}
+	}
+	
+    public Timer getTimer() {
+		return timer;
 	}
 
 }

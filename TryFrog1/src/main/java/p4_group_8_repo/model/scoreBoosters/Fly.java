@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import p4_group_8_repo.model.gameBase.Actor;
 
 public class Fly extends Actor {
-    public Timer timer = new Timer();
+    private Timer timer = new Timer();
     int shift = 0;
     public Fly() {
 		// TODO Auto-generated constructor stub
@@ -34,6 +34,9 @@ public class Fly extends Actor {
   		     	setImage(null);
   			}
        	 }
+	}
+    public Timer getTimer() {
+		return timer;
 	}
 
 }

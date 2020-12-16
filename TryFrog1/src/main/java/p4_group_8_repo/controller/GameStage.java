@@ -274,8 +274,8 @@ public class GameStage extends World{
 		    animal.setNoMove(true);
 	 		timerController.stopRoundTimer();
     		timerc.stop();
-    		getObjects(CrocodileHead.class).get(0).timer.cancel();
-    		getObjects(Fly.class).get(0).timer.cancel();
+    		getObjects(CrocodileHead.class).get(0).getTimer().cancel();
+    		getObjects(Fly.class).get(0).getTimer().cancel();
 	 		stop();
 	 }
 	 
