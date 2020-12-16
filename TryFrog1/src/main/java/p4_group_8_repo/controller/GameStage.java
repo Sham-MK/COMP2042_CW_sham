@@ -59,34 +59,34 @@ public class GameStage extends World{
 		add(new CrocodileHead());
 		
 		for(i = 0; i<3; i++) {
-			add(new Log("/img/log2.png", 0+(200*i), 125, 2));
+			add(new Log("/img/log2.png", 0+(180*i), 125, 2));
 		}
 		
 		
 		for(i = 1; i<5; i++) {
 			if (i%2==0) {
-				add(new WetTurtle(0+(150*i),155, -2, 60, 50,2));			
+				add(new WetTurtle(0+(106*i),155, -2,2));			
 			}
 			else {
-				add(new Turtle(0+(150*i), 155, -2, 60, 50,2));
+				add(new Turtle(0+(106*i), 155, -2,2));
 			}
 		}
 
 		for(i = 0; i <2; i++) {
-			add(new Log("/img/logs.png", 0+(350*i), 198, 2));			
+			add(new Log("/img/logs.png", 0+(360*i), 198, 2));			
 		}
 		
 		for(i = 0; i <3; i++) {
-			add(new Log("/img/log3.png", 0+(200*i), 235, 1.5));			
+			add(new Log("/img/log3.png", 0+(180*i), 235, 1.5));			
 		}
 		
 		
 		for(i = 1; i<5; i++) {
 			if (i%2==0) {
-				add(new WetTurtle(0+(140*i),262, -1.75, 90, 50,3));			
+				add(new WetTurtle(0+(120*i),262, -1.75,3));			
 			}
 			else {
-				add(new Turtle(0+(140*i), 262, -1.75, 90, 50,3));
+				add(new Turtle(0+(120*i), 262, -1.75,3));
 			}
 		}
 		
@@ -197,7 +197,7 @@ public class GameStage extends World{
 	             add(new Snake(200,280,1));
 	             break;
 	    	  case 4:
-	    		 add(new Crocodile(getObjects(Log.class).get(4).getX()-26, 198, 2));
+	    		 add(new Crocodile(getObjects(Log.class).get(4).getX()-360, 198, 2));
 		    	animal.toFront();
 	             if(getObjects(LadyFrog.class).size()>0) {
 			    	    remove(getObjects(LadyFrog.class).get(0));
@@ -272,9 +272,11 @@ public class GameStage extends World{
 	 public void stopGame() {
 	 		stopMusic();
 		    animal.setNoMove(true);
-	 		stop();
 	 		timerController.stopRoundTimer();
     		timerc.stop();
+    		getObjects(CrocodileHead.class).get(0).timer.cancel();
+    		getObjects(Fly.class).get(0).timer.cancel();
+	 		stop();
 	 }
 	 
 	 

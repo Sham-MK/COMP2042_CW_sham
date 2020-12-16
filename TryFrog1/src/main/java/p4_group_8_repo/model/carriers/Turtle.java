@@ -1,59 +1,55 @@
 package p4_group_8_repo.model.carriers;
 
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
-import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.gameBase.Floatable;
 
-public class Turtle extends Actor{
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
-	boolean show = true;
-	private double speed;
-	public double getSpeed() {
-		return speed;
-	}
+public class Turtle extends Floatable{
+	Image turtles1;
+	Image turtles2;
+	Image turtles3;
+	protected int num_turtles;	
 
-	int i = 1;
-	boolean bool = true;
-	@Override
-	public void act(long now) {
-			if (now/900000000  % 3 ==0) {
-				setImage(turtle2);
-				
-			}
-			else if (now/900000000 % 3 == 1) {
-				setImage(turtle1);
-				
-			}
-			else if (now/900000000 %3 == 2) {
-				setImage(turtle3);
-				
-			}
-
-						
-		move(speed , 0);
-		if (getX() > 424 && speed>0)
-			setX(-100);
-		if (getX() < -200 && speed<0)
-			setX(424);
-	}
-	public Turtle(int xpos, int ypos, double s, int w, int h, int num_turtles) {
-		if(num_turtles == 2) {
-			turtle1 = new Image("/img/TurtleAnimation2-1.png", w, h, true, true);
-			turtle2 = new Image("/img/TurtleAnimation2-2.png", w, h, true, true);
-			turtle3 = new Image("/img/TurtleAnimation2-3.png", w, h, true, true);
-		}else if(num_turtles == 3) {
-			turtle1 = new Image("/img/TurtleAnimation1.png", w, h, true, true);
-			turtle2 = new Image("/img/TurtleAnimation2.png", w, h, true, true);
-			turtle3 = new Image("/img/TurtleAnimation3.png", w, h, true, true);
-		}
+	
+	public Turtle(int xpos, int ypos, double s, int num_turtles) {
+		this.num_turtles = num_turtles;
 		setX(xpos);
 		setY(ypos);
 		speed = s;
-		setImage(turtle1);
+		addImages();
+		setImage(turtles1);
 	}
-	public void setSpeed(double d) {
-		// TODO Auto-generated method stub
-		speed = d;
+	
+	@Override
+	public void act(long now) {
+		super.act(now);
+
+		if (now/900000000  % 3 ==0) {
+			setImage(turtles2);			
+		}
+		else if (now/900000000 % 3 == 1) {
+			setImage(turtles1);
+		}
+		else if (now/900000000 %3 == 2) {
+			setImage(turtles3);
+		} 
+
 	}
+	
+	public void addImages() {
+		if(num_turtles == 2) {
+			size = 60;
+			turtles1 = new Image("/img/TurtleAnimation2-1.png", 60, 50, true, true);
+			turtles2 = new Image("/img/TurtleAnimation2-2.png", 60, 50, true, true);
+			turtles3 = new Image("/img/TurtleAnimation2-3.png", 60, 50, true, true);
+		}else if(num_turtles == 3) {
+			size = 90;
+			turtles1 = new Image("/img/TurtleAnimation1.png", 90, 50, true, true);
+			turtles2 = new Image("/img/TurtleAnimation2.png", 90, 50, true, true);
+			turtles3 = new Image("/img/TurtleAnimation3.png", 90, 50, true, true);
+		}
+	}
+
+
+
 }

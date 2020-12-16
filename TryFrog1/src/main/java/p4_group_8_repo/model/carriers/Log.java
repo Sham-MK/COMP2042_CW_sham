@@ -1,39 +1,24 @@
 package p4_group_8_repo.model.carriers;
 
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.gameBase.Floatable;
 
-public class Log extends Actor {
+public class Log extends Floatable {
 
-	private double speed;
-	public double getSpeed() {
-		return speed;
-	}
+	Image img;
 
-
-
-	@Override
-	public void act(long now) {
-		move(speed , 0);
-		if (getX()>424 && speed>0)
-			setX(-220);
-		if (getX()<-400 && speed<0)
-			setX(524);
-	}
 	
 	public Log(String imageLink, int xpos, int ypos, double s) {
-		setImage(new Image(imageLink));
+		img = new Image(imageLink);
+		setImage(img);
 		setX(xpos);
 		setY(ypos);
 		speed = s;
-		
+		size = img.getWidth();
 	}
 
 
 
-	public void setSpeed(double i) {
-		// TODO Auto-generated method stub
-		speed = i;
-		
-	}
 }

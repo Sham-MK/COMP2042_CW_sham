@@ -23,6 +23,7 @@ import p4_group_8_repo.model.enemies.CrocodileHead;
 import p4_group_8_repo.model.enemies.Snake;
 import p4_group_8_repo.model.enemies.WetTurtle;
 import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.gameBase.Floatable;
 import p4_group_8_repo.model.gameBase.Life;
 import p4_group_8_repo.model.scoreBoosters.End;
 import p4_group_8_repo.model.scoreBoosters.Fly;
@@ -73,8 +74,6 @@ public class Player extends Actor {
 
 	public Player() {
 		
-		
-
 		setImage(new Image("/img/froggerUp.png", imgSize, imgSize, true, true));
 		setX(195);
 		setY(530);
@@ -251,59 +250,34 @@ public class Player extends Actor {
 		if (getIntersectingObjects(Car.class).size() >= 1 && !dead) {
 			HandleDeath(carD);
 		}
+		if ((getIntersectingObjects(Snake.class).size() >= 1 || getIntersectingObjects(CrocodileHead.class).size() >= 1)  && !dead) {
+			HandleDeath(waterD);
+		}
 
 		if (getIntersectingObjects(LadyFrog.class).size() >= 1) {
     	     setImage(imglUP);
 			 attached  =true;
 			 }
-		
-		if (getIntersectingObjects(Log.class).size() >= 1 && !dead) 
-			move(getIntersectingObjects(Log.class).get(0).getSpeed(),0);	
-		
-		else if (getIntersectingObjects(Turtle.class).size() >= 1 && !dead ) {
-			move(getIntersectingObjects(Turtle.class).get(0).getSpeed(),0);
-		}
-		
-		else if (getIntersectingObjects(WetTurtle.class).size() >= 1 && !dead) {
-			if (getIntersectingObjects(WetTurtle.class).get(0).isSunk()) {
+		if(getIntersectingObjects(Floatable.class).size() >= 1) {
+			if (this.intersects(getIntersectingObjects(Floatable.class).get(0).getMouth())||getIntersectingObjects(Floatable.class).get(0).isSunk() && !dead) {
 				HandleDeath(waterD);
-			} else {
-				move(getIntersectingObjects(WetTurtle.class).get(0).getSpeed(),0);
+			}else {
+				move(getIntersectingObjects(Floatable.class).get(0).getSpeed(),0);
 			}
-		}
-		
-		else if (getIntersectingObjects(Crocodile.class).size() >= 1 && !dead) {
-			if (this.intersects(getIntersectingObjects(Crocodile.class).get(0).getMouth())) {
-				HandleDeath(waterD);
-			} else {
-				move(getIntersectingObjects(Crocodile.class).get(0).getSpeed(),0);
-			}
-		}
-		
-		else if (getIntersectingObjects(Snake.class).size() >= 1  && !dead) {
-			HandleDeath(waterD);
-		}
-		
-		else if (getIntersectingObjects(CrocodileHead.class).size() >= 1) {
-			HandleDeath(waterD);
-		}
-		
-		else if (getIntersectingObjects(Fly.class).size() >= 1) {
-			fly = true;
-			win = true;
-		}
-		
-		else if (getIntersectingObjects(End.class).size() >= 1) {
+		}else if (getIntersectingObjects(End.class).size() >= 1) {
 			if (getIntersectingObjects(End.class).get(0).isActivated()) {
 				end--;
 				points-=50;
 			}
 			win = true;
-		}
-		
-		else if (getY()<280 && !dead){
+		}else if (getIntersectingObjects(Fly.class).size() >= 1) {
+			fly = true;
+			win = true;
+		} else if(getY()<280  && !dead) {
 			HandleDeath(waterD);
-		}
+		} 
+			
+
 	}
 	
 	private void HandleOutOfBounds() {

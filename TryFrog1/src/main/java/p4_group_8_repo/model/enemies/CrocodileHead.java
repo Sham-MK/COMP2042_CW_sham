@@ -9,7 +9,7 @@ import p4_group_8_repo.model.scoreBoosters.End;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 
 public class CrocodileHead extends Actor {
-	Timer timer = new Timer();
+	public Timer timer = new Timer();
     int shift = 0;
 
 	public CrocodileHead() {

@@ -1,75 +1,58 @@
 package p4_group_8_repo.model.enemies;
 
 import javafx.scene.image.Image;
-import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.carriers.Turtle;
 
-public class WetTurtle extends Actor{
-	Image turtle1;
-	Image turtle2;
-	Image turtle3;
-	Image turtle4;
-	private double speed;
-	public double getSpeed() {
-		return speed;
+public class WetTurtle extends Turtle{
+	Image turtles1;
+	Image turtles2;
+	Image turtles3;
+	Image turtles4;
+
+	public WetTurtle(int xpos, int ypos, double s, int num_turtles) {
+		super(xpos, ypos, s, num_turtles);
 	}
-
-
-	int i = 1;
-	boolean bool = true;
-	boolean sunk = false;
-	@Override
+	
 	public void act(long now) {
+		super.act(now);
 
-				if (now/900000000  % 4 ==0) {
-					setImage(turtle2);
-					sunk = false;
-					
-				}
-				else if (now/900000000 % 4 == 1) {
-					setImage(turtle1);
-					sunk = false;
-				}
-				else if (now/900000000 %4 == 2) {
-					setImage(turtle3);
-					sunk = false;
-				} else if (now/900000000 %4 == 3) {
-					setImage(turtle4);
-					sunk = true;
-				}
-			
-		move(speed , 0);
-		if (getX() > 424 && speed>0)
-			setX(-100);
-		if (getX() < -200 && speed<0) {
-			setX(424);
+		if (now/900000000  % 4 ==0) {
+			setImage(turtles2);
+			sunk = false;					
 		}
 		
-	}
-	public WetTurtle(int xpos, int ypos, double s, int w, int h, int num_turtles) {
-		if(num_turtles == 3) {
-			turtle1 = new Image("/img/TurtleAnimation1.png", w, h, true, true);
-			turtle2 = new Image("/img/TurtleAnimation2Wet.png", w, h, true, true);
-			turtle3 = new Image("/img/TurtleAnimation3Wet.png", w, h, true, true);
-			turtle4 = new Image("/img/TurtleAnimation4Wet.png", w, h, true, true);
-		}else if(num_turtles == 2) {
-			turtle1 = new Image("/img/TurtleAnimation2-1.png", w, h, true, true);
-			turtle2 = new Image("/img/TurtleAnimation2-2Wet.png", w, h, true, true);
-			turtle3 = new Image("/img/TurtleAnimation2-3Wet.png", w, h, true, true);
-			turtle4 = new Image("/img/TurtleAnimation4Wet.png", w, h, true, true);
+		else if (now/900000000 % 4 == 1) {
+			setImage(turtles3);
+			sunk = false;
 		}
-	
-		setX(xpos);
-		setY(ypos);
-		speed = s;
-		setImage(turtle2);
+		else if (now/900000000 %4 == 2) {
+			setImage(turtles4);
+			sunk = true;
+		}
+		else if (now/900000000 %4 == 3) {
+			setImage(turtles1);
+			sunk = false;
+		}
 
+		}
+		
+	
+	@Override
+	public void addImages() {
+		if(num_turtles == 2) {
+			size = 60;
+			turtles1 = new Image("/img/TurtleAnimation2-1.png", size,50, true, true);
+			turtles2 = new Image("/img/TurtleAnimation2-2Wet.png",size,50, true, true);
+			turtles3 = new Image("/img/TurtleAnimation2-3Wet.png",size,50, true, true);
+			turtles4 = new Image("/img/TurtleAnimation4Wet.png",  size,50, true, true);
+		}else if(num_turtles == 3) {
+			size = 90;
+			turtles1 = new Image("/img/TurtleAnimation1.png", size,50, true, true);
+			turtles2 = new Image("/img/TurtleAnimation2Wet.png", size,50, true, true);
+			turtles3 = new Image("/img/TurtleAnimation3Wet.png", size,50, true, true);
+			turtles4 = new Image("/img/TurtleAnimation4Wet.png", size,50, true, true);
+		}
 	}
 	
-	public boolean isSunk() {
-		return sunk;
-	}
-	public void setSpeed(double d) {
-		// TODO Auto-generated method stub
-		speed = d;
-	}
+
 }
