@@ -16,7 +16,7 @@ public class Floatable extends Actor {
 		// TODO Auto-generated method stub
 		move(speed , 0);
 		if (getX() > 424 && speed>0)
-			setX(-size);
+			setX(-200);
 		if (getX() < -size && speed<0)
 			setX(424);
 

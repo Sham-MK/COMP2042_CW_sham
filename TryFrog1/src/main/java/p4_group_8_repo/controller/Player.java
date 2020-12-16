@@ -259,7 +259,7 @@ public class Player extends Actor {
 			 attached  =true;
 			 }
 		if(getIntersectingObjects(Floatable.class).size() >= 1) {
-			if (this.intersects(getIntersectingObjects(Floatable.class).get(0).getMouth())||getIntersectingObjects(Floatable.class).get(0).isSunk() && !dead) {
+			if ((this.intersects(getIntersectingObjects(Floatable.class).get(0).getMouth())||getIntersectingObjects(Floatable.class).get(0).isSunk() )&& !dead) {
 				HandleDeath(waterD);
 			}else {
 				move(getIntersectingObjects(Floatable.class).get(0).getSpeed(),0);
