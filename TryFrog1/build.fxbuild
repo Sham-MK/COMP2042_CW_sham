@@ -5,4 +5,5 @@
     <info/>
   </deploy>
   <signjar/>
+  <manifestEntries name="Main-class" value="p4_group_8_repo.main.FroggerApp"/>
 </anttasks:AntTask>
