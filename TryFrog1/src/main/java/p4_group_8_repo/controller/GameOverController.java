@@ -32,6 +32,7 @@ public class GameOverController {
 		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow());	
 
 	}
+
 	 /**
      * This method is used to show the score and highscore at the screen on the text node.
      * It also does a comparison between highscore and score to show if the highscore was beaten
