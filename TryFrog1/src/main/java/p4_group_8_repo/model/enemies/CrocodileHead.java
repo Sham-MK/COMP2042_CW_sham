@@ -11,7 +11,7 @@ import p4_group_8_repo.model.scoreBoosters.Fly;
 * <h1>Crocodile Head class</h1>
 * <p>
 * This class is responsible for setting the crocodile head
-* which periodically appears on one of the
+* which periodically appears on one of the swamps
 * it extends Actor 
 * </p>
 * @author  Sham Maatouk
