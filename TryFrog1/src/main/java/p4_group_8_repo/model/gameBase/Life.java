@@ -17,19 +17,12 @@ import javafx.scene.image.Image;
 */
 public class Life extends Actor {
 
-	Image img;//image of life
+	Image img;/**image of life*/
 	
 	public Life() {
 		
 	}
-	/**
-	 * this method adds the lives in the game scene.
-	 */
-	public void setLives() {
-		for(int i=0; i<4; i++) {
-			getWorld().add(new Life(0+(25*i)));
-		}
-	}
+
 	/**
 	 * Constructor for Life
 	 * @param x x position of Life on pane

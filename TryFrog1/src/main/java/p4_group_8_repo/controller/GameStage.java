@@ -129,7 +129,7 @@ public class GameStage extends World{
         }
 
         /*adding player lives*/
-		for(i=0; i<4; i++) {
+		for(i=0; i<animal.getLives(); i++) {
 			add(new Life(0+(25*i)));
 		}
 
