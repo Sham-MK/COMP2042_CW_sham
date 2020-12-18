@@ -62,7 +62,7 @@
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Text>
-      <Text fill="#f00f0f" layoutX="45.0" layoutY="238.0" stroke="#7a0b0b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-underline: true;" text="Leader Board" wrappingWidth="258">
+      <Text fill="#f00f0f" layoutX="113.0" layoutY="235.0" stroke="#7a0b0b" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-underline: true;" text="Leader Board" wrappingWidth="197.3333740234375">
          <font>
             <Font name="Comic Sans MS" size="30.0" />
          </font>
