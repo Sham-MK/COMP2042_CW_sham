@@ -24,6 +24,7 @@ import p4_group_8_repo.view.SceneManager;
 public class GameOverController {
 	SceneManager manager = new SceneManager();//initializing a scene manager
 
+	ScoreHandler scorePointer = new ScoreHandler();
 	String username;
 	@FXML Text heading;
 	
@@ -48,11 +49,12 @@ public class GameOverController {
      * It also does a comparison between highscore and score to show if the highscore was beaten
      * if so it calls a method of type score to update the file which stores the score.
      * @param points which is an integer of the score.
+     * @param level final level reached by player
+     * @param name username of player
 	 * @throws IOException 
      */
     public void setText(int points, int level,String name) throws IOException {
     	username = name;
-    	ScoreHandler scorePointer = new ScoreHandler();
 		score.setText("Score: "+points+"\nLevel reached: "+level);
 		if(scorePointer.isHigher(points, name)) {
 			heading.setText("You made it to the leaderboard!");
@@ -62,10 +64,10 @@ public class GameOverController {
 		ArrayList<String> names = scorePointer.getNames();
 		ArrayList<Integer> score = scorePointer.getHighscores();
 		
-		lead1.setText(names.get(0)+"       "+score.get(0));
-		lead2.setText(names.get(1)+"         "+score.get(1));
-		lead3.setText(names.get(2)+"         "+score.get(2));
-		lead4.setText(names.get(3)+"         "+score.get(3));
+		lead1.setText(names.get(0)+"      "+score.get(0));
+		lead2.setText(names.get(1)+"      "+score.get(1));
+		lead3.setText(names.get(2)+"      "+score.get(2));
+		lead4.setText(names.get(3)+"      "+score.get(3));
 
 		
      }  

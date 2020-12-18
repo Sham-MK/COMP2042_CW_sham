@@ -19,7 +19,7 @@
             <BoxBlur height="13.1" iterations="2" width="2.98" />
          </effect>
       </ImageView>
-      <Text fx:id="heading" fill="#f00f0f" layoutX="14.0" layoutY="65.0" stroke="#73120b" strokeType="OUTSIDE" strokeWidth="5.0" textAlignment="CENTER" wrappingWidth="395.47000885009766">
+      <Text fx:id="heading" fill="#f00f0f" layoutX="14.0" layoutY="45.0" stroke="#73120b" strokeType="OUTSIDE" strokeWidth="3.0" textAlignment="CENTER" wrappingWidth="395.47000885009766">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
