@@ -6,7 +6,7 @@ _This project was refactored in a manner that enhances object-oriented key princ
 
 - Applied Single responsibility by breaking down large classes and methods into more meaningful and concise ones, e.g., in Player.class (formerly known as Animal.class) the handling of events such as death, out of bounds and restoration were separated from act method into individual methods.—created addimage methods into animating classes to add specific images to the animation—separated setting the score from the GameStage class into the digit class, which is responsible for setting all digit related attributes.
 
-- Improved Inheritance and Polymorphism by grouping similar classes and making them inherit from a base class, but also maintaining individual methods. For Example, Floatable: a group of classes that float on water and can carry a player, e.g., Crocodile, Log, Turtle, and Wet Turtle. which also significantly reduces intersections checking calls in Player class.
+- Improved Inheritance and Polymorphism by grouping similar classes and making them inherit from a base class, but also maintaining individual methods. For Example, Floatable: a group of classes that float on water and can carry a player, e.g., Crocodile, Log, Turtle, and Wet Turtle. which also significantly reduces intersection checking calls in Player class.
 
 - Cleaned up the start method and moved all game components into GameStage (formerly known as Mystage).
 

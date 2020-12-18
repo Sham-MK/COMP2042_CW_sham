@@ -72,12 +72,22 @@ public class ScoreHandler   {
 	public boolean isHigher(int points,String name) {
 		for (int i=0; i<highScores.size();i++) {//parse each item
 			if(points>highScores.get(i)) {//if points are bigger then update that index
+				int temp = highScores.get(i);
+				String strtemp  = names.get(i);		
 				if(name == "") {//if no name was provided just write generic player
 					names.set(i, "Player");
 				}else {
 					names.set(i, name);
 				}
 				highScores.set(i, points);
+				for(int j = highScores.size()-1; j > i+1; j--)
+			    {
+			        //set the last element to the value of the 2nd to last element
+					highScores.set(j,highScores.get(j-1)); 
+					names.set(j,names.get(j-1));
+			    }
+				highScores.set(i+1,temp);
+				names.set(i+1,strtemp);
 				update();
 				return true;
 			}
