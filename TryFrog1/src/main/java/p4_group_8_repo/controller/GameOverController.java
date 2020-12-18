@@ -1,6 +1,7 @@
 package p4_group_8_repo.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,15 +24,22 @@ import p4_group_8_repo.view.SceneManager;
 public class GameOverController {
 	SceneManager manager = new SceneManager();//initializing a scene manager
 
+	String username;
+	@FXML Text heading;
 	
-    @FXML Text highscore;//text field that will show the score
+	@FXML Text lead1;
+	@FXML Text lead2;
+	@FXML Text lead3;
+	@FXML Text lead4;
+
+    @FXML Text score;//text field that will show the score
     
     /**
      * This method is used get the game scene when play again button is clicked.
      * @param event which is ActionEvent when play again button is clicked.
      */
 	public void playAgain(ActionEvent event) {
-		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow());	
+		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow(),username);	
 
 	}
 
@@ -42,15 +50,24 @@ public class GameOverController {
      * @param points which is an integer of the score.
 	 * @throws IOException 
      */
-    public void setText(int points, int level) throws IOException {
+    public void setText(int points, int level,String name) throws IOException {
+    	username = name;
     	ScoreHandler scorePointer = new ScoreHandler();
-		int score = scorePointer.readHighest();
-		if(scorePointer.isHigher(points, "Sham")) {
-		    highscore.setText("Level reached: "+level+"\nOld Highscore: "+score+"\nNew Highscore: "+points);
+		score.setText("Your Score: "+points+"\nLevel reached: "+level);
+		if(scorePointer.isHigher(points, name)) {
+			heading.setText("You made it to the leaderboard!");
 		}else {
-			highscore.setText("Level reached: "+level+"\nHighscore: "+score+"\nYour Score: "+points);
-
+			heading.setText("Game Over");
 		}
+		ArrayList<String> names = scorePointer.getNames();
+		ArrayList<Integer> score = scorePointer.getHighscores();
+		
+		lead1.setText(names.get(0)+"       "+score.get(0));
+		lead2.setText(names.get(1)+"         "+score.get(1));
+		lead3.setText(names.get(2)+"         "+score.get(2));
+		lead4.setText(names.get(3)+"         "+score.get(3));
+
+		
      }  
 	
 	

@@ -46,7 +46,7 @@ public class GameStage extends World{
 	Player 	animal = new Player();// the Frogger main player
     int i;// dummy integer for loops
 	int round = 1;// number of rounds, initialised to 1.
-    
+    String name;
     Roundtime_Controller timerController = new Roundtime_Controller(timerModel, timerview);
 
     /**
@@ -55,8 +55,8 @@ public class GameStage extends World{
      */
     
 	
-	public GameStage() {
-		
+	public GameStage(String username) {
+		name = username;
 		/*adding background image*/
         BackgroundImage froggerback = new BackgroundImage();
 		add(froggerback);
@@ -178,7 +178,7 @@ public class GameStage extends World{
             public void handle(long now) {           	
             	if(animal.gameover()) {//check if player died four times
         	 		stopGame();
-            		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints(),round);
+            		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints(),round,name);
 
             	}
             	if (animal.getNewRound()) {//check if player finished a round

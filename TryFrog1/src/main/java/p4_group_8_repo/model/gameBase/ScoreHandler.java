@@ -39,7 +39,7 @@ public class ScoreHandler extends Actor {
 	int dim;//size of digit
 	Image im1;//image of digit
 	ArrayList<Integer> highScores = new ArrayList<>();
-	ArrayList<String> names = new ArrayList<>();
+	ArrayList<String> names = new ArrayList<String>();
 
 	/**
 	 * default dummy constructor
@@ -60,7 +60,7 @@ public class ScoreHandler extends Actor {
 	          System.out.println("File created: " + file.getName());
 		 }
 		 highScores = getHighscores();
-
+		 names = getNames();
 
 	}
 
@@ -82,12 +82,15 @@ public class ScoreHandler extends Actor {
 	}
 	
 	public boolean isHigher(int points,String name) {
-		 names = getNames();
-		for (int i=0; i<highScores.size();i++) {
+		for (int i=0; i<names.size();i++) {
 			if(points>highScores.get(i)) {
+				if(name == "") {
+					names.set(i, "Player1");
+				}else {
+					names.set(i, name);
+				}
 				highScores.set(i, points);
 				update();
-				names.set(i, name);
 				return true;
 			}
 		}

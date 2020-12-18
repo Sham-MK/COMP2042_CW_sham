@@ -1,8 +1,10 @@
 package p4_group_8_repo.controller;
 
 
-import javafx.event.ActionEvent;
+import javafx.scene.control.TextField;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.stage.Stage;
 import p4_group_8_repo.view.SceneManager;
@@ -18,7 +20,7 @@ import p4_group_8_repo.view.SceneManager;
 * @since   2020
 */
 public class MenuController {
-	
+	@FXML TextField name;
 	SceneManager manager = new SceneManager();//scene manager for switching scenes
 
 	public MenuController() {
@@ -30,7 +32,8 @@ public class MenuController {
      * @param event which is ActionEvent when start button is clicked.
      */
 	public void startGame(ActionEvent event) {	
-		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow());
+		String username = name.getText();
+		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow(),username);
 
 	}
 	/**
@@ -39,7 +42,8 @@ public class MenuController {
      */
 	
 	public void showInfo(ActionEvent event) {
-		manager.showInfo((Stage)((Node)event.getSource()).getScene().getWindow());
+		String username = name.getText();
+		manager.showInfo((Stage)((Node)event.getSource()).getScene().getWindow(),username);
 
 
 	}

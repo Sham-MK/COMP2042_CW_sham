@@ -16,6 +16,8 @@ import p4_group_8_repo.view.SceneManager;
 * @since   2020
 */
 public class InfoController {
+	String username;
+
 	SceneManager manager = new SceneManager();//scene manager for switching scenes
 	/**
 	  This method is used get the game scene when play now! button is clicked.
@@ -23,7 +25,7 @@ public class InfoController {
      */
 
 	public void startGame(ActionEvent event) {
-		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow());	
+		manager.startGame((Stage)((Node)event.getSource()).getScene().getWindow(),username);	
 
 	}
 	/**
@@ -34,5 +36,8 @@ public class InfoController {
 	public void showMenu(ActionEvent event) {
 		manager.showMenu((Stage)((Node)event.getSource()).getScene().getWindow());	
 
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }
