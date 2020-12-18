@@ -1,6 +1,6 @@
 # Key Changes
 
-###This project was refactored in a manner that enhances object\*oriented key principles and code maintainability.###
+###This project was refactored in a manner that enhances object-oriented key principles and code maintainability.###
 
 *Ensured encapsulation in all classes by making variables either protected or private and making setters and getters for needed ones.
 *Applied Single responsibility by breaking down large classes and methods into more meaningful and concise ones, e.g., in Player.class (formerly known as Animal.class) the handling of events such as death, out of bounds and restoration were separated from act method into individual methods.—created addimage methods into animating classes to add specific images to the animation—separated setting the score from the GameStage class into the digit class, which is responsible for setting all digit related attributes.
