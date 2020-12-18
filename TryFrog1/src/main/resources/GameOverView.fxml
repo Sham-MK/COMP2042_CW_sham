@@ -32,32 +32,32 @@
             <InnerShadow choke="0.16" color="#3bc436" height="46.7" radius="21.3675" width="40.77" />
          </effect>
       </Button>
-      <Text fx:id="score" fill="#028e10" layoutX="60.0" layoutY="140.0" stroke="#107a07" strokeType="OUTSIDE" wrappingWidth="300">
+      <Text fx:id="score" fill="#028e10" layoutX="60.0" layoutY="140.0" stroke="#107a07" strokeType="OUTSIDE" wrappingWidth="330">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="leadheader" fill="#028e10" layoutX="65.0" layoutY="285.0" stroke="#055d0e" strokeType="OUTSIDE" text="Name      Score" wrappingWidth="303.4700736999512">
+      <Text fx:id="leadheader" fill="#028e10" layoutX="45.0" layoutY="285.0" stroke="#055d0e" strokeType="OUTSIDE" text="Name      Score" wrappingWidth="303.4700736999512">
          <font>
             <Font name="Comic Sans MS Italic" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="lead1" fill="#028e10" layoutX="65.0" layoutY="345.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="270">
+      <Text fx:id="lead1" fill="#028e10" layoutX="45.0" layoutY="345.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="lead3" fill="#028e10" layoutX="65.0" layoutY="450.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="270">
+      <Text fx:id="lead3" fill="#028e10" layoutX="45.0" layoutY="450.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="lead2" fill="#028e10" layoutX="65.0" layoutY="400.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="270">
+      <Text fx:id="lead2" fill="#028e10" layoutX="45.0" layoutY="400.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>
       </Text>
-      <Text fx:id="lead4" fill="#028e10" layoutX="65.0" layoutY="500.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="270">
+      <Text fx:id="lead4" fill="#028e10" layoutX="45.0" layoutY="500.0" stroke="#055d0e" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="330">
          <font>
             <Font name="Comic Sans MS" size="36.0" />
          </font>

@@ -66,10 +66,10 @@ public class GameOverController {
 		ArrayList<String> names = scorePointer.getNames();
 		ArrayList<Integer> score = scorePointer.getHighscores();
 		
-		lead1.setText(names.get(0)+"\t\t"+score.get(0));
-		lead2.setText(names.get(1)+"\t\t"+score.get(1));
-		lead3.setText(names.get(2)+"\t\t"+score.get(2));
-		lead4.setText(names.get(3)+"\t\t"+score.get(3));
+		lead1.setText(names.get(0)+"        "+score.get(0));
+		lead2.setText(names.get(1)+"        "+score.get(1));
+		lead3.setText(names.get(2)+"        "+score.get(2));
+		lead4.setText(names.get(3)+"        "+score.get(3));
 
 		
      }  
