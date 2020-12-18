@@ -7,9 +7,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import javafx.embed.swing.JFXPanel;
-import p4_group_8_repo.controller.GameStage;
-import p4_group_8_repo.controller.Player;
 import p4_group_8_repo.model.enemies.Car;
+import p4_group_8_repo.model.gameAttributes.Player;
+import p4_group_8_repo.view.GameStage;
 
 
 class PlayerTest {

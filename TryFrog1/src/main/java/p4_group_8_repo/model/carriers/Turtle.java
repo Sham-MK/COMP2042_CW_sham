@@ -2,7 +2,7 @@ package p4_group_8_repo.model.carriers;
 
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
-import p4_group_8_repo.model.gameBase.Floatable;
+import p4_group_8_repo.model.gameAttributes.Floatable;
 
 /**
 * <h1>Turtle class</h1>
@@ -13,7 +13,7 @@ import p4_group_8_repo.model.gameBase.Floatable;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Floatable Floatable
+* @see p4_group_8_repo.model.gameAttributes.Floatable Floatable
 */
 public class Turtle extends Floatable{
 	/*images for turtle animation*/

@@ -1,4 +1,4 @@
-package p4_group_8_repo.controller;
+package p4_group_8_repo.view;
 
 import java.io.File;
 
@@ -6,6 +6,7 @@ import javafx.animation.AnimationTimer;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import p4_group_8_repo.controller.Roundtime_Controller;
 import p4_group_8_repo.model.carriers.Log;
 import p4_group_8_repo.model.carriers.Turtle;
 import p4_group_8_repo.model.enemies.Car;
@@ -13,25 +14,24 @@ import p4_group_8_repo.model.enemies.Crocodile;
 import p4_group_8_repo.model.enemies.CrocodileHead;
 import p4_group_8_repo.model.enemies.Snake;
 import p4_group_8_repo.model.enemies.WetTurtle;
-import p4_group_8_repo.model.gameBase.BackgroundImage;
-import p4_group_8_repo.model.gameBase.Digit;
-import p4_group_8_repo.model.gameBase.LevelCleared;
-import p4_group_8_repo.model.gameBase.Levels;
-import p4_group_8_repo.model.gameBase.Life;
-import p4_group_8_repo.model.gameBase.Roundtime_Model;
-import p4_group_8_repo.model.gameBase.World;
+import p4_group_8_repo.model.gameAttributes.BackgroundImage;
+import p4_group_8_repo.model.gameAttributes.Digit;
+import p4_group_8_repo.model.gameAttributes.LevelCleared;
+import p4_group_8_repo.model.gameAttributes.Levels;
+import p4_group_8_repo.model.gameAttributes.Life;
+import p4_group_8_repo.model.gameAttributes.Player;
+import p4_group_8_repo.model.gameAttributes.Roundtime_Model;
+import p4_group_8_repo.model.gameAttributes.World;
 import p4_group_8_repo.model.scoreBoosters.Swamp;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 import p4_group_8_repo.model.scoreBoosters.LadyFrog;
-import p4_group_8_repo.view.Roundtime_View;
-import p4_group_8_repo.view.SceneManager;
 /**
 * <h1>The Game Scene</h1>
 * <p>
 * This class extends World and sets the main game scene.
 * It adds all the game elements to a Pane
 * </p>
-* @see p4_group_8_repo.model.gameBase.World World
+* @see p4_group_8_repo.model.gameAttributes.World World
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
@@ -165,10 +165,10 @@ public class GameStage extends World{
 	/**
 	 * This is a method which instantiates an animation timer
 	 * to check for gameover, new levels, and timer updates.
-	 * @see p4_group_8_repo.controller.Player#gameover() Game Over method
-	 * @see p4_group_8_repo.controller.Player#getNewRound() New Round Method
-	 * @see p4_group_8_repo.controller.Player#isWin()  win getter
-	 * @see p4_group_8_repo.controller.Player#isDead() dead getter
+	 * @see p4_group_8_repo.model.gameAttributes.Player#gameover() Game Over method
+	 * @see p4_group_8_repo.model.gameAttributes.Player#getNewRound() New Round Method
+	 * @see p4_group_8_repo.model.gameAttributes.Player#isWin()  win getter
+	 * @see p4_group_8_repo.model.gameAttributes.Player#isDead() dead getter
 	 */
 
 	public void GameCheck() {

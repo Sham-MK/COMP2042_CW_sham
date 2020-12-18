@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import p4_group_8_repo.model.gameBase.ScoreHandler;
+import p4_group_8_repo.model.gameAttributes.ScoreHandler;
 import p4_group_8_repo.view.SceneManager;
 
 /**

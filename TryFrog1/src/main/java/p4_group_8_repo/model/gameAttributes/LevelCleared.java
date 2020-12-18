@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import java.util.Timer;
 
@@ -14,7 +14,7 @@ import javafx.scene.image.Image;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 */
 public class LevelCleared extends Actor {
    

@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -79,7 +79,7 @@ public abstract class World extends Pane {
     }
     /**
      * Animation timer that invokes actors act methods when started
-     * @see p4_group_8_repo.model.gameBase.Actor#act(long)
+     * @see p4_group_8_repo.model.gameAttributes.Actor#act(long)
      */
 
     public void createTimer() {

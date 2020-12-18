@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="p4_group_8_repo.model.gameBase.Actor" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Actor.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="p4_group_8_repo.model.gameAttributes.Actor" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Actor.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1201" y="44"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -10,8 +10,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="p4_group_8_repo.model.gameBase.BackgroundImage" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/BackgroundImage.java" binary="false" 
+  <class id="2" language="java" name="p4_group_8_repo.model.gameAttributes.BackgroundImage" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/BackgroundImage.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="524" y="246"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -20,8 +20,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="p4_group_8_repo.model.gameBase.Digit" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Digit.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="p4_group_8_repo.model.gameAttributes.Digit" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Digit.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1556" y="245"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -29,8 +29,9 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="p4_group_8_repo.model.gameBase.Floatable" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Floatable.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="p4_group_8_repo.model.gameAttributes.Floatable" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Floatable.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1200" y="438"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -38,8 +39,9 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="p4_group_8_repo.model.gameBase.LevelCleared" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/LevelCleared.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="p4_group_8_repo.model.gameAttributes.LevelCleared" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/LevelCleared.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="254" y="247"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -47,8 +49,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="p4_group_8_repo.model.gameBase.Levels" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Levels.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="p4_group_8_repo.model.gameAttributes.Levels" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Levels.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="257" y="159"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -56,8 +58,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="p4_group_8_repo.model.gameBase.Life" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Life.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="p4_group_8_repo.model.gameAttributes.Life" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Life.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="258" y="69"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -156,8 +158,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="p4_group_8_repo.controller.Player" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/controller/Player.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="p4_group_8_repo.model.gameAttributes.Player" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Player.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1327" y="245"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -165,8 +167,8 @@
       <operations public="false" package="false" protected="false" private="false" static="false"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="p4_group_8_repo.controller.GameStage" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/controller/GameStage.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="19" language="java" name="p4_group_8_repo.view.GameStage" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/view/GameStage.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1993" y="764"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -183,8 +185,9 @@
       <operations public="true" package="true" protected="true" private="true" static="false"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="p4_group_8_repo.model.gameBase.ScoreHandler" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/ScoreHandler.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="21" language="java" name="p4_group_8_repo.model.gameAttributes.ScoreHandler" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/ScoreHandler.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1972" y="402"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -229,8 +232,8 @@
       <operations public="true" package="true" protected="true" private="true" static="false"/>    
     </display>  
   </class>  
-  <class id="26" language="java" name="p4_group_8_repo.model.gameBase.Roundtime_Model" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/Roundtime_Model.java" binary="false" 
+  <class id="26" language="java" name="p4_group_8_repo.model.gameAttributes.Roundtime_Model" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/Roundtime_Model.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1605" y="764"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -258,8 +261,8 @@
       <operations public="true" package="true" protected="true" private="true" static="false"/>    
     </display>  
   </class>  
-  <class id="29" language="java" name="p4_group_8_repo.model.gameBase.World" project="TryFrog1" 
-    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameBase/World.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="29" language="java" name="p4_group_8_repo.model.gameAttributes.World" project="TryFrog1" 
+    file="/TryFrog1/src/main/java/p4_group_8_repo/model/gameAttributes/World.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2117" y="585"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -268,180 +271,232 @@
     </display>  
   </class>  
   <association id="30">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="31" name="timerview"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="31" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="32" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="27" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="34">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="35">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
+  <association id="33">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="34" name="model">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <generalization id="36">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="1"/>  
   </generalization>  
   <generalization id="37">    
-    <end type="SOURCE" refId="4"/>    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <generalization id="38">    
-    <end type="SOURCE" refId="16"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="1"/>  
   </generalization>  
   <generalization id="39">    
-    <end type="SOURCE" refId="8"/>    
+    <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
   <association id="40">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="41" name="animal"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="44">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="46">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="47" name="manager"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="49">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="50">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <association id="51">    
-    <bendpoint x="2083" y="810"/>    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="52" name="manager"/>      
-      <multiplicity id="53" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="24" navigable="false">      
-      <attribute id="55" name="manager"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="57">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="29"/>  
-  </generalization>  
-  <association id="59">    
-    <end type="SOURCE" refId="25" navigable="false">      
-      <attribute id="60" name="manager"/>      
-      <multiplicity id="61" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="62">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="63" name="view"/>      
-      <multiplicity id="64" minimum="0" maximum="1"/>    
+      <attribute id="41" name="timerview">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="27" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="66">    
-    <end type="SOURCE" refId="28" navigable="false">      
-      <attribute id="67" name="model"/>      
-      <multiplicity id="68" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="69">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <generalization id="70">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="71">    
+  <association id="43">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="72" name="timerController"/>      
-      <multiplicity id="73" minimum="0" maximum="1"/>    
+      <attribute id="44" name="animal">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="28" navigable="true"/>    
+    <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="74">    
+  <association id="46">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="75" name="scorePointer"/>      
-      <multiplicity id="76" minimum="0" maximum="1"/>    
+      <attribute id="47" name="scorePointer">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="77">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="78" name="manager"/>      
-      <multiplicity id="79" minimum="0" maximum="1"/>    
+  <generalization id="49">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="50">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="51" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="80">    
+  <generalization id="53">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="55" name="view">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="57">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="58">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="81">    
+  <association id="59">    
     <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="82" name="score"/>      
-      <multiplicity id="83" minimum="0" maximum="1"/>    
+      <attribute id="60" name="timerController">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="61" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="62">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="63">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="64" name="timerModel">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="65" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="66">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="67">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="68">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <association id="69">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="70" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="71" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="72">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="73" name="score">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="84">    
-    <end type="SOURCE" refId="19" navigable="false">      
-      <attribute id="85" name="timerModel"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+  <generalization id="75">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <generalization id="77">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="79">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <association id="81">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="82" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="83" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="26" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <bendpoint x="2083" y="810"/>    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="85" name="manager">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 

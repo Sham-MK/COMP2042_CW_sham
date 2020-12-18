@@ -3,9 +3,9 @@ package p4_group_8_repo.model.scoreBoosters;
 import java.util.Timer;
 
 import javafx.scene.image.Image;
-import p4_group_8_repo.controller.Player;
 import p4_group_8_repo.model.carriers.Log;
-import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.gameAttributes.Actor;
+import p4_group_8_repo.model.gameAttributes.Player;
 /**
 * <h1>Lady Frog class</h1>
 * <p>
@@ -16,7 +16,7 @@ import p4_group_8_repo.model.gameBase.Actor;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 */
 public class LadyFrog extends Actor {
 	Image imgUP, imgLEFT, imgDOWN, imgRIGHT;//images of lady frog

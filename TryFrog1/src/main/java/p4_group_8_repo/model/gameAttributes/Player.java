@@ -1,4 +1,4 @@
-package p4_group_8_repo.controller;
+package p4_group_8_repo.model.gameAttributes;
 
 
 
@@ -17,9 +17,6 @@ import javafx.util.Duration;
 import p4_group_8_repo.model.enemies.Car;
 import p4_group_8_repo.model.enemies.CrocodileHead;
 import p4_group_8_repo.model.enemies.Snake;
-import p4_group_8_repo.model.gameBase.Actor;
-import p4_group_8_repo.model.gameBase.Floatable;
-import p4_group_8_repo.model.gameBase.Life;
 import p4_group_8_repo.model.scoreBoosters.Swamp;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 import p4_group_8_repo.model.scoreBoosters.LadyFrog;
@@ -31,7 +28,7 @@ import p4_group_8_repo.model.scoreBoosters.LadyFrog;
 * The class is responsible for all the aspects
 * of an objects of type player in the game scen
 * it extends Actor class.
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 * </p>
 * @author  Sham Maatouk
 * @version 1.0
@@ -243,8 +240,8 @@ public class Player extends Actor {
 
 	/**
 	 * Act now method which instantiates all the player properties.
-	 * @see p4_group_8_repo.model.gameBase.Actor#act(long) Acting method
-	 * @see p4_group_8_repo.model.gameBase.Actor#getIntersectingObjects(Class) Intersection lists
+	 * @see p4_group_8_repo.model.gameAttributes.Actor#act(long) Acting method
+	 * @see p4_group_8_repo.model.gameAttributes.Actor#getIntersectingObjects(Class) Intersection lists
 	 * @param now, which is a long that stores current time frame in nanoseconds.
 	 */
 	@Override

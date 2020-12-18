@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.embed.swing.JFXPanel;
 import p4_group_8_repo.controller.Roundtime_Controller;
-import p4_group_8_repo.model.gameBase.Roundtime_Model;
+import p4_group_8_repo.model.gameAttributes.Roundtime_Model;
 import p4_group_8_repo.view.Roundtime_View;
 
 class RoundTimerTest {

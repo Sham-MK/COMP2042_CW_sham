@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import java.util.Timer;
 import java.util.TimerTask;

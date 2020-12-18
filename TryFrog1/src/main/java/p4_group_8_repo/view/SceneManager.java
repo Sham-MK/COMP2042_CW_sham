@@ -7,7 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import p4_group_8_repo.controller.GameOverController;
-import p4_group_8_repo.controller.GameStage;
 import p4_group_8_repo.controller.InfoController;
 /**
 * <h1>Scene Manager Class</h1>

@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.scene.image.Image;
-import p4_group_8_repo.model.gameBase.Actor;
+import p4_group_8_repo.model.gameAttributes.Actor;
 /**
 * <h1>Fly class</h1>
 * <p>
@@ -15,7 +15,7 @@ import p4_group_8_repo.model.gameBase.Actor;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 */
 public class Fly extends Actor {
     private Timer timer = new Timer();//timer to change location of fly every while

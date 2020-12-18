@@ -7,7 +7,7 @@ import java.util.Scanner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import p4_group_8_repo.model.gameBase.ScoreHandler;
+import p4_group_8_repo.model.gameAttributes.ScoreHandler;
 
 class ScoreTest {
 

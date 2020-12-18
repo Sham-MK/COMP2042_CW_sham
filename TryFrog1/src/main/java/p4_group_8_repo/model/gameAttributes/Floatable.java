@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import javafx.geometry.Bounds;
 import javafx.scene.shape.Rectangle;
@@ -12,7 +12,7 @@ import javafx.scene.shape.Rectangle;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 */
 public class Floatable extends Actor {
 	

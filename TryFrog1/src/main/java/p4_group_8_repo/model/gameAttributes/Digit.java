@@ -1,19 +1,6 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import javafx.scene.image.Image;
-/**
-* <h1>Digit class</h1>
-* <p>
-* This class is responsible for setting current score 
-* and highscore of the player in the game scene.
-* it extends Actor. 
-* </p>
-* @author  Sham Maatouk
-* @version 1.0
-* @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
-*/
-import p4_group_8_repo.controller.Player;
 
 public class Digit extends Actor {
 	int score;//Highscore

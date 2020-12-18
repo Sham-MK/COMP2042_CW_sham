@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -37,11 +37,11 @@ public class ScoreHandler   {
 	 * also stores the names and scores in array lists.
 	 */
 	public ScoreHandler() {
-		 if (!file.exists()) {
+		 if (!file.exists()) {//if the file does not exist creat a new one
 	          try {
 				file.createNewFile();
 				FileWriter myWriter = new FileWriter(file);
-			    myWriter.write("Empty\t0\nEmpty\t0\nEmpty\t0\nEmpty\t0\nEmpty\t0");
+			    myWriter.write("Empty\t0\nEmpty\t0\nEmpty\t0\nEmpty\t0");//add an empty list
 			    myWriter.close();
 			    System.out.println("Successfully wrote to the file.");
 	          }
@@ -51,6 +51,7 @@ public class ScoreHandler   {
 			}
 	          System.out.println("File created: " + file.getName());
 		 }
+		 /*get highscore and name lists*/
 		 highScores = getHighscores();
 		 names = getNames();
 
@@ -69,10 +70,10 @@ public class ScoreHandler   {
 	 */
 	
 	public boolean isHigher(int points,String name) {
-		for (int i=0; i<names.size();i++) {
-			if(points>highScores.get(i)) {
-				if(name == "") {
-					names.set(i, "Player1");
+		for (int i=0; i<highScores.size();i++) {//parse each item
+			if(points>highScores.get(i)) {//if points are bigger then update that index
+				if(name == "") {//if no name was provided just write generic player
+					names.set(i, "Player");
 				}else {
 					names.set(i, name);
 				}
@@ -98,8 +99,8 @@ public class ScoreHandler   {
             while (line != null)                 // read the score file line by line
             {
                 try {
-                    int score = Integer.parseInt(line.split("-")[1]);   // parse each line as an int
-                    if (score > highScore)                       //  keep track of the largest
+                    int score = Integer.parseInt(line.split("-")[1]);   // parse each line and store in score
+                    if (score > highScore)                       //  check id it's bigger than previous 
                     { 
                         highScore = score; 
                     }
@@ -124,12 +125,12 @@ public class ScoreHandler   {
 	public void update() {
 		  Path filePath = Paths.get(file.toURI());
 		  ArrayList<String> lines = new ArrayList<>();
-		  for (int i=0; i<highScores.size();i++) {
-			  lines.add(names.get(i)+"-"+highScores.get(i));		  
+		  for (int i=0; i<highScores.size();i++) {//go through every item
+			  lines.add(names.get(i)+"-"+highScores.get(i));//add the name and highscore separated by a dash	  
 		  }
           try{
               System.out.println("File Saved");
-              Files.write(filePath, lines , Charset.defaultCharset());
+              Files.write(filePath, lines , Charset.defaultCharset());//write new the list of lines to the file
           }catch(IOException e){
               e.printStackTrace();
           }

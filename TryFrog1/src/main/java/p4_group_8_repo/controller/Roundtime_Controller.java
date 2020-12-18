@@ -1,6 +1,6 @@
 package p4_group_8_repo.controller;
 
-import p4_group_8_repo.model.gameBase.Roundtime_Model;
+import p4_group_8_repo.model.gameAttributes.Roundtime_Model;
 import p4_group_8_repo.view.Roundtime_View;
 /**
 * <h1>Controller for the Round timer</h1>

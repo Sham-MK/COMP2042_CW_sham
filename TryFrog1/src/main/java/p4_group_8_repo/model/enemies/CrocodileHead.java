@@ -4,8 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import javafx.scene.image.Image;
-import p4_group_8_repo.model.gameBase.Actor;
 import p4_group_8_repo.model.scoreBoosters.Swamp;
+import p4_group_8_repo.model.gameAttributes.Actor;
 import p4_group_8_repo.model.scoreBoosters.Fly;
 /**
 * <h1>Crocodile Head class</h1>
@@ -17,7 +17,7 @@ import p4_group_8_repo.model.scoreBoosters.Fly;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Actor Actor
+* @see p4_group_8_repo.model.gameAttributes.Actor Actor
 */
 public class CrocodileHead extends Actor {
 	private Timer timer = new Timer();//timer for shifting the crocodile head

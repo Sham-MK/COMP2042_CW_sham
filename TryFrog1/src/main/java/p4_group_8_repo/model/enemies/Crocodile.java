@@ -3,8 +3,8 @@ package p4_group_8_repo.model.enemies;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
-import p4_group_8_repo.model.gameBase.Actor;
-import p4_group_8_repo.model.gameBase.Floatable;
+import p4_group_8_repo.model.gameAttributes.Actor;
+import p4_group_8_repo.model.gameAttributes.Floatable;
 
 /**
 * <h1>Crocodile class</h1>
@@ -15,7 +15,7 @@ import p4_group_8_repo.model.gameBase.Floatable;
 * @author  Sham Maatouk
 * @version 1.0
 * @since   2020
-* @see p4_group_8_repo.model.gameBase.Floatable Floatable
+* @see p4_group_8_repo.model.gameAttributes.Floatable Floatable
 */
 public class Crocodile extends Floatable {
 

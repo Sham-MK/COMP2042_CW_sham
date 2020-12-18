@@ -1,4 +1,4 @@
-package p4_group_8_repo.model.gameBase;
+package p4_group_8_repo.model.gameAttributes;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputEvent;
@@ -71,7 +71,7 @@ public abstract class Actor extends ImageView{
     /**
      * This method is responsible making actors move and act through an animation timer
      * @param now current time frame in nanoseconds
-     * @see p4_group_8_repo.model.gameBase.World#createTimer() act timer.
+     * @see p4_group_8_repo.model.gameAttributes.World#createTimer() act timer.
      */
 
     public abstract void act(long now);
