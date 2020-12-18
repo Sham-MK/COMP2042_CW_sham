@@ -1,11 +1,13 @@
 package p4_group_8_repo.controller;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import p4_group_8_repo.model.gameBase.Score;
+import p4_group_8_repo.model.gameBase.ScoreHandler;
 import p4_group_8_repo.view.SceneManager;
 
 /**
@@ -38,15 +40,15 @@ public class GameOverController {
      * It also does a comparison between highscore and score to show if the highscore was beaten
      * if so it calls a method of type score to update the file which stores the score.
      * @param points which is an integer of the score.
+	 * @throws IOException 
      */
-    public void setText(int points) {
-    	Score scorePointer = new Score();
-		int score = scorePointer.read();
-		if(points>score) {
-		    highscore.setText("Old Highscore: "+score+"\n\nNew Highscore: "+points);
-		    scorePointer.update(points);
+    public void setText(int points, int level) throws IOException {
+    	ScoreHandler scorePointer = new ScoreHandler();
+		int score = scorePointer.readHighest();
+		if(scorePointer.isHigher(points, "Sham")) {
+		    highscore.setText("Level reached: "+level+"\nOld Highscore: "+score+"\nNew Highscore: "+points);
 		}else {
-			highscore.setText("Highscore: "+score+"\n\nYour Score: "+points);
+			highscore.setText("Level reached: "+level+"\nHighscore: "+score+"\nYour Score: "+points);
 
 		}
      }  

@@ -12,7 +12,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src/main/javadoc"/>
-	<classpathentry kind="src" path="src/test"/>
+	<classpathentry excluding="p4_group_8_repo/test/|p4_group_8_repo/test/" kind="src" path="src/test"/>
+	<classpathentry kind="src" path="src/test/p4_group_8_repo/test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-13">
 		<attributes>
 			<attribute name="module" value="true"/>

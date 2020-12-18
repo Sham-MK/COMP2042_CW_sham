@@ -18,7 +18,7 @@ import p4_group_8_repo.model.gameBase.LevelCleared;
 import p4_group_8_repo.model.gameBase.Levels;
 import p4_group_8_repo.model.gameBase.Life;
 import p4_group_8_repo.model.gameBase.Roundtime_Model;
-import p4_group_8_repo.model.gameBase.Score;
+import p4_group_8_repo.model.gameBase.ScoreHandler;
 import p4_group_8_repo.model.gameBase.World;
 import p4_group_8_repo.model.scoreBoosters.Swamp;
 import p4_group_8_repo.model.scoreBoosters.Fly;
@@ -42,7 +42,7 @@ public class GameStage extends World{
     AnimationTimer timerc;// timer to check game aspects
     Roundtime_View timerview = new Roundtime_View();//view of the round timer
     Roundtime_Model timerModel = new Roundtime_Model();// model of the round timer
-    Score score = new Score();// score object to show highscore and current score
+    ScoreHandler score = new ScoreHandler();// score object to show highscore and current score
 	Player 	animal = new Player();// the Frogger main player
     int i;// dummy integer for loops
 	int round = 1;// number of rounds, initialised to 1.
@@ -178,7 +178,7 @@ public class GameStage extends World{
             public void handle(long now) {           	
             	if(animal.gameover()) {//check if player died four times
         	 		stopGame();
-            		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints());
+            		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints(),round);
 
             	}
             	if (animal.getNewRound()) {//check if player finished a round

@@ -31,7 +31,7 @@ public class SceneManager {
 			Scene menu = new Scene(menuView, 424 , 600);		
 			window.setScene(menu);
 			window.setResizable(false);
-			window.getIcons().add(new Image("/img/froggerup.png"));
+			window.getIcons().add(new Image("/img/icon.png"));
 			window.setTitle("Frogger");
 			window.show();
         } catch (IOException e) {
@@ -68,13 +68,13 @@ public class SceneManager {
 	 * This method is responsible for setting the game over scene.
 	 * @param window which is the primary stage
 	 */
-	public void showGameOver(Stage window, int points) {
+	public void showGameOver(Stage window, int points, int level) {
 		try {
 	           FXMLLoader loader = new FXMLLoader(getClass().getResource("/GameOverView.fxml"));
 	           AnchorPane root = loader.load();
 	           
 	           GameOverController controller2 = loader.getController();
-	           controller2.setText(points);
+	           controller2.setText(points,level);
 	           
 	           window.setScene(new Scene(root));
 	           window.show();
