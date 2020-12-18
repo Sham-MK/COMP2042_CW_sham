@@ -244,7 +244,7 @@ public class GameStage extends World{
 	             add(new Snake(200,280,1));
 	             break;
 	    	  case 4:
-	    		 add(new Crocodile(getObjects(Log.class).get(4).getX()-360, 198, 1.5));
+	    		 add(new Crocodile(getObjects(Log.class).get(0).getX(), 198, 1.5));
 		    	animal.toFront();
 	             if(getObjects(LadyFrog.class).size()>0) {
 			    	    remove(getObjects(LadyFrog.class).get(0));
@@ -284,8 +284,8 @@ public class GameStage extends World{
 	    		 break;
 	    	  case 10:
 	    		 getObjects(Car.class).get(2).setSpeed(2);
+	     		 getObjects(Car.class).get(10).setSpeed(2);
 	     		 getObjects(Car.class).get(11).setSpeed(2);
-	     		 getObjects(Car.class).get(12).setSpeed(2);
 
 	     		 break;
 	    	  default:
