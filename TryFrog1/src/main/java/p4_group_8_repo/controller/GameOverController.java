@@ -53,7 +53,7 @@ public class GameOverController {
     public void setText(int points, int level,String name) throws IOException {
     	username = name;
     	ScoreHandler scorePointer = new ScoreHandler();
-		score.setText("Your Score: "+points+"\nLevel reached: "+level);
+		score.setText("Score: "+points+"\nLevel reached: "+level);
 		if(scorePointer.isHigher(points, name)) {
 			heading.setText("You made it to the leaderboard!");
 		}else {
