@@ -26,6 +26,7 @@ public class GameOverController {
 
 	ScoreHandler scorePointer = new ScoreHandler();
 	String username;
+	int level;
 	@FXML Text heading;
 	
 	@FXML Text lead1;
@@ -55,6 +56,7 @@ public class GameOverController {
      */
     public void setText(int points, int level,String name) throws IOException {
     	username = name;
+    	this.level = level;
 		score.setText("Score: "+points+"\nLevel reached: "+level);
 		if(scorePointer.isHigher(points, name)) {
 			heading.setText("You made it to the leaderboard!");
