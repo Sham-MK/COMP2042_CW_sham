@@ -85,9 +85,10 @@ public class ScoreHandler   {
 			        //set the last element to the value of the 2nd to last element
 					highScores.set(j,highScores.get(j-1)); 
 					names.set(j,names.get(j-1));
+			    }if(i!=highScores.size()-1) {
+			    	highScores.set(i+1,temp);
+					names.set(i+1,strtemp);
 			    }
-				highScores.set(i+1,temp);
-				names.set(i+1,strtemp);
 				update();
 				return true;
 			}
