@@ -37,4 +37,5 @@ class Roundtime_ControllerTest {
 	void testGetProgress() {
 		assertEquals(0.5,controller.getProgress());
 	}
+
 }

@@ -702,9 +702,9 @@ main a[href*="://"]::after {
     height:7px;
     margin-left:2px;
     margin-bottom:4px;
- }
- main a[href*="://"]:hover::after,
- main a[href*="://"]:focus::after {
+}
+main a[href*="://"]:hover::after,
+main a[href*="://"]:focus::after {
     background-image:url('data:image/svg+xml; utf8, \
       <svg xmlns="http://www.w3.org/2000/svg" width="768" height="768">\
         <path d="M584 664H104V184h216V80H0v688h688V448H584zM384 0l132 \

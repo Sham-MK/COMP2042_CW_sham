@@ -31,7 +31,7 @@ public class Fly extends Actor {
             public void run() { 
          	setImage(new Image("/img/fly.png", 35, 28, true, true));
        	    setX(20+shift); 
-       	    setY(86);
+       	    setY(92);
        	    if(shift==360) {
              	shift =0;
              }

@@ -35,6 +35,7 @@ public abstract class World extends Pane {
     
     public World() {
     	
+    	
     	sceneProperty().addListener(new ChangeListener<Scene>() {
 
 			@Override

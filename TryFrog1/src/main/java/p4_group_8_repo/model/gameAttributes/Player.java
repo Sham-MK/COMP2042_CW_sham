@@ -376,7 +376,7 @@ public class Player extends Actor {
 	 * @return boolean 
 	 */
 	public boolean getNewRound() {
-		if(swamps == 5) {//if five swamps are reached then restorte swamps and return true
+		if(swamps == 5) {//if five swamps are reached then restore swamps and return true
 			swamps = 0;
 			return true;
 		}

@@ -3,6 +3,9 @@ package p4_group_8_repo.view;
 import java.io.File;
 
 import javafx.animation.AnimationTimer;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
@@ -36,6 +39,7 @@ import p4_group_8_repo.model.scoreBoosters.LadyFrog;
 * @version 1.0
 * @since   2020
 */
+
 public class GameStage extends World{
 	SceneManager manager = new SceneManager();//scene manager for switching scenes
 	private MediaPlayer mediaPlayer;//media player to play music
@@ -47,11 +51,13 @@ public class GameStage extends World{
     int i;// dummy integer for loops
 	int round = 1;// number of rounds, initialised to 1.
     String name;
+    boolean pause = false;
     Roundtime_Controller timerController = new Roundtime_Controller(timerModel, timerview);
 
     /**
      * This is the constructor for GameStage.
      * It adds in all the Cars, Floatables, and game elements
+     * @param username the username of the player
      */
     
 	
@@ -148,9 +154,11 @@ public class GameStage extends World{
     	
     	/*method call to all animation timers to start game*/
 		startGame();
-
-
+					
 	}
+
+
+	
 	/**
 	 * This method adds a round timer view on the pane
 	 * @param timerview2
@@ -175,7 +183,8 @@ public class GameStage extends World{
         timerc = new AnimationTimer() {
         	
             @Override
-            public void handle(long now) {           	
+            public void handle(long now) {     
+
             	if(animal.gameover()) {//check if player died four times
         	 		stopGame();
             		manager.showGameOver((Stage)animal.getScene().getWindow(),animal.getPoints(),round,name);
@@ -198,6 +207,7 @@ public class GameStage extends World{
             	if(timerController.getProgress()<=0.0333 && !animal.isWin()) {//raise death flag if round time is over
     				animal.HandleDeath(animal.getWaterD());
             	}
+           
             }
         };
     }
@@ -323,6 +333,7 @@ public class GameStage extends World{
 			playMusic(0.1);//play music with volume og 0.1
 	    	GameCheck();//start game check animation timer
 	        timerc.start();
+	        
 	    }
 	 /**
 	  * This method stops the game when called
