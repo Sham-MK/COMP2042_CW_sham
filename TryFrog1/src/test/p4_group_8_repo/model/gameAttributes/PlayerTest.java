@@ -1,18 +1,17 @@
-package p4_group_8_repo.test;
+package p4_group_8_repo.model.gameAttributes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import javafx.embed.swing.JFXPanel;
-import p4_group_8_repo.model.enemies.Car;
-import p4_group_8_repo.model.gameAttributes.Player;
-import p4_group_8_repo.view.GameStage;
 
+import javafx.embed.swing.JFXPanel;
 
 class PlayerTest {
+
 
 	private JFXPanel panel = new JFXPanel();
 	private Player player;
@@ -50,8 +49,6 @@ class PlayerTest {
 		assertEquals("lives initialized to 4 so should return 4",4, player.getLives());
 
 	}
-
-
 
 
 }

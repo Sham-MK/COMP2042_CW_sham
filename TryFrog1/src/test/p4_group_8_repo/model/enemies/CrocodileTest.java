@@ -1,4 +1,4 @@
-package p4_group_8_repo.test;
+package p4_group_8_repo.model.enemies;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,7 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javafx.embed.swing.JFXPanel;
-import p4_group_8_repo.model.enemies.Crocodile;
 
 class CrocodileTest {
 

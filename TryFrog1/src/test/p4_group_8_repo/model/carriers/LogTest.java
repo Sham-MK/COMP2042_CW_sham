@@ -1,5 +1,4 @@
-package p4_group_8_repo.test;
-
+package p4_group_8_repo.model.carriers;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -8,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javafx.embed.swing.JFXPanel;
-import p4_group_8_repo.model.carriers.Log;
 
 class LogTest {
 
@@ -32,4 +30,5 @@ class LogTest {
 		assertEquals(6,log.getSpeed());
 	}
 	
+
 }

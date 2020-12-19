@@ -1,4 +1,4 @@
-package p4_group_8_repo.test;
+package p4_group_8_repo.controller;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,11 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javafx.embed.swing.JFXPanel;
-import p4_group_8_repo.controller.Roundtime_Controller;
 import p4_group_8_repo.model.gameAttributes.Roundtime_Model;
 import p4_group_8_repo.view.Roundtime_View;
 
-class RoundTimerTest {
+class Roundtime_ControllerTest {
 
 	private JFXPanel panel = new JFXPanel();
 	Roundtime_Controller controller;
@@ -38,5 +37,4 @@ class RoundTimerTest {
 	void testGetProgress() {
 		assertEquals(0.5,controller.getProgress());
 	}
-
 }
