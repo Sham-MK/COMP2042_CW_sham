@@ -689,7 +689,7 @@ ul.help-section-list {
 /*
  * Indicator icon for external links.
  */
-main a[href*="://"]::after {
+/*main a[href*="://"]::after {
     content:"";
     display:inline-block;
     background-image:url('data:image/svg+xml; utf8, \
@@ -731,7 +731,7 @@ main a[href*="://"]:focus::after {
  *      Best for tables that have a header row, and a body containing a series of simple rows.
  */
 
-table.borderless,
+/*table.borderless,
 table.plain,
 table.striped {
     margin-top: 10px;
@@ -789,4 +789,4 @@ table.striped > tbody > tr > th, table.striped > tbody > tr > td {
 }
 table.striped > tbody > tr > th {
     font-weight: normal;
-}
+}**/

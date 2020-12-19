@@ -332,8 +332,7 @@ public class GameStage extends World{
 		    start(); //act timer in World class
 			playMusic(0.1);//play music with volume og 0.1
 	    	GameCheck();//start game check animation timer
-	        timerc.start();
-	        
+	        timerc.start();	        
 	    }
 	 /**
 	  * This method stops the game when called
